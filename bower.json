@@ -1,0 +1,14 @@
+{
+  "name": "app-name",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.x",
+    "angular-resource": "~1.4.x",
+    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e"
+  },
+  "private": true,
+  "resolutions": {
+    "angular": "~1.4.x"
+  }
+}
