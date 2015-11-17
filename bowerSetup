@@ -1,1 +1,1 @@
-docker run -v $(pwd):/data digitallyseamless/nodejs-bower-grunt bower install
+sudo docker run -v $(pwd):/data digitallyseamless/nodejs-bower-grunt bower install
