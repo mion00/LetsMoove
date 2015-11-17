@@ -3,11 +3,12 @@
  */
 (function() {
     var app = angular.module("letsMoove", ["letsMooveDirectives",'ui.router']);
-    app.config(function($stateProvider, $urlRouterProvider) {
+    app.config(function($stateProvider, $urlRouterProvider,$locationProvider) {
         $urlRouterProvider.otherwise('/home');
+        $locationProvider.html5Mode(true).hashPrefix("!");
         $stateProvider
             .state('staticHome', {
-                url: '/home',
+                url: '/',
                 templateUrl: '/static/partials/staticHome.html'
             }).state('signup', {
                 url: '/signup',
