@@ -27,10 +27,12 @@ var paths = {
   // Sass will check these folders for files when you use @import.
   sass: [
     'client/assets/scss',
-    'bower_components/foundation-apps/scss'
+    'bower_components/foundation-apps/scss',
+    'bower_components/slick-carousel/slick'
   ],
   // These files include Foundation for Apps and its dependencies
   foundationJS: [
+      'bower_components/jquery/dist/jquery.js',
     'bower_components/fastclick/lib/fastclick.js',
     'bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
     'bower_components/tether/tether.js',
@@ -44,6 +46,7 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
+    'bower_components/slick-carousel/slick/slick.js',
     'client/assets/js/authentication.js',
     'client/assets/js/directives.js',
     'client/assets/js/controller.js',
