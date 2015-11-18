@@ -1,30 +1,23 @@
 <!doctype html>
 <html lang="en" ng-app="application">
 <head>
+    <base href="/">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Foundation for Apps</title>
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
     <script src="/assets/js/foundation.js"></script>
-    <script src="/assets/js/templates.js"></script>
     <script src="/assets/js/routes.js"></script>
+    <script src="/assets/js/templates.js"></script>
     <script src="/assets/js/app.js"></script>
 </head>
 <body>
 <div class="grid-frame vertical">
-    <div class="grid-block" id="header">
-        <div class="grid-content">
-            <ul class="dark menu-bar">
-                <li><a href="#">L E T' S M O O V E</a></li>
-                <li><a href="#">Iscriviti</a></li>
-                <li><a href="#">Accedi</a></li>
-            </ul>
-        </div>
-
-    </div>
+    <letsmoove-header></letsmoove-header>
     <div class="grid-block" id="content">
         <div ui-view class="grid-content"></div>
     </div>
 </div>
+<letsmoove-footer></letsmoove-footer>
 </body>
 </html>

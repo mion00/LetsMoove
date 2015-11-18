@@ -5,6 +5,11 @@
     'ui.router',
     'ngAnimate',
 
+      //specific app dependencies
+    'letsMooveController',
+    'letsMooveDirectives',
+    'authentication',
+
     //foundation
     'foundation',
     'foundation.dynamicRouting',
@@ -20,8 +25,7 @@
     $urlProvider.otherwise('/');
 
     $locationProvider.html5Mode({
-      enabled:false,
-      requireBase: false
+      enabled:true
     });
 
     $locationProvider.hashPrefix('!');
