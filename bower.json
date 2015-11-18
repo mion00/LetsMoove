@@ -7,7 +7,8 @@
     "angular-resource": "~1.4.x",
     "angular-route": "1.4.x",
     "foundation": "~5.5.x",
-    "angular-ui-router":"~0.2.15"
+    "angular-ui-router":"~0.2.15",
+    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e"
   },
   "private": true
 }

@@ -1,6 +1,13 @@
-nginx:
-  build: ./nginx
+#nginx:
+#  build: ./nginx
+#  volumes:
+#    - ./:/usr/share/nginx/html:ro
+#  ports:
+#    - "8080:80"
+foundation:
+  build: ./foundationDocker
   volumes:
-    - ./:/usr/share/nginx/html:ro
+    - ./:/data
   ports:
-    - "8080:80"
+    - "8079:8079"
+  net: "host"
