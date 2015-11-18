@@ -1,19 +1,13 @@
 <!--Inserire header qui-->
-<div>
-    <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-            <li class="name">
-                <h1><a ui-sref="staticHome">L e t' s M o o v e</a></h1>
-            </li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
+<div class="grid-block" id="header">
+    <div class="grid-content">
+        <ul class="dark menu-bar">
+            <li><a>L E T' S M O O V E</a></li>
+            <li ng-hide="isLoggedIn"><a ui-sref="signup">Iscriviti</a></li>
+            <li ng-hide="isLoggedIn"><a ui-sref="login">Accedi</a></li>
+            <li ng-show="isLoggedIn"><a ng-click="logout()">Log Out</a></li>
         </ul>
-        <section class="top-bar-section">
-            <ul class="right">
-                <li class="active"><a id="signUpLink" ui-sref="signup" ng-hide="isLoggedIn">Iscriviti</a></li>
-                <li><a ui-sref="login" id="logInLink" ng-hide="isLoggedIn">Accedi</a></li>
-                <li><a ng-click="logout()" id="logOutLink" ng-show="isLoggedIn">Log Out</a></li>
-            </ul>
-        </section>
-    </nav>
+    </div>
+
 </div>
