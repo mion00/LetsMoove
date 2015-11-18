@@ -1,13 +1,20 @@
 <!--Inserire header qui-->
-
-<div class="grid-block" id="header">
-    <div class="grid-content">
-        <ul class="dark menu-bar">
+<div class="menu-group primary">
+    <div class="menu-group-left">
+        <ul class="menu-bar primary">
             <li><a>L E T' S M O O V E</a></li>
+        </ul>
+    </div>
+    <div class="menu-group-right">
+        <ul class="icon-left primary menu-bar">
             <li ng-hide="isLoggedIn"><a ui-sref="signup">Iscriviti</a></li>
             <li ng-hide="isLoggedIn"><a ui-sref="login">Accedi</a></li>
             <li ng-show="isLoggedIn"><a ng-click="logout()">Log Out</a></li>
         </ul>
     </div>
-
 </div>
+
+
+
+
+

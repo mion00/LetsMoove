@@ -4,20 +4,25 @@
     <base href="/">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Foundation for Apps</title>
+
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+
     <script src="/assets/js/foundation.js"></script>
     <script src="/assets/js/routes.js"></script>
     <script src="/assets/js/templates.js"></script>
     <script src="/assets/js/app.js"></script>
+    <title>Let's Moove</title>
 </head>
 <body>
-<div class="grid-frame vertical">
-    <letsmoove-header></letsmoove-header>
-    <div class="grid-block" id="content">
-        <div ui-view class="grid-content"></div>
+<div class="grid-frame">
+    <div class="grid-block vertical">
+
+        <letsmoove-header></letsmoove-header>
+
+        <div ui-view class="grid-block"></div>
     </div>
+
+    <!--<letsmoove-footer></letsmoove-footer>-->
 </div>
-<letsmoove-footer></letsmoove-footer>
 </body>
 </html>
