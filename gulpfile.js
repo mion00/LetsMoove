@@ -17,7 +17,7 @@ var isProduction = !!(argv.production);
 
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
-var buildDir = "/usr/share/nginx/html/build";
+var buildDir = "./build";
 var paths = {
     assets: [
         './client/**/*.*',

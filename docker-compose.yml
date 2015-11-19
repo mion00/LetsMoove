@@ -1,13 +1,12 @@
 nginx:
   image: nginx:1.9.6
   volumes:
-#    - ./build:/usr/share/nginx/html
+    - ./:/usr/share/nginx/html/
     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-  volumes_from:
-    - frontend
   ports:
     - "80:80"
   net: "host"
+#  command: bash -c "while true; do ls -l /usr/share/nginx/html/; sleep .5; done"
 
 mongo:
   image: mongo:3.0
@@ -29,11 +28,11 @@ api_server:
     MONGO_DBNAME: development
 
 frontend:
-  build: ./frontendDocker
-#  image: digitallyseamless/nodejs-bower-grunt
-#  command: /usr/local/bin/npm start
-#  working_dir: /data
+#  build: ./frontendDocker
+  image: digitallyseamless/nodejs-bower-grunt
+  command: /usr/local/bin/npm start
+  working_dir: /data
   volumes:
-    - /usr/share/nginx/html
+#    - /usr/share/nginx/html
     - ./:/data
   net: "host"
