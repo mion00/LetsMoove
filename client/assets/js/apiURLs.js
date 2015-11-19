@@ -6,7 +6,7 @@ angular.module('apiURLs', [])
     .factory('apiURL', function() {
         var apiURL = {};
         apiURL.buildURL = function (resourceName) {
-            return "/api/" + resourceName + ".json";
+            return "/api/" + resourceName;
         };
         return apiURL;
     });

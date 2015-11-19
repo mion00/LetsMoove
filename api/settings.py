@@ -10,10 +10,20 @@ ITEM_METHODS = ['GET', 'PATCH']
 PUBLIC_METHODS = ['GET']
 PUBLIC_ITEM_METHODS = ['GET']
 
+ALLOW_UNKNOWN = True
+
 URL_PREFIX = "api"
 XML = False
 EXTENDED_MEDIA_INFO = ['content_type']
 
 DOMAIN = {
-    'people' : {}
+    'paths': {
+        'item_url': 'regex("\d*")',
+        'schema': {
+            '_id': {
+                'type': 'string',
+                'unique': True
+            }
+        }
+    }
 }
