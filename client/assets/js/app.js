@@ -6,9 +6,8 @@
     'ngAnimate',
 
       //specific app dependencies
-    'letsMooveController',
     'letsMooveDirectives',
-    'authentication',
+    'userControllers',
 
     //foundation
     'foundation',

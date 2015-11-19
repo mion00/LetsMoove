@@ -1,7 +1,11 @@
 ---
 name: userHome
 url: /user
-controller : loginController
 authenticate : true
 ---
-<h1>Benvenuto {{username}}</h1>
+
+<div ng-controller="userDataController as user">
+    <h1>Benvenuto {{user.userData.username}}</h1>
+</div>
+
+

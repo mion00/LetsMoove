@@ -2,12 +2,11 @@
  * Created by marco on 17/11/15.
  */
 (function() {
-    var app = angular.module("letsMooveDirectives", ["letsMooveController"]);
+    var app = angular.module("letsMooveDirectives", []);
     app.directive("letsmooveHeader",function(){
         return {
             restrict : 'E',
             templateUrl : "/templates/header.html",
-            controller : "loginController"
         };
     });
 

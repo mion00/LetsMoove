@@ -47,10 +47,7 @@ var paths = {
   // These files are for your app's JavaScript
   appJS: [
     'bower_components/slick-carousel/slick/slick.js',
-    'client/assets/js/authentication.js',
-    'client/assets/js/directives.js',
-    'client/assets/js/controller.js',
-    'client/assets/js/app.js'
+    'client/assets/js/**/*.js'
   ]
 }
 

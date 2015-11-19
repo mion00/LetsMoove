@@ -1,10 +1,10 @@
 ---
 name: login
 url: /login
-controller : loginController
 ---
-<form>
-    <input type="text" id="username" ng-model="username">
-    <input type="password" id="password" ng-model="password">
-    <button ng-click="login()"> login </button>
+
+<form ng-controller="loginController as login">
+    <input type="text" id="username" ng-model="login.username">
+    <input type="password" id="password" ng-model="login.password">
+    <button ng-click="login.doLogin()"> login </button>
 </form>

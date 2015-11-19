@@ -3,13 +3,16 @@
  */
 (function () {
 
-    var app=angular.module('authentication',[]);
+    var app=angular.module('userServices',[]);
     app.factory('AuthenticationService', ['$http',function($http) {
         var service = {};
-        service.username="";
+        service.userData = {
+            username : "",
+            loggedIn : false
+            };
         service.Login = function Login(username, password, callback) {
-            service.isLoggedIn = true;
-            service.username = username;
+            service.userData.loggedIn = true;
+            service.userData.username = username;
             callback(true);
 
             //$http.post('/api/authenticate', { username: username, password: password })
@@ -18,13 +21,10 @@
             //    });
 
         };
-        service.isLoggedIn = false;
-        service.getUsername = function () {
-            return service.username;
-        };
 
-        service.clear = function () {
-            service.username = "";
+        service.logout = function () {
+            service.userData.username = "";
+            service.userData.loggedIn = false;
         }
 
         return service;
@@ -32,8 +32,7 @@
 
     app.run(function ($rootScope, $state, AuthenticationService) {
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-                console.log(toState.data);
-                if (toState.data.vars.authenticate && !AuthenticationService.isLoggedIn){
+                if (toState.data.vars.authenticate && !AuthenticationService.userData.loggedIn){
                     // User isn’t authenticated
                     $state.transitionTo("login");
                     event.preventDefault();
