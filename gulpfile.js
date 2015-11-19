@@ -28,7 +28,8 @@ var paths = {
     sass: [
         'client/assets/scss',
         //'bower_components/foundation-apps/scss',
-        'bower_components/slick-carousel/slick'
+        'bower_components/slick-carousel/slick',
+        'bower_components/angular-material'
     ],
     // These files include Foundation for Apps and its dependencies
     foundationJS: [
