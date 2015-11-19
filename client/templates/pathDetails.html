@@ -3,8 +3,130 @@ name: pathDetails
 url: /path/:pathId
 ---
 
-<div class="grid-block vertical" ng-controller="pathDetailsController as path">
-    {{path.path.name}}
-    <br>
-    {{path.path.description}}
+<div class="grid-container" ng-controller="pathDetailsController as pathController>
+
+    <div class="grid-block">
+        <div class="grid-content">
+            <div id="sidebar">
+                <h2>Giro del Bondone</h2>
+            </div>
+            <div>
+                <h3>Una semplice passeggiata nei dintorni di Trento</h3>
+            </div>
+            <div class="medium-6">
+                <p>Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini</p>
+            </div>
+            <div>
+                <p>Owner: Alessandro</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Valutazione di Alessandro</h4>
+    <div class="grid-block" >
+        <div class="grid-content">
+            <hr>
+            <strong>beauty</strong>
+            <hr>
+            <div class="beauty">
+                4
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>complexity</strong>
+            <hr>
+            <div class="complexity">
+                5
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>difficulty</strong>
+            <hr>
+            <div class="difficulty">
+                1
+            </div>
+        </div>
+    </div>
+
+    <h4>pathData</h4>
+    <div class="grid-block">
+        <div class="grid-content">
+            <hr>
+            <strong>lenght</strong>
+            <hr>
+            <div class="beauty">
+                1300 mt
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>altitude</strong>
+            <hr>
+            <div class="complexity">
+                140 msl
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>altitudeDifference</strong>
+            <hr>
+            <div class="complexity">
+                30 mt
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>terrainType</strong>
+            <hr>
+            <div class="complexity">
+                sterrato
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>adventure</strong>
+            <hr>
+            <div class="complexity">
+                no
+            </div>
+        </div>
+        <div class="grid-content">
+            <hr>
+            <strong>completementTime</strong>
+            <hr>
+            <div class="complexity">
+                130 minutes
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-block">
+        <ui-gmap-google-map center='pathController.path.stages[0].coordinates' zoom='pathController.zoom'>
+            <ui-gmap-marker idKey='1' coords='pathController.marker'>
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+<div class="grid-content">
+        <!--<img src="https://www.placehold.it/300x300" alt="Mappa">-->
+        <div class="grid-content">
+            <div class="grid-block vertical">
+                <div class="grid-content">
+                    <img src="https://www.placehold.it/100x100">
+                    <img src="https://www.placehold.it/300x100">
+                </div>
+                <div class="grid-content">
+                    <img src="https://www.placehold.it/100x100">
+                    <img src="https://www.placehold.it/300x100">
+                </div>
+                <div class="grid-content">
+                    <img src="https://www.placehold.it/100x100">
+                    <img src="https://www.placehold.it/300x100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>

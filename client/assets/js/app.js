@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('application', [
+    var app = angular.module('application', [
         'ui.router',
         'ngAnimate',
 
@@ -9,6 +9,7 @@
         'letsMooveDirectives',
         'userControllers',
         'pathControllers',
+        'uiGmapgoogle-maps',
 
         //foundation
         'foundation',
@@ -19,9 +20,9 @@
         .run(run)
     ;
 
-    config.$inject = ['$urlRouterProvider', '$locationProvider'];
+    config.$inject = ['$urlRouterProvider', '$locationProvider','uiGmapGoogleMapApiProvider'];
 
-    function config($urlProvider, $locationProvider) {
+    function config($urlProvider, $locationProvider,uiGmapGoogleMapApiProvider) {
         $urlProvider.otherwise('/');
 
         $locationProvider.html5Mode({
@@ -29,6 +30,10 @@
         });
 
         $locationProvider.hashPrefix('!');
+
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyCGyfBFxoCCe2IOHSdhXrRRdTtsclma94Q',
+        });
     }
 
     function run() {
