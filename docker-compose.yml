@@ -1,13 +1,39 @@
-#nginx:
-#  build: ./nginx
-#  volumes:
-#    - ./:/usr/share/nginx/html:ro
-#  ports:
-#    - "8080:80"
-foundation:
-  build: ./foundationDocker
+nginx:
+  image: nginx:1.9.6
   volumes:
-    - ./:/data
+#    - ./build:/usr/share/nginx/html
+    - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  volumes_from:
+    - frontend
   ports:
-    - "8079:8079"
+    - "80:80"
+  net: "host"
+
+mongo:
+  image: mongo:3.0
+  command: mongod --smallfiles
+  volumes:
+    - /data/db
+  net: "host"
+
+api_server:
+  build: ./pythonDocker
+  volumes:
+    - ./api:/usr/src/app
+  ports:
+    - "8001:8001"
+  net: "host"
+  environment:
+    MONGO_USERNAME: ""
+    MONGO_PASSWORD: ""
+    MONGO_DBNAME: development
+
+frontend:
+  build: ./frontendDocker
+#  image: digitallyseamless/nodejs-bower-grunt
+#  command: /usr/local/bin/npm start
+#  working_dir: /data
+  volumes:
+    - /usr/share/nginx/html
+    - ./:/data
   net: "host"

@@ -17,7 +17,7 @@ var isProduction = !!(argv.production);
 
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
-
+var buildDir = "/usr/share/nginx/html/build";
 var paths = {
     assets: [
         './client/**/*.*',
@@ -60,15 +60,15 @@ var paths = {
 
 // Cleans the build directory
 gulp.task('clean', function (cb) {
-    rimraf('./build', cb);
+    rimraf(buildDir, cb);
 });
 
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function () {
     return gulp.src(paths.assets, {
-        base: './client/'
-    })
-        .pipe(gulp.dest('./build'))
+            base: './client/'
+        })
+        .pipe(gulp.dest(buildDir))
         ;
 });
 
@@ -76,10 +76,10 @@ gulp.task('copy', function () {
 gulp.task('copy:templates', function () {
     return gulp.src('./client/templates/**/*.html')
         .pipe(router({
-            path: 'build/assets/js/routes.js',
+            path: buildDir + '/assets/js/routes.js',
             root: 'client'
         }))
-        .pipe(gulp.dest('./build/templates'))
+        .pipe(gulp.dest(buildDir+ '/templates'))
         ;
 });
 
@@ -93,12 +93,12 @@ gulp.task('copy:foundation', function (cb) {
         }))
         .pipe($.uglify())
         .pipe($.concat('templates.js'))
-        .pipe(gulp.dest('./build/assets/js'))
+        .pipe(gulp.dest(buildDir + '/assets/js'))
     ;
 
     // Iconic SVG icons
     gulp.src('./bower_components/foundation-apps/iconic/**/*')
-        .pipe(gulp.dest('./build/assets/img/iconic/'))
+        .pipe(gulp.dest(buildDir + '/assets/img/iconic/'))
     ;
 
     cb();
@@ -115,7 +115,7 @@ gulp.task('sass', function () {
         .pipe($.autoprefixer({
             browsers: ['last 2 versions', 'ie 10']
         }))
-        .pipe(gulp.dest('./build/assets/css/'))
+        .pipe(gulp.dest(buildDir + '/assets/css/'))
         ;
 });
 
@@ -131,7 +131,7 @@ gulp.task('uglify:foundation', function (cb) {
     return gulp.src(paths.foundationJS)
         .pipe(uglify)
         .pipe($.concat('foundation.js'))
-        .pipe(gulp.dest('./build/assets/js/'))
+        .pipe(gulp.dest(buildDir +'/assets/js/'))
         ;
 });
 
@@ -144,13 +144,13 @@ gulp.task('uglify:app', function () {
     return gulp.src(paths.appJS)
         .pipe(uglify)
         .pipe($.concat('app.js'))
-        .pipe(gulp.dest('./build/assets/js/'))
+        .pipe(gulp.dest(buildDir + '/assets/js/'))
         ;
 });
 
 // Starts a test server, which you can view at http://localhost:8079
 gulp.task('server', ['build'], function () {
-    gulp.src('./build')
+    gulp.src(buildDir)
         .pipe($.webserver({
             port: 8079,
             host: 'localhost',
@@ -166,7 +166,7 @@ gulp.task('build', function (cb) {
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
-gulp.task('default', ['server'], function () {
+gulp.task('default', ['build'], function () {
     // Watch Sass
     gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
 
