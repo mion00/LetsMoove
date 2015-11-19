@@ -11,9 +11,9 @@
     app.controller('pathDetailsController',['$stateParams','Path','uiGmapGoogleMapApi',function($stateParams,Path,uiGmapGoogleMapApi){
         var scope = this;
 
-        var callback = function(a){
-            scope.path=a;
-            scope.marker = jQuery.extend(true, {}, a.stages[0].coordinates);
+        var callback = function(path){
+            scope.path=path;
+            scope.marker = jQuery.extend(true, {}, path.stages[0].coordinates);
         };
 
         var error = function(){
@@ -23,8 +23,6 @@
 
         Path.query({pathId:$stateParams.pathId},callback,error);
         scope.zoom = 14;
-
-
 
     }]);
 

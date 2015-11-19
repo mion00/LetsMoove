@@ -3,33 +3,34 @@ name: pathDetails
 url: /path/:pathId
 ---
 
-<div class="grid-container" ng-controller="pathDetailsController as pathController>
+<div class="grid-container" ng-controller="pathDetailsController as pathController">
 
     <div class="grid-block">
         <div class="grid-content">
             <div id="sidebar">
-                <h2>Giro del Bondone</h2>
+                <h2>{{pathController.path.name}}</h2>
             </div>
             <div>
-                <h3>Una semplice passeggiata nei dintorni di Trento</h3>
+                <h3>{{pathController.path.subtitle}}</h3>
             </div>
             <div class="medium-6">
-                <p>Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini</p>
+                <p>{{pathController.path.description}}</p>
             </div>
             <div>
-                <p>Owner: Alessandro</p>
+                <p>Owner: {{pathController.path.owner}}</p>
             </div>
         </div>
     </div>
 
-    <h4>Valutazione di Alessandro</h4>
-    <div class="grid-block" >
+    <h4>Valutazione di {{pathController.path.owner}}</h4>
+
+    <div class="grid-block">
         <div class="grid-content">
             <hr>
             <strong>beauty</strong>
             <hr>
             <div class="beauty">
-                4
+                {{pathController.path.ownerVote.beauty}}
             </div>
         </div>
         <div class="grid-content">
@@ -37,7 +38,7 @@ url: /path/:pathId
             <strong>complexity</strong>
             <hr>
             <div class="complexity">
-                5
+                {{pathController.path.ownerVote.complexity}}
             </div>
         </div>
         <div class="grid-content">
@@ -45,19 +46,20 @@ url: /path/:pathId
             <strong>difficulty</strong>
             <hr>
             <div class="difficulty">
-                1
+                {{pathController.path.ownerVote.difficulty}}
             </div>
         </div>
     </div>
 
     <h4>pathData</h4>
+
     <div class="grid-block">
         <div class="grid-content">
             <hr>
             <strong>lenght</strong>
             <hr>
             <div class="beauty">
-                1300 mt
+                {{pathController.path.pathData.lenght}}
             </div>
         </div>
         <div class="grid-content">
@@ -65,7 +67,7 @@ url: /path/:pathId
             <strong>altitude</strong>
             <hr>
             <div class="complexity">
-                140 msl
+                {{pathController.path.pathData.altitude}}
             </div>
         </div>
         <div class="grid-content">
@@ -73,7 +75,7 @@ url: /path/:pathId
             <strong>altitudeDifference</strong>
             <hr>
             <div class="complexity">
-                30 mt
+                {{pathController.path.pathData.altitudeDifference}}
             </div>
         </div>
         <div class="grid-content">
@@ -81,7 +83,7 @@ url: /path/:pathId
             <strong>terrainType</strong>
             <hr>
             <div class="complexity">
-                sterrato
+                {{pathController.path.pathData.terrainType}}
             </div>
         </div>
         <div class="grid-content">
@@ -89,7 +91,7 @@ url: /path/:pathId
             <strong>adventure</strong>
             <hr>
             <div class="complexity">
-                no
+                {{pathController.path.pathData.adventure}}
             </div>
         </div>
         <div class="grid-content">
@@ -97,7 +99,7 @@ url: /path/:pathId
             <strong>completementTime</strong>
             <hr>
             <div class="complexity">
-                130 minutes
+                {{pathController.path.pathData.completementTime}}
             </div>
         </div>
     </div>
@@ -107,22 +109,28 @@ url: /path/:pathId
             <ui-gmap-marker idKey='1' coords='pathController.marker'>
             </ui-gmap-marker>
         </ui-gmap-google-map>
-    </div>
-<div class="grid-content">
-        <!--<img src="https://www.placehold.it/300x300" alt="Mappa">-->
+
         <div class="grid-content">
-            <div class="grid-block vertical">
-                <div class="grid-content">
-                    <img src="https://www.placehold.it/100x100">
-                    <img src="https://www.placehold.it/300x100">
-                </div>
-                <div class="grid-content">
-                    <img src="https://www.placehold.it/100x100">
-                    <img src="https://www.placehold.it/300x100">
-                </div>
-                <div class="grid-content">
-                    <img src="https://www.placehold.it/100x100">
-                    <img src="https://www.placehold.it/300x100">
+            <!--<img src="https://www.placehold.it/300x300" alt="Mappa">-->
+            <div class="grid-content">
+                <div class="grid-block vertical" style = "overflow-y: scroll; height: 400px">
+                    <div class="grid-content" ng-repeat=" feedback in pathController.path.feedbacks">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="https://www.placehold.it/100x100">
+                                </td>
+                                <td>
+                                    <div><b>{{feedback.user}}</b></div>
+                                    <div>{{feedback.review}}</div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="review">
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

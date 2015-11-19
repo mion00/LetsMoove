@@ -1,6 +1,6 @@
 {
-  "id": "12",
-  "name": "Giro del Bondone",
+  "id": "13",
+  "name": "Giro del Pineto",
   "subtitle": "Una semplice passeggiata nei dintorni di Trento",
   "description": "Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini.",
   "owner": "Alessandro",
@@ -59,7 +59,7 @@
   "stages": [
     {
       "coordinates": {
-        "latitude": "46.069619",
+        "latitude": "45.069619",
         "longitude": "11.115776"
       },
       "question": ""
