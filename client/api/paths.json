@@ -12,6 +12,14 @@
       "complexity": "2",
       "difficulty": "3"
     },
+    "pathData": {
+      "lenght": "1300",
+      "altitude": "140",
+      "altitudeDifference": "30",
+      "terrainType": "sterrato",
+      "adventure": "false", //Questo indica se il percorso è poco frequentato, quindi più avventuroso
+      "completementTime": "130" //Stima del tempo di completamento
+    },
     "feedbacks": [
       {
         "vote": {
@@ -28,7 +36,7 @@
       {
         "coordinates": {
           "latitude": "46.069619",
-          "longitude": "11.115776"
+          "longitude": "46.069619"
         },
         "question": ""
       }

@@ -3,8 +3,15 @@ name: login
 url: /login
 ---
 
-<form ng-controller="loginController as login">
-    <input type="text" id="username" ng-model="login.username">
-    <input type="password" id="password" ng-model="login.password">
-    <button ng-click="login.doLogin()"> login </button>
-</form>
+<div class="grid-container">
+    <div class="grid-content">
+        <form>
+            <input type="text" id="username" ng-model="username" placeholder="Username">
+            <input type="password" id="password" ng-model="password" placeholder="Password">
+            <a class="button" ng-click="login()">Login</a>
+            <a class="button" ng-click="signup()">Non hai un account?</a>
+            <br>
+            <a href="#">Forgot password</a>
+        </form>
+    </div>
+</div>
