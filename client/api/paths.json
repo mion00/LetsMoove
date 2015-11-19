@@ -1,0 +1,115 @@
+// Struttura JSON di un percorso
+
+[
+  {
+    "id": "12",
+    "name": "Giro del Bondone",
+    "subtitle": "Una semplice passeggiata nei dintorni di Trento",
+    "description": "Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini.",
+    "owner": "Alessandro",
+    "ownerVote": {
+      "beauty": "4",
+      "complexity": "2",
+      "difficulty": "3"
+    },
+    "feedbacks": [
+      {
+        "vote": {
+          "beauty": "5",
+          "complexity": "1",
+          "difficulty": "2"
+        },
+        "review": "Bella passeggiata, forse un po' troppo corta",
+        "user": "Marco"
+      }
+    ],
+    "stages": [
+      {
+        "coordinates": {
+          "latitude": "46.069619",
+          "longitude": "11.115776"
+        },
+        "question": ""
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Cammino di Oltrecastello",
+    "subtitle": "Breve giro nei pressi di Oltrecastello",
+    "description": "Oltrecastello è una frazione di Trento; si trova a circa 3,5 chilometri dal capoluogo ai piedi del Doss Sant'Agata.",
+    "owner": "Alessandro",
+    "ownerVote": {
+      "beauty": "3",
+      "complexity": "3",
+      "difficulty": "1"
+    },
+    "feedbacks": [
+      {
+        "vote": {
+          "beauty": "3",
+          "complexity": "2",
+          "difficulty": "2"
+        },
+        "review": "I quiz erano semplici da risolvere, bello anche il posto",
+        "user": "Carlo"
+      },
+      {
+        "vote": {
+          "beauty": "5",
+          "complexity": "4",
+          "difficulty": "1"
+        },
+        "review": "Davvero una splendida esperienza, anche se abbiamo faticato con la terza domanda",
+        "user": "LucaS"
+      }
+    ],
+    "stages": [
+      {
+        "coordinates": {
+          "latitude": "46.073591",
+          "longitude": "11.163849"
+        },
+        "question": ""
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Nei bosco di Cadine",
+    "subtitle": "Chi nel bosco va...",
+    "description": "Il monte Sorasass è un facile e panoramico giro ad anello – 7 chilometri percorribili anche in MTB - che ci permette di scoprire un'area ancora piena di testimonianze e fortificazioni realizzate dall’esercito austro-ungarico a difesa dell’area di Trento. Mentre il vicino forte Bus de Vela venne realizzato tra il 1860 e il 1861, il campo trincerato del Sorasass venne realizzato tra il 1914 e l'inizio del 1915.",
+    "owner": "Alessandro",
+    "ownerVote": {
+      "beauty": "3",
+      "complexity": "4",
+      "difficulty": "5"
+    },
+    "feedbacks": [
+      {
+        "vote": {
+          "beauty": "1",
+          "complexity": "4",
+          "difficulty": "3"
+        },
+        "review": "Non è proprio a portata di tutti, specie di nonno...",
+        "user": "LucaB"
+      }
+    ],
+    "stages": [
+      {
+        "coordinates": {
+          "latitude": "46.091934",
+          "longitude": "11.071161"
+        },
+        "question": ""
+      }
+    ]
+  }
+]
+
+
+/*
+
+I campi del feedback vanno da 1 a 5
+*/
