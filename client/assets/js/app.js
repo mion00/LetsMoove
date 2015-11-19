@@ -1,37 +1,38 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular.module('application', [
-    'ui.router',
-    'ngAnimate',
+    angular.module('application', [
+        'ui.router',
+        'ngAnimate',
 
-      //specific app dependencies
-    'letsMooveDirectives',
-    'userControllers',
+        //specific app dependencies
+        'letsMooveDirectives',
+        'userControllers',
+        'pathControllers',
 
-    //foundation
-    'foundation',
-    'foundation.dynamicRouting',
-    'foundation.dynamicRouting.animations'
-  ])
-    .config(config)
-    .run(run)
-  ;
+        //foundation
+        'foundation',
+        'foundation.dynamicRouting',
+        'foundation.dynamicRouting.animations'
+        ])
+        .config(config)
+        .run(run)
+    ;
 
-  config.$inject = ['$urlRouterProvider', '$locationProvider'];
+    config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-  function config($urlProvider, $locationProvider) {
-    $urlProvider.otherwise('/');
+    function config($urlProvider, $locationProvider) {
+        $urlProvider.otherwise('/');
 
-    $locationProvider.html5Mode({
-      enabled:true
-    });
+        $locationProvider.html5Mode({
+            enabled: true
+        });
 
-    $locationProvider.hashPrefix('!');
-  }
+        $locationProvider.hashPrefix('!');
+    }
 
-  function run() {
-    FastClick.attach(document.body);
-  }
+    function run() {
+        FastClick.attach(document.body);
+    }
 
 })();
