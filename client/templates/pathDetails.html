@@ -3,6 +3,8 @@ name: pathDetails
 url: /path/:pathId
 ---
 
-<div class="grid-block vertical">
-
+<div class="grid-block vertical" ng-controller="pathDetailsController as path">
+    {{path.path.name}}
+    <br>
+    {{path.path.description}}
 </div>

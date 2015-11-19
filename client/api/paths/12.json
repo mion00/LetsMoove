@@ -1,0 +1,33 @@
+{
+  "id": "12",
+  "name": "Giro del Bondone",
+  "subtitle": "Una semplice passeggiata nei dintorni di Trento",
+  "description": "Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini.",
+  "owner": "Alessandro",
+  "ownerVote": {
+    "beauty": "4",
+    "complexity": "2",
+    "difficulty": "3"
+  },
+  "feedbacks": [
+    {
+      "vote": {
+        "beauty": "5",
+        "complexity": "1",
+        "difficulty": "2"
+      },
+      "review": "Bella passeggiata, forse un po' troppo corta",
+      "user": "Marco"
+    }
+  ],
+  "counter": "2",
+  "stages": [
+    {
+      "coordinates": {
+        "latitude": "46.069619",
+        "longitude": "11.115776"
+      },
+      "question": ""
+    }
+  ]
+}

@@ -2,13 +2,13 @@
  * Created by mion00 on 18/11/15.
  */
 (function () {
-    var app = angular.module('pathControllers', ['pathServices']);
+    var app = angular.module('pathControllers', ['pathServices','ui.router']);
 
     app.controller('pathListController', ['$scope', 'Path', function ($scope, Path) {
         $scope.result = Path.query({where: {lastname : "doe"}});
     }]);
 
-    app.contrller('pathDetailsController',['$stateProvider','Path',function($stateProvider,Path){
+    app.controller('pathDetailsController',['$stateParams','Path',function($stateParams,Path){
         var callback = function(){
             console.log("DONE");
         };
@@ -17,7 +17,7 @@
             console.log("FAIL");
         };
 
-        this.path=Path.query({pathId:$stateProvider.pathId},callback,error);
+        this.path=Path.query({pathId:$stateParams.pathId},callback,error);
     }]);
 
 }());
