@@ -5,7 +5,7 @@
 var pathControllers = angular.module('pathControllers', ['pathServices']);
 
 pathControllers.controller('pathListController', ['$scope', 'Path', function ($scope, Path) {
-    $scope.result = Path.query();
+    $scope.result = Path.query({where: {lastname : "doe"}});
 }]
 
 );

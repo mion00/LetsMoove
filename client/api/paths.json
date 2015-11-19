@@ -1,6 +1,4 @@
-// Struttura JSON di un percorso
-
-[
+{"_items": [
   {
     "id": "12",
     "name": "Giro del Bondone",
@@ -110,9 +108,4 @@
     ]
   }
 ]
-
-
-/*
-
-I campi del feedback vanno da 1 a 5
-*/
+}
