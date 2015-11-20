@@ -9,7 +9,8 @@
     "angular-ui-router":"~0.2.15",
     "slick-carousel" : "~1.5.8",
     "angular-google-maps" : "",
-    "angular-material" : ""
+    "angular-material" : "",
+    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e"
 
   },
   "private": true
