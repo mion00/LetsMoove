@@ -1,33 +1,23 @@
-<div layout="column" layout-fill>
+<div layout="column" layout>
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <span>Let's Moove</span>
-            <span flex></span>
-            <md-button>
-                Registrati
-            </md-button>
-            <md-button>
-                Accedi
-            </md-button>
-            <md-button class="hide">
-                Log out
-            </md-button>
+            <div layout="row" flex>
+                <!--TODO Aggiustare href-->
+                <a href="#">Let's Moove</a>
+            </div>
+            <div layout="row">
+                <div ng-controller="logoutController as user">
+                    <md-button ng-hide="user.userData.loggedIn">
+                        <a ui-sref="signup">Iscriviti</a>
+                    </md-button>
+                    <md-button ng-hide="user.userData.loggedIn">
+                        <a ui-sref="login">Accedi</a>
+                    </md-button>
+                    <md-button ng-show="user.userData.loggedIn" class="hide">
+                        <a ng-click="user.logout()">Log Out</a>
+                    </md-button>
+                </div>
+            </div>
         </div>
     </md-toolbar>
 </div>
-
-<!--Vecchio header-->
-<!--<div class="menu-group primary">-->
-<!--<div class="menu-group-left">-->
-<!--<ul class="menu-bar primary">-->
-<!--<li><a>L E T' S M O O V E</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--<div class="menu-group-right">-->
-<!--<ul class="icon-left primary menu-bar" ng-controller="logoutController as user">-->
-<!--<li ng-hide="user.userData.loggedIn"><a ui-sref="signup">Iscriviti</a></li>-->
-<!--<li ng-hide="user.userData.loggedIn"><a ui-sref="login">Accedi</a></li>-->
-<!--<li ng-show="user.userData.loggedIn"><a ng-click="user.logout()">Log Out</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
