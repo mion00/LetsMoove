@@ -1,19 +1,17 @@
-<div class="menu-group primary">
-    <div class="menu-group-left">
-        <ul class="menu-bar primary">
-            <li><a>L E T' S M O O V E</a></li>
-        </ul>
-    </div>
-    <div class="menu-group-right">
-        <ul class="icon-left primary menu-bar" ng-controller="logoutController as user">
-            <li ng-hide="user.userData.loggedIn"><a ui-sref="signup">Iscriviti</a></li>
-            <li ng-hide="user.userData.loggedIn"><a ui-sref="login">Accedi</a></li>
-            <li ng-show="user.userData.loggedIn"><a ng-click="user.logout()">Log Out</a></li>
-        </ul>
-    </div>
+<div layout="column" layout-fill>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span>Let's Moove</span>
+            <span flex></span>
+            <md-button>
+                Registrati
+            </md-button>
+            <md-button>
+                Accedi
+            </md-button>
+            <md-button class="hide">
+                Log out
+            </md-button>
+        </div>
+    </md-toolbar>
 </div>
-
-
-
-
-
