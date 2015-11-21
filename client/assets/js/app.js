@@ -4,7 +4,7 @@
     var app = angular.module('application', [
         'ui.router',
         'ngAnimate',
-
+        'ngMaterial',
         //specific app dependencies
         'letsMooveDirectives',
         'userControllers',
@@ -12,7 +12,7 @@
         'uiGmapgoogle-maps',
 
         //foundation
-        'foundation',
+        //'foundation',
         'foundation.dynamicRouting',
         'foundation.dynamicRouting.animations'
         ])

@@ -32,27 +32,30 @@ var paths = {
         'bower_components/angular-material'
     ],
     // These files include Foundation for Apps and its dependencies
-    foundationJS: [
+    angularJS: [
         'bower_components/jquery/dist/jquery.js',
         'bower_components/fastclick/lib/fastclick.js',
         //'bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
         //'bower_components/tether/tether.js',
         //'bower_components/hammerjs/hammer.js',
         'bower_components/angular/angular.js',
-        '/bower_components/angular-aria/angular-aria.js',
+        'bower_components/angular-aria/angular-aria.js',
         'bower_components/angular-resource/angular-resource.js',
         'bower_components/angular-animate/angular-animate.js',
-        '/bower_components/angular-material/angular-material.js',
+        'bower_components/angular-material/angular-material.js',
+        //DynamicRouting di foundation apps
         'bower_components/angular-ui-router/release/angular-ui-router.js',
-        'bower_components/foundation-apps/js/vendor/**/*.js',
-        'bower_components/foundation-apps/js/angular/**/*.js',
-        '!bower_components/foundation-apps/js/angular/app.js'
+        'bower_components/foundation-apps/js/angular/services/*.js',
+        //'bower_components/foundation-apps/js/vendor/**/*.js',
+        //'bower_components/foundation-apps/js/angular/**/*.js',
+        //'!bower_components/foundation-apps/js/angular/app.js'
+        //Google maps
+        'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
+        'bower_components/angular-google-maps/dist/angular-google-maps.js'
     ],
     // These files are for your app's JavaScript
     appJS: [
         'bower_components/lodash/lodash.js',
-        'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
-        'bower_components/angular-google-maps/dist/angular-google-maps.js',
         'bower_components/slick-carousel/slick/slick.js',
         'client/assets/js/**/*.js'
     ]
@@ -123,17 +126,17 @@ gulp.task('sass', function () {
 });
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
-gulp.task('uglify', ['uglify:foundation', 'uglify:app'])
+gulp.task('uglify', ['uglify:angular', 'uglify:app'])
 
-gulp.task('uglify:foundation', function (cb) {
+gulp.task('uglify:angular', function (cb) {
     var uglify = $.if(isProduction, $.uglify()
         .on('error', function (e) {
             console.log(e);
         }));
 
-    return gulp.src(paths.foundationJS)
+    return gulp.src(paths.angularJS)
         .pipe(uglify)
-        .pipe($.concat('foundation.js'))
+        .pipe($.concat('angular.js'))
         .pipe(gulp.dest(buildDir +'/assets/js/'))
         ;
 });
@@ -165,7 +168,7 @@ gulp.task('server', ['build'], function () {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function (cb) {
-    sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+    sequence('clean', ['copy', 'sass', 'uglify'], 'copy:templates', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
