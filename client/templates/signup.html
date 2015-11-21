@@ -3,86 +3,88 @@ name: signup
 url: /signup
 ---
 
-<div class="grid-container">
-    <div class="grid-content">
-        <form>
-            <h3>Dati dell'ANZIANO</h3>
-            <div class="grid-block">
-                <div class="small-12 medium-6 grid-content">
-                    <label>
-                        Nome
-                        <input type="text" placeholder="Mario">
-                    </label>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>
-                        Cognome
-                        <input type="text" placeholder="Rossi">
-                    </label>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>
-                        <label>Sesso</label>
-                        <input type="radio" name="sesso" value="Maschio" id="sessoMaschio"><label for="sessoMaschio">Maschio</label>
-                        <input type="radio" name="sesso" value="Femmina" id="sessoFemmina"><label for="sessoFemmina">Femmina</label>
-                    </label>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>Data di nascita</label>
-                    <input type="date" name="birthday">
-                </div>
-            </div>
+<h2>Signup page</h2>
 
-            <h3>Dati del RAGAZZO</h3>
-            <div class="grid-block">
-                <div class="small-12 medium-6 grid-content">
-                    <label>
-                        Nome
-                        <input type="text" placeholder="Mario">
-                    </label>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>
-                        Cognome
-                        <input type="text" placeholder="Rossi">
-                    </label>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>
-                        <label>Sesso</label>
-                        <input type="radio" name="sesso" value="Maschio" id="sessoMaschio"><label for="sessoMaschio">Maschio</label>
-                        <input type="radio" name="sesso" value="Femmina" id="sessoFemmina"><label for="sessoFemmina">Femmina</label>
-                    </label>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>Data di nascita</label>
-                    <input type="date" name="birthday">
-                </div>
-            </div>
+<!--<div class="grid-container">-->
+<!--<div class="grid-content">-->
+<!--<form>-->
+<!--<h3>Dati dell'ANZIANO</h3>-->
+<!--<div class="grid-block">-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>-->
+<!--Nome-->
+<!--<input type="text" placeholder="Mario">-->
+<!--</label>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>-->
+<!--Cognome-->
+<!--<input type="text" placeholder="Rossi">-->
+<!--</label>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>-->
+<!--<label>Sesso</label>-->
+<!--<input type="radio" name="sesso" value="Maschio" id="sessoMaschio"><label for="sessoMaschio">Maschio</label>-->
+<!--<input type="radio" name="sesso" value="Femmina" id="sessoFemmina"><label for="sessoFemmina">Femmina</label>-->
+<!--</label>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>Data di nascita</label>-->
+<!--<input type="date" name="birthday">-->
+<!--</div>-->
+<!--</div>-->
 
-            <h3>Dati della SQUADRA</h3>
-            <div class="grid-block">
-                <div class="small-12 medium-6 grid-content">
-                    <label>Email di referenza</label>
-                    <span class="inline-label">
-                        <span class="form-label">www.</span>
-                        <input type="text">
-                        <span class="form-label">.com</span>
-                    </span>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>Nome della squadra</label>
-                    <input type="text" placeholder="NonAbbiamoNienteDiMeglioDaFare">
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>Foto della squadra</label>
-                    <button class="file-upload button"><input type="file" class="file-input">Choose File</button>
-                </div>
-                <div class="small-12 medium-6 grid-content">
-                    <label>Completa la registrazione</label>
-                    <a class="button" ng-click="signup()">Iscriviti!</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<!--<h3>Dati del RAGAZZO</h3>-->
+<!--<div class="grid-block">-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>-->
+<!--Nome-->
+<!--<input type="text" placeholder="Mario">-->
+<!--</label>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>-->
+<!--Cognome-->
+<!--<input type="text" placeholder="Rossi">-->
+<!--</label>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>-->
+<!--<label>Sesso</label>-->
+<!--<input type="radio" name="sesso" value="Maschio" id="sessoMaschio"><label for="sessoMaschio">Maschio</label>-->
+<!--<input type="radio" name="sesso" value="Femmina" id="sessoFemmina"><label for="sessoFemmina">Femmina</label>-->
+<!--</label>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>Data di nascita</label>-->
+<!--<input type="date" name="birthday">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<h3>Dati della SQUADRA</h3>-->
+<!--<div class="grid-block">-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>Email di referenza</label>-->
+<!--<span class="inline-label">-->
+<!--<span class="form-label">www.</span>-->
+<!--<input type="text">-->
+<!--<span class="form-label">.com</span>-->
+<!--</span>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>Nome della squadra</label>-->
+<!--<input type="text" placeholder="NonAbbiamoNienteDiMeglioDaFare">-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>Foto della squadra</label>-->
+<!--<button class="file-upload button"><input type="file" class="file-input">Choose File</button>-->
+<!--</div>-->
+<!--<div class="small-12 medium-6 grid-content">-->
+<!--<label>Completa la registrazione</label>-->
+<!--<a class="button" ng-click="signup()">Iscriviti!</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
