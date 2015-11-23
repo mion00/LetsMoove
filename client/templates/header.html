@@ -1,23 +1,21 @@
-<div layout="column" layout>
+<div layout="row" layout>
     <md-toolbar>
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools" layout>
             <div layout="row" flex>
                 <!--TODO Aggiustare href-->
                 <a href="#">Let's Moove</a>
             </div>
-            <div layout="row">
-                <div ng-controller="logoutController as user">
-                    <md-button ng-hide="user.userData.loggedIn">
-                        <a ui-sref="signup">Iscriviti</a>
+            <div layout="row" ng-controller="logoutController as user" flex="initial">
+                    <md-button ng-hide="user.userData.loggedIn" ui-sref="signup">
+                        Iscriviti
                     </md-button>
-                    <md-button ng-hide="user.userData.loggedIn">
-                        <a ui-sref="login">Accedi</a>
+                    <md-button ng-hide="user.userData.loggedIn" ui-sref="login">
+                        Accedi
                     </md-button>
-                    <md-button ng-show="user.userData.loggedIn" class="hide">
-                        <a ng-click="user.logout()">Log Out</a>
+                    <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.logout()">
+                        Log Out
                     </md-button>
                 </div>
-            </div>
         </div>
     </md-toolbar>
 </div>
