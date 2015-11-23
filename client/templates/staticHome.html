@@ -3,55 +3,65 @@ name: staticHome
 url: /
 ---
 
-<div class="text-center grid-container">
-    <!--<img src="http://wallpaperbeta.com/wallpaper_1280x768/nature_tree_road_path_walk_review_landscape_1280x768_hd-wallpaper-369602.jpg">-->
-    <div class="carousel">
-    <div class="grid-block" id="firstStep">
-        <div class="card">
-            <img src="/assets/img/nature_tree_road_path_walk_review_landscape_1280x768_hd-wallpaper-369602.jpg">
+<div layout="column" layout-align="space-around center">
+    <div layout="row" layout-margin>
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title">Crea un account gratuito</h2>
 
-            <div class="card-section">
-                <h4>Crea un account gratuitamente</h4>
-
-                <p>Il primo semplice passo è creare un account con cui potrai esplorare, scegliere e loggare i percorsi.
+                <p>
+                    Il primo semplice passo è creare un account con cui potrai esplorare, scegliere e loggare i
+                    percorsi.
                     Questo ti consente inoltre di entrare nella community e metterti in contatto con altri persone per
-                    organizzare esperienze in comune.</p>
+                    organizzare esperienze in comune.
+                </p>
+            </md-card-content>
+            <div layout layout-align="center">
+                <img class="wallpaper" src="/assets/img/firstImageStaticHome.jpg">
             </div>
-        </div>
+        </md-card>
     </div>
-    <div class="grid-block" id="secondStep">
-        <div class="card">
-            <img src="/assets/img/7938_1280x800.jpg">
 
-            <div class="card-section">
-                <h4>Cerca un percorso</h4>
+    <div layout="row" layout-margin>
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title">Cerca un percorso</h2>
 
-                <p>Mediante il sito di Let's Moove puoi cercare e scegliere il percoso che più ti piace
+                <p>
+                    Mediante il sito di Let's Moove puoi cercare e scegliere il percoso che più ti piace
                     Cosa stai aspettando? Ci sono un sacco di esperienze outdoor che ti aspettano e indovinelli
-                    da risolvere!</p>
+                    da risolvere!
+                </p>
+            </md-card-content>
+            <div layout layout-align="center">
+                <img class="wallpaper" src="/assets/img/secondImageStaticHome.jpg">
             </div>
-        </div>
+        </md-card>
     </div>
-    <div class="grid-block" id="thridStep">
-        <div class="card">
-            <img src="/assets/img/B9315539750Z.1_20141217155806_000_GAS9EHMN5.1-0.jpg">
 
-            <div class="card-section">
-                <h4>Logga un percorso</h4>
+    <div layout="row" layout-margin>
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title">Logga un'esperienza</h2>
 
-                <p>Una volta completato un percorso esprimi un giudizio a riguardo. Ti è piaciuto?
-                    Hai incontrato delle difficoltà? Gli indovinelli ti hanno messo a dura prova?</p>
+                <p>
+                    Una volta completato un percorso esprimi un giudizio a riguardo. Ti è piaciuto?
+                    Hai incontrato delle difficoltà? Gli indovinelli ti hanno messo a dura prova?
+                </p>
+            </md-card-content>
+            <div layout layout-align="center">
+                <img class="wallpaper" src="/assets/img/thirdImageStaticHome.jpg">
             </div>
-        </div>
+        </md-card>
     </div>
-    </div>
-
-    <script>
-//        TODO spostare nel controller
-        $(document).ready(function(){
-            $('.carousel').slick();
-        });
-    </script>
 </div>
+
+
+<!--<script>-->
+<!--// TODO spostare nel controller-->
+<!--$(document).ready(function(){-->
+<!--$('.carousel').slick();-->
+<!--});-->
+<!--</script>-->
 
 
