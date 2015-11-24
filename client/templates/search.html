@@ -1,8 +1,8 @@
 ---
-name: search
-url: /search
+name: pathSearch
+url: /paths
 ---
-<div layout="column" layout-align="space-around center">
+<div layout="column" layout-align="space-around center" ng-controller="pathsController as pathsCtrl">
     <div layout layout-fill layout-align="center">
         <h2>Cerca un percorso</h2>
     </div>
@@ -11,17 +11,20 @@ url: /search
         <div flex="33">
             <md-input-container>
                 <label>Città</label>
-                <input type="text" ng-model="user.name">
+                <input type="text" ng-model="pathsCtrl.address">
+                <button ng-click="pathsCtrl.updateAddress()">go!</button>
             </md-input-container>
             <div layout layout-align="center center">
                 <div flex>
-                    <md-slider flex min="0" max="30" ng-model="color.red" aria-label="red" id="red-slider"
+                    <md-slider flex min="0" max="30"  aria-label="red" id="red-slider"
                                class></md-slider>
                 </div>
                 <div flex>
-                    <input flex type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                    <input flex type="number" aria-label="red" aria-controls="red-slider">
                 </div>
             </div>
+            <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom'>
+            </ui-gmap-google-map>
         </div>
         <div flex="33"></div>
     </div>

@@ -75,7 +75,7 @@ url: /paths/:pathId
             <strong>altitudeDifference</strong>
             <hr>
             <div class="complexity">
-                {{pathController.path.pathData.altitudeDifference}}
+                {{pathController.path.pathData.deltaAltitude}}
             </div>
         </div>
         <div class="grid-content">
@@ -105,7 +105,7 @@ url: /paths/:pathId
     </div>
 
     <div class="grid-block">
-        <ui-gmap-google-map center='pathController.path.stages[0].coordinates' zoom='pathController.zoom'>
+        <ui-gmap-google-map center='pathController.path.startPoint' zoom='pathController.zoom'>
             <ui-gmap-marker idKey='1' coords='pathController.marker'>
             </ui-gmap-marker>
         </ui-gmap-google-map>

@@ -50,12 +50,12 @@ var paths = {
         //'bower_components/foundation-apps/js/angular/**/*.js',
         //'!bower_components/foundation-apps/js/angular/app.js'
         //Google maps
+        'bower_components/lodash/lodash.js',
         'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
         'bower_components/angular-google-maps/dist/angular-google-maps.js'
     ],
     // These files are for your app's JavaScript
     appJS: [
-        'bower_components/lodash/lodash.js',
         'bower_components/slick-carousel/slick/slick.js',
         'client/assets/js/**/*.js'
     ]
