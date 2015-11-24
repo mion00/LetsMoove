@@ -13,7 +13,7 @@ url: /search
                 <label>Città</label>
                 <input type="text" ng-model="user.name">
             </md-input-container>
-            Inserisci un raggio di ricerca
+            Inserisci un raggio di ricerca in km
             <div layout>
                 <div layout flex="66" layout-margin layout-align="center center">
                     <md-slider flex min="0" max="30" ng-model="color.red" aria-label="red" id="red-slider"
@@ -26,5 +26,47 @@ url: /search
             </div>
         </div>
         <div flex="33"></div>
+    </div>
+    <div layout layout-fill layout-align="center">
+        <h3>Aggiungi dei filtri alla ricerca</h3>
+    </div>
+    <div layout layout-fill id="filters">
+        <div flex="10"></div>
+        <div flex="80">
+            <md-card>
+                <md-card-content>
+                    <div layout>
+                        <div flex layout="column" layout-align="center center">
+                            <strong>Lunghezza percorso</strong>
+                            <md-radio-group ng-model="data.group1">
+                                <md-radio-button value="stRange">< 1 km</md-radio-button>
+                                <md-radio-button value="ndRange"> 1 - 5 km</md-radio-button>
+                                <md-radio-button value="rdRange">5 - 10 km</md-radio-button>
+                                <md-radio-button value="thRange">> 10 km</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div flex layout="column" layout-align="center center">
+                            <strong>Tipologia di terreno</strong>
+                            <md-radio-group ng-model="data.group2">
+                                <md-radio-button value="asfalto">Asfaltato</md-radio-button>
+                                <md-radio-button value="sterrato"> Sterrato</md-radio-button>
+                                <md-radio-button value="misto">Misto</md-radio-button>
+                                <md-radio-button value="offroad">Offroad</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div flex layout="column" layout-align="center center">
+                            <strong>Durata</strong>
+                            <md-radio-group ng-model="data.group3">
+                                <md-radio-button value="moltoBreve">< 30 min</md-radio-button>
+                                <md-radio-button value="breve"> 30 min - 1 h</md-radio-button>
+                                <md-radio-button value="medio">1 - 2 h</md-radio-button>
+                                <md-radio-button value="lungo">> 2 h</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex="10"></div>
     </div>
 </div>
