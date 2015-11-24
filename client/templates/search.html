@@ -13,13 +13,15 @@ url: /search
                 <label>Città</label>
                 <input type="text" ng-model="user.name">
             </md-input-container>
-            <div layout layout-align="center center">
-                <div flex>
+            Inserisci un raggio di ricerca
+            <div layout>
+                <div layout flex="66" layout-margin layout-align="center center">
                     <md-slider flex min="0" max="30" ng-model="color.red" aria-label="red" id="red-slider"
                                class></md-slider>
                 </div>
-                <div flex>
-                    <input flex type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                <div layout flex="33" layout-margin layout-align="center center">
+                    <input min="0" max="30" flex type="number" ng-model="color.red" aria-label="red"
+                           aria-controls="red-slider">
                 </div>
             </div>
         </div>
