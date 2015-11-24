@@ -3,15 +3,32 @@ name: login
 url: /login
 ---
 
-<div class="grid-container">
-    <div class="grid-content">
-        <form ng-controller="loginController as login">
-            <input type="text" id="username" ng-model="login.username" placeholder="Username">
-            <input type="password" id="password" ng-model="login.password" placeholder="Password">
-            <a class="button" ng-click="login.doLogin()">Login</a>
-            <a class="button" ui-sref="signup">Non hai un account?</a>
-            <br>
-            <a href="#">Forgot password</a>
-        </form>
+<div layout="column" layout-align="space-around center">
+    <div layout layout-fill layout-align="center">
+        <h2>Accedi al tuo account</h2>
     </div>
+
+    <div layout layout-fill layout-align="center" layout-margin="100">
+        <div flex="40"></div>
+        <div flex="60">
+            <form ng-controller="loginController as login">
+                <md-input-container>
+                    <input type="text" placeholder="Username" ng-model="login.username">
+                </md-input-container>
+                <md-input-container>
+                    <input type="password" placeholder="Password" ng-model="login.password">
+                </md-input-container>
+            </form>
+        </div>
+        <div flex="40"></div>
+    </div>
+
+    <div layout layout-fill layout-align="center">
+        <md-button class="md-raised md-primary" ng-click="login.doLogin()">Accedi</md-button>
+    </div>
+
+    <div layout layout-fill layout-align="center">
+        <md-button class="md-raised md-primary" ui-sref="signup">Non hai un account?</md-button>
+    </div>
+
 </div>
