@@ -2,32 +2,27 @@
 name: search
 url: /search
 ---
-<div class="vertical grid-block">
-    <div class="grid-container">
-        <div class="grid-block vertical">
-            <h3>Cerca un percorso mediante la barra di ricerca</h3>
-
-            <form>
-                <input style="text-align: center;" type="text" placeholder="Inserisci un luogo o una città"/>
-            </form>
-        </div>
-        <div class="grid-block">
-            <a class="expand button" href="#">Cerca</a>
-        </div>
+<div layout="column" layout-align="space-around center">
+    <div layout layout-fill layout-align="center">
+        <h2>Cerca un percorso</h2>
     </div>
-    <div class="grid-block">
-        <div class="grid-block">
-            <div style="width:100%;max-width:100%;overflow:hidden;height:500px;color:red;">
-                <div id="embed-map-canvas" style="height:100%; width:100%;max-width:100%;">
-                    <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                            src="https://www.google.com/maps/embed/v1/place?q=trento&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+    <div layout layout-fill id="searchInput">
+        <div flex="33"></div>
+        <div flex="33">
+            <md-input-container>
+                <label>Città</label>
+                <input type="text" ng-model="user.name">
+            </md-input-container>
+            <div layout layout-align="center center">
+                <div flex>
+                    <md-slider flex min="0" max="30" ng-model="color.red" aria-label="red" id="red-slider"
+                               class></md-slider>
                 </div>
-                <style>#embed-map-canvas img {
-                    max-width: none !important;
-                    background: none !important;
-                    font-size: inherit;
-                }</style>
+                <div flex>
+                    <input flex type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                </div>
             </div>
         </div>
+        <div flex="33"></div>
     </div>
 </div>
