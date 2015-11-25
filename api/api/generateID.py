@@ -1,10 +1,10 @@
 from pymongo import ReturnDocument
 
-from . import app
+from . import app as appModule
 
 
 def getNextSequence(name):
-    client = app.data.driver.db
+    client = appModule.app.data.driver.db
     db = client.development
 
     if not db.counters.find_one({'_id': name}):
