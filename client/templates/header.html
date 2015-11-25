@@ -2,8 +2,7 @@
     <md-toolbar>
         <div class="md-toolbar-tools" layout>
             <div layout="row" flex>
-                <!--TODO Aggiustare href-->
-                <a href="#">Let's Moove</a>
+                <a ui-sref="staticHome">Let's Moove</a>
             </div>
             <div layout="row" ng-controller="logoutController as user" flex="initial">
                     <md-button ng-hide="user.userData.loggedIn" ui-sref="signup">

@@ -29,8 +29,8 @@ api_server:
     MONGO_DBNAME: development
 
 frontend:
-#  build: ./frontendDocker
-  image: digitallyseamless/nodejs-bower-grunt
+  build: ./frontendDocker
+  #image: digitallyseamless/nodejs-bower-grunt
   command: /usr/local/bin/npm start
   working_dir: /data
   volumes:

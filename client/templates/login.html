@@ -3,15 +3,46 @@ name: login
 url: /login
 ---
 
-<div class="grid-container">
-    <div class="grid-content">
-        <form ng-controller="loginController as login">
-            <input type="text" id="username" ng-model="login.username" placeholder="Username">
-            <input type="password" id="password" ng-model="login.password" placeholder="Password">
-            <a class="button" ng-click="login.doLogin()">Login</a>
-            <a class="button" ui-sref="signup">Non hai un account?</a>
-            <br>
-            <a href="#">Forgot password</a>
+<div layout="row" layout-align="space-around center">
+    <div layout="column" layout-margin>
+
+        <form>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Login</h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-dialog-content style="max-width:800px;max-height:810px; ">
+                <md-card>
+                    <md-card-content>
+                        <div layout-margin>
+                            <h2 class="md-display-2">Dati della squadra</h2>
+                        </div>
+                        <div layout="row">
+                            <div flex>
+                                <md-input-container>
+                                    <label>Username/Nome squadra</label>
+                                    <input type="text" ng-model="user.username">
+                                </md-input-container>
+                            </div>
+                            <div flex>
+                                <md-input-container>
+                                    <label>Password</label>
+                                    <input type="text" ng-model="user.password">
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+
+                <div layout="row" layout-align="center">
+                    <md-button class="md-raised md-primary" layout-align="center">
+                        <a class="button" ng-click="login()">Login</a>
+                    </md-button>
+                </div>
+            </md-dialog-content>
         </form>
+
     </div>
 </div>
