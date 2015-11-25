@@ -6,12 +6,14 @@
     "angular": "~1.4.x",
     "angular-resource": "~1.4.x",
     "angular-route": "1.4.x",
-    "angular-ui-router":"~0.2.15",
-    "slick-carousel" : "~1.5.8",
-    "angular-google-maps" : "",
-    "angular-material" : "",
+    "angular-ui-router": "~0.2.15",
+    "slick-carousel": "~1.5.8",
+    "angular-google-maps": "",
+    "angular-material": "",
     "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e"
-
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "angular": "1.4.8"
+  }
 }
