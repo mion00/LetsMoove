@@ -9,7 +9,7 @@ sudo docker-compose run --rm frontend bower install
 sudo docker exec letsmoove_api_server_1 python import.py
 
 #SHELL MONGODB
-sudo docker exec -it letsmoove_mongo_1 mongo
+sudo docker exec -it letsmoove_mongo_1 mongo development
 
 #CREAZIONE DI NUOVI DOCKER CONTAINER
 sudo docker-compose build
