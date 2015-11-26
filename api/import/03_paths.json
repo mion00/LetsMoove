@@ -3,7 +3,7 @@
     "name": "Giro del Bondone",
     "subtitle": "Una semplice passeggiata nei dintorni di Trento",
     "description": "Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini.",
-    "owner": 1,
+    "owner": "1",
     "ownerVote": {
       "beauty": 4,
       "complexity": 2,
@@ -45,7 +45,7 @@
     "name": "Cammino di Oltrecastello",
     "subtitle": "Breve giro nei pressi di Oltrecastello",
     "description": "Oltrecastello è una frazione di Trento; si trova a circa 3,5 chilometri dal capoluogo ai piedi del Doss Sant'Agata.",
-    "owner": 2,
+    "owner": "2",
     "ownerVote": {
       "beauty": 3,
       "complexity": 2,
@@ -129,7 +129,7 @@
     "name": "Giro della Marzola",
     "subtitle": "La Marzola è un vero e proprio labirinto di strade forestali, strade tagliafuoco e sentieri più o meno segnalati.",
     "description": "Il percorso prevede di percorrere il giro di un'intera montagna partendo con la vista della valle dell'Adige e del Monte Bondone, per poi transitare di fronte al versante nord della Vigolana e compiere infine l'ultima parte dell'itinerario con lo sguardo rivolto alla Valsugana ed alla Valle dei Mocheni.",
-    "owner": 2,
+    "owner": "2",
     "ownerVote": {
       "beauty": 5,
       "complexity": 4,
@@ -171,7 +171,7 @@
     "name": "Per le vie di Trento",
     "subtitle": "Una semplice camminata per il centro storico del capoluogo della Provincia autonoma di Trento.",
     "description": "Piazza Duomo è il cuore del centro storico e fu l´aula della vita civica e religiosa della città alpina. E' stata definita una delle più belle piazze urbane del mondo. Senza dubbio è una delle più caratteristiche e policrome. Ma a Trento non c'è solo Piazza Duomo...",
-    "owner": 1,
+    "owner": "1",
     "ownerVote": {
       "beauty": 4,
       "complexity": 2,

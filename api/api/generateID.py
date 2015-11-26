@@ -24,4 +24,4 @@ def getNextSequence(name):
 
 def generateID(resource, request):
     for obj in request:
-        obj['_id'] = int(getNextSequence(resource))
+        obj['_id'] = str(getNextSequence(resource))

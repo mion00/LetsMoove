@@ -13,6 +13,8 @@ files = []
 for child in directory.iterdir():
     files.append(child)
 
+files.sort()
+
 for file in files:
     jsonData = json.load(file.open())
 

@@ -18,10 +18,10 @@ schema = {
         'maxlength': 4000
     },
     'owner': {
-        'type': 'integer',
+        'type': 'string',
         'required': True,
         'data_relation': {
-            'resource': 'users',
+            'resource': 'teams',
             'field': '_id',
             'embeddable': True
         }

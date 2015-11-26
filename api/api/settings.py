@@ -20,5 +20,5 @@ DOMAIN = {
     'terrainTypes': res.terrainTypes,
     'paths': res.paths,
     'feedback': res.feedback,
-    'users': {}
+    'teams': res.teams
 }
