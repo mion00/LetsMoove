@@ -6,7 +6,7 @@ sudo docker-compose run --rm frontend npm install
 sudo docker-compose run --rm frontend bower install
 
 #IMPORT DATI
-sudo docker-compose run --rm api_server python import.py
+sudo docker exec letsmoove_api_server_1 python import.py
 
 #SHELL MONGODB
 sudo docker exec -it letsmoove_mongo_1 mongo

@@ -28,7 +28,15 @@
       },
       "stages": [
         {
-          "location": {}
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              46.069619,
+              46.069619
+            ]
+          },
+          "question": "prima domanda?",
+          "answer": "pippo"
         }
       ]
     }
