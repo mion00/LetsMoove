@@ -178,36 +178,36 @@ url: /paths/:pathId
                 </md-content>
             </md-card>
         </div>
-        <div class="grid-block">
-            <ui-gmap-google-map center='pathController.path.startPoint' zoom='pathController.zoom'>
-                <ui-gmap-marker idKey='1' coords='pathController.marker'>
-                </ui-gmap-marker>
-            </ui-gmap-google-map>
+        <!--<div class="grid-block">-->
+            <!--<ui-gmap-google-map center='pathController.path.startPoint' zoom='pathController.zoom'>-->
+                <!--<ui-gmap-marker idKey='1' coords='pathController.marker'>-->
+                <!--</ui-gmap-marker>-->
+            <!--</ui-gmap-google-map>-->
 
-            <div class="grid-content">
-                <!--<img src="https://www.placehold.it/300x300" alt="Mappa">-->
-                <div class="grid-content">
-                    <div class="grid-block vertical" style = "overflow-y: scroll; height: 400px">
-                        <div class="grid-content" ng-repeat=" feedback in pathController.path.feedbacks">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <img src="https://www.placehold.it/100x100">
-                                    </td>
-                                    <td>
-                                        <div><b>{{feedback.user}}</b></div>
-                                        <div>{{feedback.review}}</div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="review">
+            <!--<div class="grid-content">-->
+                <!--&lt;!&ndash;<img src="https://www.placehold.it/300x300" alt="Mappa">&ndash;&gt;-->
+                <!--<div class="grid-content">-->
+                    <!--<div class="grid-block vertical" style = "overflow-y: scroll; height: 400px">-->
+                        <!--<div class="grid-content" ng-repeat=" feedback in pathController.path.feedbacks">-->
+                            <!--<table>-->
+                                <!--<tr>-->
+                                    <!--<td>-->
+                                        <!--<img src="https://www.placehold.it/100x100">-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                        <!--<div><b>{{feedback.user}}</b></div>-->
+                                        <!--<div>{{feedback.review}}</div>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                            <!--<div class="review">-->
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
