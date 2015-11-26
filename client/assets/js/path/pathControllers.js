@@ -13,7 +13,7 @@
 
         var callback = function (path) {
             scope.path = path;
-            scope.marker = jQuery.extend(true, {}, path.stages[0].coordinates);
+            scope.marker = jQuery.extend(true, {}, path.locationData.startPoint.coordinates);
         };
 
         var error = function () {
