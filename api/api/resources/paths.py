@@ -15,20 +15,6 @@ schema = {
         'empty': False,
         'maxlength': 4000
     },
-    'owner': {
-        'type': 'integer',
-        'required': True,
-        'data_relation': {
-            'resource': 'users',
-            'field': '_id',
-            'embeddable': True
-        }
-    },
-    'ownerVote': {
-        'type': 'dict',
-        'schema': votes_schema,
-        'required': True
-    },
     'pathData': {
         'type': 'dict',
         'required': True,
@@ -50,15 +36,6 @@ schema = {
             'deltaAltitude': {
                 'type': 'number',
                 'max': 1000
-            },
-            'terrainType': {
-                'required': True,
-                'type': 'string',
-                'data_relation': {
-                    'resource': 'terrainTypes',
-                    'field': 'type',
-                    'embeddable': True
-                }
             },
             'adventure': {
                 'required': True,

@@ -2,30 +2,111 @@
 name: pathSearch
 url: /paths
 ---
-<div layout="column" layout-align="space-around center" ng-controller="pathsController as pathsCtrl">
-    <div layout layout-fill layout-align="center">
-        <h2>Cerca un percorso</h2>
-    </div>
-    <div layout layout-fill id="searchInput">
-        <div flex="33"></div>
-        <div flex="33">
-            <md-input-container>
-                <label>Città</label>
-                <input type="text" ng-model="pathsCtrl.address">
-                <button ng-click="pathsCtrl.updateAddress()">go!</button>
-            </md-input-container>
-            <div layout layout-align="center center">
-                <div flex>
-                    <md-slider flex min="0" max="30"  aria-label="red" id="red-slider"
-                               class></md-slider>
-                </div>
-                <div flex>
-                    <input flex type="number" aria-label="red" aria-controls="red-slider">
-                </div>
+
+<div ng-controller="pathsController as pathsCtrl">
+    <form>
+        <div layout="column" layout-align="space-around center">
+            <div layout layout-fill layout-align="center">
+                <h2>Cerca un percorso</h2>
             </div>
-            <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom'>
-            </ui-gmap-google-map>
+            <div layout layout-fill id="searchInput">
+                <div flex="33"></div>
+                <div flex="33">
+                    <md-input-container>
+                        <label>Posizione</label>
+                        <input type="text" ng-model="pathsCtrl.address">
+                    </md-input-container>
+                    Inserisci un raggio di ricerca in km
+                    <div layout>
+                        <div layout flex="66" layout-margin layout-align="center center">
+                            <md-slider flex min="1" max="100" ng-model="pathsCtrl.range" aria-label="red"
+                                       id="red-slider"
+                                       class></md-slider>
+                        </div>
+                        <div layout flex="33" layout-margin layout-align="center center">
+                            <input min="0" max="100" flex type="number" ng-model="pathsCtrl.range" aria-label="red"
+                                   aria-controls="red-slider">
+                        </div>
+                    </div>
+                </div>
+                <div flex="33"></div>
+            </div>
+            <div layout layout-fill layout-align="center">
+                <h3>Aggiungi dei filtri alla ricerca</h3>
+            </div>
+            <div layout layout-fill id="filters">
+                <div flex="10"></div>
+                <div layout flex="80" layout-align="center">
+                    <md-card>
+                        <md-card-content>
+                            <div layout>
+                                <div flex layout="column" layout-align="center center">
+                                    <strong>Lunghezza percorso</strong>
+                                    <md-radio-group ng-model="pathsCtrl.length">
+                                        <md-radio-button value="{{lengthClass.id}}" ng-repeat="lengthClass in pathsCtrl.lengthClasses">{{lengthClass.label}}</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                        </md-card-content>
+                    </md-card>
+                    <md-card>
+                        <md-card-content>
+                            <div flex layout="column" layout-align="center center">
+                                <strong>Tipologia di terreno</strong>
+                                <md-radio-group ng-model="pathsCtrl.terrainType">
+                                    <md-radio-button value="{{terrain._id}}"
+                                                     ng-repeat="terrain in pathsCtrl.terrainTypes | orderBy: '_id'">
+                                        {{terrain.type}}
+                                    </md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </md-card-content>
+                    </md-card>
+                    <md-card>
+                        <md-card-content>
+                            <div flex layout="column" layout-align="center center">
+                                <strong>Durata</strong>
+                                <md-radio-group ng-model="pathsCtrl.duration">
+                                    <md-radio-button value="{{durationClass.id}}"
+                                                     ng-repeat="durationClass in pathsCtrl.durationClasses">
+                                        {{durationClass.label}}
+                                    </md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </md-card-content>
+                    </md-card>
+                </div>
+                <div flex="10"></div>
+            </div>
+            <div layout layout-fill layout-align="center">
+                <md-button class="md-raised md-warn" ng-click="pathsCtrl.updateAddress()">Cerca</md-button>
+            </div>
         </div>
-        <div flex="33"></div>
+    </form>
+    <md-fab-toolbar md-open="false">
+    <md-fab-trigger class="align-with-text">
+        <md-button aria-label="menu" class="md-fab md-primary">
+            <md-icon md-svg-src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRdV1esCGOnbif0hW5n8ysKeeP8HmwGzAQ8jMibdjUBgd_U7Iah3Q"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+
+    <md-toolbar>
+        <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="comment" class="md-icon-button">
+                <md-icon md-svg-src="img/icons/ic_comment_24px.svg"></md-icon>
+            </md-button>
+            <md-button aria-label="label" class="md-icon-button">
+                <md-icon md-svg-src="img/icons/ic_label_24px.svg"></md-icon>
+            </md-button>
+            <md-button aria-label="photo" class="md-icon-button">
+                <md-icon md-svg-src="img/icons/ic_photo_24px.svg"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-toolbar>
+</md-fab-toolbar>
+    <div>
+        <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' class="searchMap">
+            <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
+        </ui-gmap-google-map>
     </div>
 </div>
