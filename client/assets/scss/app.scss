@@ -9,12 +9,15 @@
   height: 100%;
 }
 
+.angular-google-map-container { height: 700px; }
+
 .dialogdemoBasicUsage #popupContainer {
   position: relative; }
 .dialogdemoBasicUsage .footer {
   width: 100%;
   text-align: center;
   margin-left: 20px; }
+
 .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
   font-size: 0.8em;
   margin-top: 50px; }
@@ -26,4 +29,36 @@ md-tab-item > span.ng-scope {
 
 md-ink-bar {
   background-color: red;
+}
+
+.marker_labels {
+  color: black;
+  border: solid;
+  background-color: white;
+  text-align-all: center;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.material-icons {
+  width: 24px;
+  padding-right: 0.5rem;
+}
+
+.material-icons.color-yellow {
+  color: rgb(255, 250, 114);
+}
+
+.material-icons.color-green {
+  color: rgb(0, 157, 26);
+}
+
+.home-card {
+  min-height: 230px;
+}
+
+.centered-image {
+  text-align:-webkit-center;
 }
