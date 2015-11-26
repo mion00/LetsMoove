@@ -1,20 +1,20 @@
-<div layout="row" layout>
+<div layout>
     <md-toolbar>
         <div class="md-toolbar-tools" layout>
             <div layout="row" flex>
                 <a ui-sref="staticHome">Let's Moove</a>
             </div>
             <div layout="row" ng-controller="logoutController as user" flex="initial">
-                    <md-button ng-hide="user.userData.loggedIn" ui-sref="signup">
-                        Iscriviti
-                    </md-button>
-                    <md-button ng-hide="user.userData.loggedIn" ui-sref="login">
-                        Accedi
-                    </md-button>
-                    <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.logout()">
-                        Log Out
-                    </md-button>
-                </div>
+                <md-button ng-hide="user.userData.loggedIn" ui-sref="signup">
+                    Iscriviti
+                </md-button>
+                <md-button ng-hide="user.userData.loggedIn" ui-sref="login">
+                    Accedi
+                </md-button>
+                <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.logout()">
+                    Log Out
+                </md-button>
+            </div>
         </div>
     </md-toolbar>
 </div>

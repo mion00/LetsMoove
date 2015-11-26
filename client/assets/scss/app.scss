@@ -4,39 +4,6 @@
 @import "slick-theme.scss";
 @import "angular-material.scss";
 
-//.file-upload {
-//  position: relative;
-//  overflow: hidden;
-//  margin: 10px;
-//}
-//
-//.file-upload input.file-input {
-//  position: absolute;
-//  top: 0;
-//  right: 0;
-//  margin: 0;
-//  padding: 0;
-//  font-size: 20px;
-//  cursor: pointer;
-//  opacity: 0;
-//  filter: alpha(opacity=0);
-//}
-//
-//.header {
-//  padding: 0rem;
-//}
-//
-//.grid-content {
-//  padding: 1rem 1rem 1rem 1rem;
-//}
-//.angular-google-map-container { height: 400px;
-//                                width:  400px;
-//}
-
-button,html,input,select,textarea {
-  font-family:Roboto,'Helvetica Neue',sans-serif
-}
-
 .wallpaper {
   max-width: 700px;
   height: 100%;
@@ -51,6 +18,7 @@ button,html,input,select,textarea {
 .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
   font-size: 0.8em;
   margin-top: 50px; }
+
 
 md-tab-item > span.ng-scope {
   color:mediumblue;
