@@ -16,10 +16,14 @@ for child in directory.iterdir():
 for file in files:
     jsonData = json.load(file.open())
 
-    print("importing " + file.name)
+    print("\033[95m" + "importing " + file.name + "\033[0m")
 
     sanitizedName = re.search('\d+_(.+)', file.stem)
 
     req = requests.post(url + sanitizedName.group(1), json=jsonData)
 
-    pprint(req.json())
+    jsonResponse = req.json()
+
+    pprint(jsonResponse.get('_items')) if jsonResponse.get('_items') else None
+
+    pprint(jsonResponse.get('_issues')) if jsonResponse.get('_issues') else None
