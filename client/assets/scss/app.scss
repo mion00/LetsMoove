@@ -3,6 +3,7 @@
 @import "slick.scss";
 @import "slick-theme.scss";
 @import "angular-material.scss";
+//@import "material-icons";
 
 .wallpaper {
   max-width: 700px;
@@ -10,20 +11,41 @@
 }
 
 .dialogdemoBasicUsage #popupContainer {
-  position: relative; }
+  position: relative;
+}
+
 .dialogdemoBasicUsage .footer {
   width: 100%;
   text-align: center;
-  margin-left: 20px; }
+  margin-left: 20px;
+}
+
 .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
   font-size: 0.8em;
-  margin-top: 50px; }
-
+  margin-top: 50px;
+}
 
 md-tab-item > span.ng-scope {
-  color:mediumblue;
+  color: mediumblue;
 }
 
 md-ink-bar {
   background-color: red;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.material-icons {
+  width: 24px;
+  padding-right: 0.5rem;
+}
+
+.material-icons.color-yellow {
+  color: rgb(255, 250, 114);
+}
+
+.material-icons.color-green {
+  color: rgb(0, 157, 26);
 }
