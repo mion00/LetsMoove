@@ -1,1 +1,0 @@
-sudo docker-compose run --rm frontend npm install
