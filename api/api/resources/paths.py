@@ -1,3 +1,5 @@
+import pymongo
+
 from .votes import votes_schema
 
 schema = {
@@ -78,7 +80,19 @@ schema = {
                 'required': True,
                 'type': 'list',
                 'schema': {
-                    'type': 'point'
+                    'type': 'dict',
+                    'schema': {
+                        'location': {
+                            'required': True,
+                            'type': 'point'
+                        },
+                        'question': {
+                            'type': 'string'
+                        },
+                        'answer': {
+                            'type': 'string'
+                        }
+                    }
                 },
             }
         }
@@ -92,5 +106,8 @@ schema = {
 
 paths = {
     'item_url': 'regex("\d*")',
-    'schema': schema
+    'schema': schema,
+    'mongo_indexes': {
+        'locationIndex': [('locationData.startPoint', pymongo.GEOSPHERE)]
+    }
 }

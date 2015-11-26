@@ -6,7 +6,7 @@ MONGO_USERNAME = os.environ["MONGO_USERNAME"]
 MONGO_PASSWORD = os.environ["MONGO_PASSWORD"]
 MONGO_DBNAME = os.environ["MONGO_DBNAME"]
 
-RESOURCE_METHODS = ['GET', 'POST']
+RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH']
 
 PUBLIC_METHODS = ['GET']
@@ -19,5 +19,6 @@ EXTENDED_MEDIA_INFO = ['content_type']
 DOMAIN = {
     'terrainTypes': res.terrainTypes,
     'paths': res.paths,
-    'feedback': res.feedback
+    'feedback': res.feedback,
+    'users': {}
 }

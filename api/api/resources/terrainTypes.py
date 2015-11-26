@@ -2,6 +2,7 @@ schema = {
     'type': {
         'type': 'string',
         'required': True,
+        'unique': True,
         'max': 100
     }
 }
