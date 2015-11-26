@@ -4,108 +4,132 @@ url: /signup
 ---
 
 <div layout="row" layout-align="space-around center">
-    <div layout="column" layout-margin>
+    <div layout="column" layout-margin style="width:480px;">
         <div layout-margin>
-            <h2>Per effettuare la registrazione completa i seguenti campi con i tuoi dati personali</h2>
-        </div>
-        <div layout-margin>
-            <li>Dati dell'<strong>ANZIANO</strong></li>
-        </div>
-        <md-section>
-            <div layout="row">
-                <div flex>
-                    <md-input-container>
-                        <label>Nome</label>
-                        <input type="text" placeholder="Mario" ng-model="user.name">
-                    </md-input-container>
-                </div>
-                <div flex>
-                    <md-input-container>
-                        <label>Cognome</label>
-                        <input type="text" placeholder="Rossi" ng-model="user.surname">
-                    </md-input-container>
-                </div>
-            </div>
-            <div layout="row">
-                <div flex>
-                    <label>Sesso</label>
-                    <md-radio-group ng-model="data.group1">
-                        <md-radio-button value="Maschio" aria-label="Label 1">Maschio</md-radio-button>
-                        <md-radio-button value="Femmina">Femmina</md-radio-button>
-                    </md-radio-group>
-                </div>
-                <div flex>
-                    <label>Data di nascita</label>
-                    <md-datepicker ng-model="myDate" md-placeholder="GG/MM/AAAA"></md-datepicker>
-                </div>
-            </div>
-        </md-section>
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Registrati!</h2>
+                        <span flex></span>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Anziano">
+                            <md-content class="md-padding">
+                                <md-card>
+                                    <md-card-content>
+                                        <div layout-margin>
+                                            Dati dell'<strong>ANZIANO</strong>
+                                        </div>
+                                        <div layout="row">
+                                            <div flex>
+                                                <md-input-container>
+                                                    <label>Nome</label>
+                                                    <input type="text" ng-model="old.name">
+                                                </md-input-container>
+                                            </div>
+                                            <div flex>
+                                                <md-input-container>
+                                                    <label>Cognome</label>
+                                                    <input type="text" ng-model="old.surname">
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                        <div layout="row">
+                                            <div flex>
+                                                <label>Sesso</label>
+                                                <md-radio-group ng-model="data.old">
+                                                    <md-radio-button value="Maschio" aria-label="Label 1">Maschio
+                                                    </md-radio-button>
+                                                    <md-radio-button value="Femmina">Femmina</md-radio-button>
+                                                </md-radio-group>
+                                            </div>
+                                            <div flex>
+                                                <label>Data di nascita</label>
+                                                <md-datepicker ng-model="oldDate"
+                                                               md-placeholder="GG/MM/AAAA"></md-datepicker>
+                                            </div>
+                                        </div>
+                                    </md-card-content>
+                                </md-card>
 
-        <p>
 
-        </p>
-
-        <md-section>
-            <div layout-margin>
-                <li>Dati dell'<strong> BAMBINO</strong></li>
-            </div>
-            <div layout="row">
-                <div flex>
-                    <md-input-container>
-                        <label>Nome</label>
-                        <input type="text" placeholder="Mario" ng-model="user.name">
-                    </md-input-container>
-                </div>
-                <div flex>
-                    <md-input-container>
-                        <label>Cognome</label>
-                        <input type="text" placeholder="Rossi" ng-model="user.surname">
-                    </md-input-container>
-                </div>
-            </div>
-            <div layout="row">
-                <div flex>
-                    <label>Sesso</label>
-                    <md-radio-group ng-model="data.group1">
-                        <md-radio-button value="Maschio" aria-label="Label 1">Maschio</md-radio-button>
-                        <md-radio-button value="Femmina">Femmina</md-radio-button>
-                    </md-radio-group>
-                </div>
-                <div flex>
-                    <label>Data di nascita</label>
-                    <md-datepicker ng-model="myDate" md-placeholder="GG/MM/AAAA"></md-datepicker>
-                </div>
-            </div>
-        </md-section>
-
-        <p>
-
-        </p>
-
-        <md-section>
-            <div layout-margin>
-                <li>Dati della<strong> SQUADRA</strong></li>
-            </div>
-            <div layout="row">
-                <div flex>
-                    <md-input-container>
-                        <label>Username / Nome della squadra</label>
-                        <input type="text" ng-model="user.username">
-                    </md-input-container>
-                </div>
-                <div flex>
-                    <md-input-container>
-                        <label>Password</label>
-                        <input type="password" ng-model="user.password">
-                    </md-input-container>
-                </div>
-            </div>
-        </md-section>
-
-        <div layout="row" layout-align="center">
-            <md-button class="md-raised md-warn" layout-align="center">
-                <a class="button" ng-click="signup()">Conferma registrazione</a>
-            </md-button>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Bambino">
+                            <md-content class="md-padding">
+                                <md-card>
+                                    <md-card-content>
+                                        <div layout-margin>
+                                            Dati del<strong> BAMBINO</strong>
+                                        </div>
+                                        <div layout="row">
+                                            <div flex>
+                                                <md-input-container>
+                                                    <label>Nome</label>
+                                                    <input type="text" ng-model="young.name">
+                                                </md-input-container>
+                                            </div>
+                                            <div flex>
+                                                <md-input-container>
+                                                    <label>Cognome</label>
+                                                    <input type="text" ng-model="young.surname">
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                        <div layout="row">
+                                            <div flex>
+                                                <label>Sesso</label>
+                                                <md-radio-group ng-model="data.young">
+                                                    <md-radio-button value="Maschio" aria-label="Label 1">Maschio
+                                                    </md-radio-button>
+                                                    <md-radio-button value="Femmina">Femmina</md-radio-button>
+                                                </md-radio-group>
+                                            </div>
+                                            <div flex>
+                                                <label>Data di nascita</label>
+                                                <md-datepicker ng-model="youngDate"
+                                                               md-placeholder="GG/MM/AAAA"></md-datepicker>
+                                            </div>
+                                        </div>
+                                    </md-card-content>
+                                </md-card>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Squadra">
+                            <md-content class="md-padding">
+                                <md-card>
+                                    <md-card-content>
+                                        <div layout-margin>
+                                            Dati della<strong> SQUADRA</strong>
+                                        </div>
+                                        <div layout="row">
+                                            <div flex>
+                                                <md-input-container>
+                                                    <label>Nome della squadra / Username</label>
+                                                    <input type="text" ng-model="user.username">
+                                                </md-input-container>
+                                            </div>
+                                            <div flex>
+                                                <md-input-container>
+                                                    <label>Password</label>
+                                                    <input type="password" ng-model="user.password">
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                        <div layout="row" layout-align="center">
+                                            <md-button class="md-raised md-primary" layout-align="center">
+                                                <a class="button" ng-click="signup()">Conferma registrazione</a>
+                                            </md-button>
+                                        </div>
+                                    </md-card-content>
+                                </md-card>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-dialog-content>
+            </form>
         </div>
     </div>
 </div>

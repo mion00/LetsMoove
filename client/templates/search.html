@@ -2,32 +2,85 @@
 name: search
 url: /search
 ---
-<div class="vertical grid-block">
-    <div class="grid-container">
-        <div class="grid-block vertical">
-            <h3>Cerca un percorso mediante la barra di ricerca</h3>
 
-            <form>
-                <input style="text-align: center;" type="text" placeholder="Inserisci un luogo o una città"/>
-            </form>
+<form>
+    <div layout="column" layout-align="space-around center">
+        <div layout layout-fill layout-align="center">
+            <h2>Cerca un percorso</h2>
         </div>
-        <div class="grid-block">
-            <a class="expand button" href="#">Cerca</a>
-        </div>
-    </div>
-    <div class="grid-block">
-        <div class="grid-block">
-            <div style="width:100%;max-width:100%;overflow:hidden;height:500px;color:red;">
-                <div id="embed-map-canvas" style="height:100%; width:100%;max-width:100%;">
-                    <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                            src="https://www.google.com/maps/embed/v1/place?q=trento&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+        <div layout layout-fill id="searchInput">
+            <div flex="33"></div>
+            <div flex="33">
+                <md-input-container>
+                    <label>Città</label>
+                    <input type="text" ng-model="user.name">
+                </md-input-container>
+                Inserisci un raggio di ricerca in km
+                <div layout>
+                    <div layout flex="66" layout-margin layout-align="center center">
+                        <md-slider flex min="0" max="30" ng-model="color.red" aria-label="red" id="red-slider"
+                                   class></md-slider>
+                    </div>
+                    <div layout flex="33" layout-margin layout-align="center center">
+                        <input min="0" max="30" flex type="number" ng-model="color.red" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
                 </div>
-                <style>#embed-map-canvas img {
-                    max-width: none !important;
-                    background: none !important;
-                    font-size: inherit;
-                }</style>
             </div>
+            <div flex="33"></div>
+        </div>
+        <div layout layout-fill layout-align="center">
+            <h3>Aggiungi dei filtri alla ricerca</h3>
+        </div>
+        <div layout layout-fill id="filters">
+            <div flex="10"></div>
+            <div layout flex="80" layout-align="center">
+                <md-card>
+                    <md-card-content>
+                        <div layout>
+                            <div flex layout="column" layout-align="center center">
+                                <strong>Lunghezza percorso</strong>
+                                <md-radio-group ng-model="data.group1">
+                                    <md-radio-button value="stRange">< 1 km</md-radio-button>
+                                    <md-radio-button value="ndRange"> 1 - 5 km</md-radio-button>
+                                    <md-radio-button value="rdRange">5 - 10 km</md-radio-button>
+                                    <md-radio-button value="thRange">> 10 km</md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card>
+                    <md-card-content>
+                        <div flex layout="column" layout-align="center center">
+                            <strong>Tipologia di terreno</strong>
+                            <md-radio-group ng-model="data.group2">
+                                <md-radio-button ng-repeat="(key, value) in paths" value="">
+                                    <!--TODO check ng-repeat-->
+                                    {{paths.type}}
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card>
+                    <md-card-content>
+                        <div flex layout="column" layout-align="center center">
+                            <strong>Durata</strong>
+                            <md-radio-group ng-model="data.group3">
+                                <md-radio-button value="moltoBreve">< 30 min</md-radio-button>
+                                <md-radio-button value="breve"> 30 min - 1 h</md-radio-button>
+                                <md-radio-button value="medio">1 - 2 h</md-radio-button>
+                                <md-radio-button value="lungo">> 2 h</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+            <div flex="10"></div>
+        </div>
+        <div layout layout-fill layout-align="center">
+            <md-button class="md-raised md-warn">Cerca</md-button>
         </div>
     </div>
-</div>
+</form>
