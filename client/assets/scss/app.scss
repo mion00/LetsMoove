@@ -37,3 +37,28 @@ md-ink-bar {
   background-color: white;
   text-align-all: center;
 }
+
+.italic {
+  font-style: italic;
+}
+
+.material-icons {
+  width: 24px;
+  padding-right: 0.5rem;
+}
+
+.material-icons.color-yellow {
+  color: rgb(255, 250, 114);
+}
+
+.material-icons.color-green {
+  color: rgb(0, 157, 26);
+}
+
+.home-card {
+  min-height: 230px;
+}
+
+.centered-image {
+  text-align:-webkit-center;
+}
