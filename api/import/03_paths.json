@@ -10,20 +10,20 @@
       "difficulty": 3
     },
     "pathData": {
-      "length": 1300,
-      "altitude": 140,
-      "deltaAltitude": 30,
+      "length": 1500,
+      "altitude": 1400,
+      "deltaAltitude": 200,
       "terrainType": "sterrato",
-      "adventure": false,
-      "time": 130
+      "adventure": true,
+      "time": 150
     },
-    "logCount": 2,
+    "logCount": 8,
     "locationData": {
       "startPoint": {
         "type": "Point",
         "coordinates": [
-          46.069619,
-          46.069619
+          46.050219,
+          11.070902
         ]
       },
       "stages": [
@@ -35,8 +35,176 @@
               46.069619
             ]
           },
-          "question": "prima domanda?",
-          "answer": "pippo"
+          "question": "Fra le tre cime del Monte Bondone qual è la più alta?",
+          "answer": "Cornet"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cammino di Oltrecastello",
+    "subtitle": "Breve giro nei pressi di Oltrecastello",
+    "description": "Oltrecastello è una frazione di Trento; si trova a circa 3,5 chilometri dal capoluogo ai piedi del Doss Sant'Agata.",
+    "owner": 2,
+    "ownerVote": {
+      "beauty": 3,
+      "complexity": 2,
+      "difficulty": 3
+    },
+    "pathData": {
+      "length": 1300,
+      "altitude": 600,
+      "deltaAltitude": 100,
+      "terrainType": "misto",
+      "adventure": false,
+      "time": 120
+    },
+    "logCount": 7,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          46.073591,
+          11.163849
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              46.073591,
+              11.163849
+            ]
+          },
+          "question": "Qual è il santo patrono di Oltrecastello?",
+          "answer": "San Pantalone"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Nel bosco di Cadine",
+    "subtitle": "Chi nel bosco va...",
+    "description": "Il monte Sorasass è un facile e panoramico giro ad anello – 7 chilometri percorribili anche in MTB - che ci permette di scoprire un'area ancora piena di testimonianze e fortificazioni realizzate dall’esercito austro-ungarico a difesa dell’area di Trento.",
+    "owner": "2",
+    "ownerVote": {
+      "beauty": 3,
+      "complexity": 4,
+      "difficulty": 4
+    },
+    "pathData": {
+      "length": 7000,
+      "altitude": 640,
+      "deltaAltitude": 200,
+      "terrainType": "sterrato",
+      "adventure": true,
+      "time": 180
+    },
+    "logCount": 15,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          46.091934,
+          11.071161
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              46.091934,
+              11.071161
+            ]
+          },
+          "question": "In che anno cominciarono i lavori di costruzione delle trincee sul Sorasass?",
+          "answer": "1914"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Giro della Marzola",
+    "subtitle": "La Marzola è un vero e proprio labirinto di strade forestali, strade tagliafuoco e sentieri più o meno segnalati.",
+    "description": "Il percorso prevede di percorrere il giro di un'intera montagna partendo con la vista della valle dell'Adige e del Monte Bondone, per poi transitare di fronte al versante nord della Vigolana e compiere infine l'ultima parte dell'itinerario con lo sguardo rivolto alla Valsugana ed alla Valle dei Mocheni.",
+    "owner": 2,
+    "ownerVote": {
+      "beauty": 5,
+      "complexity": 4,
+      "difficulty": 5
+    },
+    "pathData": {
+      "length": 15000,
+      "altitude": 750,
+      "deltaAltitude": 950,
+      "terrainType": "misto",
+      "adventure": true,
+      "time": 360
+    },
+    "logCount": 4,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          46.067549,
+          11.184668
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              46.067549,
+              11.184668
+            ]
+          },
+          "question": "Come è chiamata la località nei pressi del passo del Cimirlo?",
+          "answer": "Celva"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Per le vie di Trento",
+    "subtitle": "Una semplice camminata per il centro storico del capoluogo della Provincia autonoma di Trento.",
+    "description": "Piazza Duomo è il cuore del centro storico e fu l´aula della vita civica e religiosa della città alpina. E' stata definita una delle più belle piazze urbane del mondo. Senza dubbio è una delle più caratteristiche e policrome. Ma a Trento non c'è solo Piazza Duomo...",
+    "owner": 1,
+    "ownerVote": {
+      "beauty": 4,
+      "complexity": 2,
+      "difficulty": 1
+    },
+    "pathData": {
+      "length": 1200,
+      "altitude": 200,
+      "deltaAltitude": 0,
+      "terrainType": "asfaltato",
+      "adventure": false,
+      "time": 60
+    },
+    "logCount": 20,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          46.080440,
+          11.050315
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              46.080440,
+              11.050315
+            ]
+          },
+          "question": "Come si chiama la fontana presente in Piazza Duomo?",
+          "answer": "Fontana del Nettuno"
         }
       ]
     }
