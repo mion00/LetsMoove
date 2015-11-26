@@ -4,7 +4,7 @@ url: /signup
 ---
 
 <div layout="row" layout-align="space-around center">
-    <div layout="column" layout-margin>
+    <div layout="column" layout-margin style="width:480px;">
         <div layout-margin>
             <form>
                 <md-toolbar>
@@ -13,14 +13,15 @@ url: /signup
                         <span flex></span>
                     </div>
                 </md-toolbar>
-                <md-dialog-content style="max-width:800px;max-height:810px; ">
+                <md-dialog-content>
                     <md-tabs md-dynamic-height md-border-bottom>
                         <md-tab label="Anziano">
                             <md-content class="md-padding">
-                                <h2 class="md-display-2">Dati dell'anziano</h2>
-
                                 <md-card>
                                     <md-card-content>
+                                        <div layout-margin>
+                                            Dati dell'<strong>ANZIANO</strong>
+                                        </div>
                                         <div layout="row">
                                             <div flex>
                                                 <md-input-container>
@@ -58,7 +59,6 @@ url: /signup
                         </md-tab>
                         <md-tab label="Bambino">
                             <md-content class="md-padding">
-                                <h2 class="md-display-2">Dati del bambino</h2>
                                 <md-card>
                                     <md-card-content>
                                         <div layout-margin>
@@ -99,7 +99,6 @@ url: /signup
                         </md-tab>
                         <md-tab label="Squadra">
                             <md-content class="md-padding">
-                                <h2 class="md-display-2">Dati della squadra</h2>
                                 <md-card>
                                     <md-card-content>
                                         <div layout-margin>
@@ -108,7 +107,7 @@ url: /signup
                                         <div layout="row">
                                             <div flex>
                                                 <md-input-container>
-                                                    <label>Nome della squadra</label>
+                                                    <label>Nome della squadra / Username</label>
                                                     <input type="text" ng-model="user.username">
                                                 </md-input-container>
                                             </div>
@@ -119,13 +118,13 @@ url: /signup
                                                 </md-input-container>
                                             </div>
                                         </div>
+                                        <div layout="row" layout-align="center">
+                                            <md-button class="md-raised md-primary" layout-align="center">
+                                                <a class="button" ng-click="signup()">Conferma registrazione</a>
+                                            </md-button>
+                                        </div>
                                     </md-card-content>
                                 </md-card>
-                                <div layout="row" layout-align="center">
-                                    <md-button class="md-raised md-primary" layout-align="center">
-                                        <a class="button" ng-click="signup()">Conferma registrazione</a>
-                                    </md-button>
-                                </div>
                             </md-content>
                         </md-tab>
                     </md-tabs>

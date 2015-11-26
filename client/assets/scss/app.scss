@@ -33,6 +33,10 @@
 //                                width:  400px;
 //}
 
+button,html,input,select,textarea {
+  font-family:Roboto,'Helvetica Neue',sans-serif
+}
+
 .wallpaper {
   max-width: 700px;
   height: 100%;
@@ -47,3 +51,11 @@
 .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
   font-size: 0.8em;
   margin-top: 50px; }
+
+md-tab-item > span.ng-scope {
+  color:mediumblue;
+}
+
+md-ink-bar {
+  background-color: red;
+}

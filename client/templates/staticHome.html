@@ -3,56 +3,68 @@ name: staticHome
 url: /
 ---
 
-<div layout="column" layout-align="space-around center">
-    <div layout="row" layout-margin>
-        <div flex>
-            <md-card>
-                <md-card-content>
-                    <h2 class="md-title">Crea un account gratuito</h2>
-                    <p>
-                        Il primo semplice passo è creare un account con cui potrai esplorare, scegliere e loggare i
-                        percorsi.
-                        Questo ti consente inoltre di entrare nella community e metterti in contatto con altri
-                        persone per organizzare esperienze in comune.
-                    </p>
-                </md-card-content>
-                <div layout layout-align="center">
-                    <img class="wallpaper" src="/assets/img/firstImageStaticHome.jpg">
-                </div>
-            </md-card>
+<div layout="row" layout-align="space-around center">
+    <div layout="column" layout-margin>
+        <div layout="row" layout layout-align="center">
+            <img src="/assets/img/BannerStaticHome.jpg">
         </div>
+        <div layout="row" layout-sm="column" layout-margin layout-align="center">
+            <div flex>
+                <md-card>
+                    <md-card-content>
+                        <h2 class="md-title">Crea un account gratuito</h2>
 
-        <div flex>
-            <md-card>
-                <md-card-content>
-                    <h2 class="md-title">Cerca un percorso</h2>
-                    <p>
-                        Mediante il sito di Let's Moove puoi cercare e scegliere il percoso che più ti piace.
-                        </br>
-                        Cosa stai aspettando? Ci sono un sacco di esperienze outdoor che ti aspettano e indovinelli
-                        da risolvere!
-                    </p>
-                </md-card-content>
-                <div layout layout-align="center">
-                    <img class="wallpaper" src="/assets/img/secondImageStaticHome.jpg">
-                </div>
-            </md-card>
+                        <p>
+                            Il primo semplice passo è creare un account con cui potrai esplorare, scegliere e loggare i
+                            percorsi.
+                            Questo ti consente inoltre di entrare nella community e metterti in contatto con altri
+                            persone per organizzare esperienze in comune.
+                        </p>
+                    </md-card-content>
+                    <div layout layout-align="center">
+                        <img class="wallpaper" src="/assets/img/firstImageStaticHome.jpg">
+                    </div>
+                </md-card>
+            </div>
+
+            <div flex>
+                <md-card>
+                    <md-card-content>
+                        <h2 class="md-title">Cerca un percorso</h2>
+
+                        <p>
+                            Mediante il sito di Let's Moove puoi cercare e scegliere il percoso che più ti piace.
+                            </br>
+                            Cosa stai aspettando?</br> Ci sono un sacco di esperienze outdoor che ti aspettano e indovinelli
+                            da risolvere!
+                        </p>
+                    </md-card-content>
+                    <div layout layout-align="center">
+                        <img class="wallpaper" src="/assets/img/secondImageStaticHome.jpg">
+                    </div>
+                </md-card>
+            </div>
+
+            <div flex>
+                <md-card>
+                    <md-card-content>
+                        <h2 class="md-title">Logga un'esperienza</h2>
+
+                        <p>
+                            Una volta completato un percorso esprimi un giudizio a riguardo. Ti è piaciuto?
+                            Hai incontrato delle difficoltà? Gli indovinelli ti hanno messo a dura prova?
+                            </br>Oltre a questo ti aspetta una comunity ansiosa di divertirsi insieme a te!
+                        </p>
+                    </md-card-content>
+                    <div layout layout-align="center">
+                        <img class="wallpaper" src="/assets/img/thirdImageStaticHome.jpg">
+                    </div>
+                </md-card>
+            </div>
         </div>
+        <div layout="row" layout-margin layout-align="center">
 
-        <div flex>
-            <md-card>
-                <md-card-content>
-                    <h2 class="md-title">Logga un'esperienza</h2>
-                    <p>
-                        Una volta completato un percorso esprimi un giudizio a riguardo. Ti è piaciuto?
-                        Hai incontrato delle difficoltà? Gli indovinelli ti hanno messo a dura prova?
-                        Oltre a questo ti aspetta una comunity ansiosa di divertirsi insieme a te!
-                    </p>
-                </md-card-content>
-                <div layout layout-align="center">
-                    <img class="wallpaper" src="/assets/img/thirdImageStaticHome.jpg">
-                </div>
-            </md-card>
+            <div ng-include="'/templates/signup.html'"></div>
         </div>
     </div>
 </div>
