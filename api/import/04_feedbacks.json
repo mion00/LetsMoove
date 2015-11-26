@@ -1,0 +1,52 @@
+[
+  {
+    "path": 1,
+    "team": 1,
+    "vote": {
+      "beauty": "1",
+      "complexity": "4",
+      "difficulty": "3"
+    },
+    "review": "Non è proprio a portata di tutti, specie di nonno..."
+  },
+  {
+    "path": 1,
+    "team": 2,
+    "vote": {
+      "beauty": "5",
+      "complexity": "3",
+      "difficulty": "5"
+    },
+    "review": "Bellissimo percorso, il panorama in cima al Bondone è stupendo!"
+  },
+  {
+    "path": 2,
+    "team": 1,
+    "vote": {
+      "beauty": "4",
+      "complexity": "3",
+      "difficulty": "2"
+    },
+    "review": "Con questo percorso abbiamo appreso meglio la zona di Oltrecastello. Facili le sfide e sostenibile lo sforzo fisico."
+  },
+  {
+    "path": 3,
+    "team": 2,
+    "vote": {
+      "beauty": "3",
+      "complexity": "3",
+      "difficulty": "5"
+    },
+    "review": "Temevamo di incontrare l'orso! Fortunatamente non ci sono stati strani incontri, ma abbiamo fatto un po' di fatica a causa del freddo."
+  },
+  {
+    "path": 3,
+    "team": 3,
+    "vote": {
+      "beauty": "4",
+      "complexity": "3",
+      "difficulty": "1"
+    },
+    "review": "Oggi abbiamo visitato le interessanti trincee di Sorasass, davvero interessanti."
+  }
+]
