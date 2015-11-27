@@ -64,27 +64,27 @@
         this.lengthClasses= [
             {
                 id : 0,
-                value : [0,1000000],
+                value : [0,10000000000],
                 label : "qualsiasi"
             },
             {
                 id : 1,
-                value : [0,1],
+                value : [0,1000],
                 label : " < 1 Km"
             },
             {
                 id : 2,
-                value : [1,5],
+                value : [1000,5000],
                 label : " 1 Km - 5 Km"
             },
             {
                 id : 3,
-                value : [5,10],
+                value : [5000,10000],
                 label : " 5 Km - 10 Km"
             },
             {
                 id : 4,
-                value : [10,100000],
+                value : [10000,1000000000],
                 label : " > 10 Km"
             }
         ];
@@ -95,7 +95,7 @@
         },function(){console.log("ERROR");})
         this.duration = 0;
         this.length = 0;
-        this.terrainType = 0;
+        this.terrainType = "qualsiasi";
 
         this.location =
         {
@@ -108,24 +108,30 @@
 
         this.markers = [];
 
+        this.lastQuery={};
+
 
         navigator.geolocation.getCurrentPosition(function (position) {
             scope.location = {latitude: position.coords.latitude, longitude: position.coords.longitude};
             scope.zoom = 11;
             $scope.$apply();
 
+            scope.updateAddressFromLocation();
+
+            scope.updateData();
+        });
+
+        this.updateAddressFromLocation = function(){
             var latlng = new google.maps.LatLng(scope.location.latitude, scope.location.longitude);
             scope.geocoder.geocode({'latLng': latlng}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        scope.address = results[0].formatted_address;
+                    if (results[1]) {
+                        scope.address = results[1].formatted_address;
                         $scope.$apply();
                     }
                 }
             });
-
-            scope.updateData();
-        });
+        }
 
         uiGmapGoogleMapApi.then(function (maps) {
             scope.geocoder = new google.maps.Geocoder();
@@ -144,8 +150,7 @@
             }
         }
 
-        scope.updateAddress = function () {
-            scope.zoom = 11;
+        scope.updateLocationFromAddress = function () {
             scope.geocoder.geocode({"address": scope.address}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
                     scope.location.latitude = results[0].geometry.location.lat();
@@ -154,7 +159,6 @@
                     $scope.$apply();
                 }
             });
-            scope.updateData();
         };
 
         scope.updateData = function () {
@@ -179,23 +183,24 @@
                     }
                 }
             };
-            if(scope.terrainType!=0)
+            if(scope.terrainType!="qualsiasi")
             {
-                query.where["locationData.terrainType"] = {_id: scope.terrainType };
+                query.where["pathData.terrainType"] = scope.terrainType ;
+            }
+            if(query!=scope.lastQuery){
+                console.log(query);
+                Path.get(query,
+                    function (path) {
+                        console.log(path._items);
+                        scope.paths = path._items;
+                        scope.markers=[];
+                        scope.updateMarkers();
+                    }, function () {
+                        console.log("FAIL");
+                    });
+                scope.lastQuery = query;
             }
 
-
-
-            console.log(query);
-            Path.get(query,
-                function (path) {
-                    console.log(path._items);
-                    scope.paths = path._items;
-                    scope.markers=[];
-                    scope.updateMarkers();
-                }, function () {
-                    console.log("FAIL");
-                });
         }
 
     }]);

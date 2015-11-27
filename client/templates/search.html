@@ -42,7 +42,7 @@ url: /paths
                             <div layout>
                                 <div flex layout="column" layout-align="center center">
                                     <strong>Lunghezza percorso</strong>
-                                    <md-radio-group ng-model="pathsCtrl.length">
+                                    <md-radio-group ng-model="pathsCtrl.length" ng-click="pathsCtrl.updateData()">
                                         <md-radio-button value="{{lengthClass.id}}"
                                                          ng-repeat="lengthClass in pathsCtrl.lengthClasses">
                                             {{lengthClass.label}}
@@ -56,8 +56,8 @@ url: /paths
                         <md-card-content>
                             <div flex layout="column" layout-align="center center">
                                 <strong>Tipologia di terreno</strong>
-                                <md-radio-group ng-model="pathsCtrl.terrainType">
-                                    <md-radio-button value="{{terrain._id}}"
+                                <md-radio-group ng-model="pathsCtrl.terrainType" ng-click="pathsCtrl.updateData()">
+                                    <md-radio-button value="{{terrain.type}}"
                                                      ng-repeat="terrain in pathsCtrl.terrainTypes | orderBy: '_id'">
                                         {{terrain.type}}
                                     </md-radio-button>
@@ -69,9 +69,9 @@ url: /paths
                         <md-card-content>
                             <div flex layout="column" layout-align="center center">
                                 <strong>Durata</strong>
-                                <md-radio-group ng-model="pathsCtrl.duration">
+                                <md-radio-group ng-model="pathsCtrl.duration" ng-click="pathsCtrl.updateData()">
                                     <md-radio-button value="{{durationClass.id}}"
-                                                     ng-repeat="durationClass in pathsCtrl.durationClasses">
+                                                     ng-repeat="durationClass in pathsCtrl.durationClasses" >
                                         {{durationClass.label}}
                                     </md-radio-button>
                                 </md-radio-group>
@@ -82,11 +82,11 @@ url: /paths
                 <div flex="10"></div>
             </div>
             <div layout layout-fill layout-align="center">
-                <md-button class="md-raised md-warn" ng-click="pathsCtrl.updateAddress()">Cerca</md-button>
+                <md-button class="md-raised md-warn" ng-click="pathsCtrl.updateLocationFromAddress(); pathsCtrl.updateData();">Cerca</md-button>
             </div>
             </form>
         </div>
-    <div class="searchMap centered-image">
+    <div class="searchMap centered-image" ng-mouseup="pathsCtrl.updateData()">
         <md-card flex="70">
             <md-card-content>
                 <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' class="searchMap">
