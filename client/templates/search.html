@@ -1,6 +1,6 @@
 ---
 name: search
-url: /search
+url: /paths
 ---
 
 <div ng-controller="pathsController as pathsCtrl">
@@ -86,29 +86,7 @@ url: /search
             </div>
             </form>
         </div>
-    <md-fab-toolbar md-open="false">
-        <md-fab-trigger class="align-with-text">
-            <md-button aria-label="menu" class="md-fab md-primary">
-                <md-icon
-                        md-svg-src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRdV1esCGOnbif0hW5n8ysKeeP8HmwGzAQ8jMibdjUBgd_U7Iah3Q"></md-icon>
-            </md-button>
-        </md-fab-trigger>
-
-        <md-toolbar>
-            <md-fab-actions class="md-toolbar-tools">
-                <md-button aria-label="comment" class="md-icon-button">
-                    <md-icon md-svg-src="img/icons/ic_comment_24px.svg"></md-icon>
-                </md-button>
-                <md-button aria-label="label" class="md-icon-button">
-                    <md-icon md-svg-src="img/icons/ic_label_24px.svg"></md-icon>
-                </md-button>
-                <md-button aria-label="photo" class="md-icon-button">
-                    <md-icon md-svg-src="img/icons/ic_photo_24px.svg"></md-icon>
-                </md-button>
-            </md-fab-actions>
-        </md-toolbar>
-    </md-fab-toolbar>
-    <div class="centered-image">
+    <div class="searchMap centered-image">
         <md-card flex="70">
             <md-card-content>
                 <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' class="searchMap">
