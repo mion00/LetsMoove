@@ -1,11 +1,11 @@
 ---
-name: pathSearch
-url: /paths
+name: search
+url: /search
 ---
 
 <div ng-controller="pathsController as pathsCtrl">
-    <form>
         <div layout="column" layout-align="space-around center">
+            <form>
             <div layout layout-fill layout-align="center">
                 <h2>Cerca un percorso</h2>
             </div>
@@ -43,7 +43,10 @@ url: /paths
                                 <div flex layout="column" layout-align="center center">
                                     <strong>Lunghezza percorso</strong>
                                     <md-radio-group ng-model="pathsCtrl.length">
-                                        <md-radio-button value="{{lengthClass.id}}" ng-repeat="lengthClass in pathsCtrl.lengthClasses">{{lengthClass.label}}</md-radio-button>
+                                        <md-radio-button value="{{lengthClass.id}}"
+                                                         ng-repeat="lengthClass in pathsCtrl.lengthClasses">
+                                            {{lengthClass.label}}
+                                        </md-radio-button>
                                     </md-radio-group>
                                 </div>
                             </div>
@@ -81,32 +84,37 @@ url: /paths
             <div layout layout-fill layout-align="center">
                 <md-button class="md-raised md-warn" ng-click="pathsCtrl.updateAddress()">Cerca</md-button>
             </div>
+            </form>
         </div>
-    </form>
     <md-fab-toolbar md-open="false">
-    <md-fab-trigger class="align-with-text">
-        <md-button aria-label="menu" class="md-fab md-primary">
-            <md-icon md-svg-src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRdV1esCGOnbif0hW5n8ysKeeP8HmwGzAQ8jMibdjUBgd_U7Iah3Q"></md-icon>
-        </md-button>
-    </md-fab-trigger>
+        <md-fab-trigger class="align-with-text">
+            <md-button aria-label="menu" class="md-fab md-primary">
+                <md-icon
+                        md-svg-src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRdV1esCGOnbif0hW5n8ysKeeP8HmwGzAQ8jMibdjUBgd_U7Iah3Q"></md-icon>
+            </md-button>
+        </md-fab-trigger>
 
-    <md-toolbar>
-        <md-fab-actions class="md-toolbar-tools">
-            <md-button aria-label="comment" class="md-icon-button">
-                <md-icon md-svg-src="img/icons/ic_comment_24px.svg"></md-icon>
-            </md-button>
-            <md-button aria-label="label" class="md-icon-button">
-                <md-icon md-svg-src="img/icons/ic_label_24px.svg"></md-icon>
-            </md-button>
-            <md-button aria-label="photo" class="md-icon-button">
-                <md-icon md-svg-src="img/icons/ic_photo_24px.svg"></md-icon>
-            </md-button>
-        </md-fab-actions>
-    </md-toolbar>
-</md-fab-toolbar>
-    <div>
-        <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' class="searchMap">
-            <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
-        </ui-gmap-google-map>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <md-button aria-label="comment" class="md-icon-button">
+                    <md-icon md-svg-src="img/icons/ic_comment_24px.svg"></md-icon>
+                </md-button>
+                <md-button aria-label="label" class="md-icon-button">
+                    <md-icon md-svg-src="img/icons/ic_label_24px.svg"></md-icon>
+                </md-button>
+                <md-button aria-label="photo" class="md-icon-button">
+                    <md-icon md-svg-src="img/icons/ic_photo_24px.svg"></md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+    <div class="centered-image">
+        <md-card flex="70">
+            <md-card-content>
+                <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' class="searchMap">
+                    <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
+                </ui-gmap-google-map>
+            </md-card-content>
+        </md-card>
     </div>
 </div>
