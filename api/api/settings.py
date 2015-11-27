@@ -16,6 +16,8 @@ URL_PREFIX = "api"
 XML = False
 EXTENDED_MEDIA_INFO = ['content_type']
 
+CACHE_CONTROL = 'no-cache'
+
 DOMAIN = {
     'terrainTypes': res.terrainTypes,
     'paths': res.paths,
