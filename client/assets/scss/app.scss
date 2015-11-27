@@ -9,9 +9,13 @@
   height: 100%;
 }
 
-.descriptionMap .angular-google-map-container { height: 540px; width: 500px; }
-.searchMap .angular-google-map-container { height: 700px; }
+//.descriptionMap .angular-google-map-container { height: 540px; width: 500px; }
+.angular-google-map-container {
+  height: 500px;
+  width: 100%;
+}
 
+//
 .dialogdemoBasicUsage #popupContainer {
   position: relative; }
 .dialogdemoBasicUsage .footer {
