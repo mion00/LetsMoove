@@ -3,10 +3,10 @@ name: pathDetails
 url: /paths/:pathId
 ---
 
-<div layout="row" layout-align="space-around center" ng-controller="pathDetailsController as pathController">
-    <div layout="column" layout-margin>
-        <div layout="row" layout layout-align="center">
-            <md-card flex="50">
+<div layout="column" ng-controller="pathDetailsController as pathController">
+
+    <div layout>
+        <md-card flex>
                 <md-card-title>
                     <md-card-title-text>
                         <div layout="row">
@@ -28,7 +28,7 @@ url: /paths/:pathId
                     <p class="italic">{{pathController.path.description}}</p>
                 </md-card-content>
             </md-card>
-            <md-card>
+        <md-card flex>
                 <md-content style="overflow: visible;">
                     <md-list>
                         <md-list-item class="md-3-line">
@@ -61,10 +61,9 @@ url: /paths/:pathId
             </md-card>
         </div>
 
-        <div layout layout-align="center" layout-md="column" layout-sm="column">
-            <md-card flex layout-align="center center">
-                <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'
-                                    layout-fill>
+    <div layout layout-md="column" layout-sm="column">
+        <md-card flex style="min-height: 20rem;">
+            <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
                     <ui-gmap-marker idKey='1' coords='pathController.marker.coordinates' options="pathController.marker.options">
                     </ui-gmap-marker>
                 </ui-gmap-google-map>
@@ -174,5 +173,5 @@ url: /paths/:pathId
                 </md-content>
             </md-card>
         </div>
-    </div>
+
 </div>
