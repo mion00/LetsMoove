@@ -4,12 +4,12 @@ url: /paths
 ---
 
 <div ng-controller="pathsController as pathsCtrl">
-        <div layout="column" layout-align="space-around center">
-            <form>
-            <div layout layout-fill layout-align="center">
+    <div layout="column" layout-align="space-around center">
+        <form>
+            <div layout layout-align="center">
                 <h2>Cerca un percorso</h2>
             </div>
-            <div layout layout-fill id="searchInput">
+            <div layout id="searchInput">
                 <div flex="33"></div>
                 <div flex="33">
                     <md-input-container>
@@ -22,19 +22,19 @@ url: /paths
                             <md-slider flex min="1" max="100" ng-model="pathsCtrl.range" aria-label="red"
                                        id="red-slider"
                                        class></md-slider>
-                        </div>
+                    </div>
                         <div layout flex="33" layout-margin layout-align="center center">
                             <input min="0" max="100" flex type="number" ng-model="pathsCtrl.range" aria-label="red"
                                    aria-controls="red-slider">
                         </div>
-                    </div>
                 </div>
+            </div>
                 <div flex="33"></div>
             </div>
-            <div layout layout-fill layout-align="center">
+            <div layout layout-align="center">
                 <h3>Aggiungi dei filtri alla ricerca</h3>
             </div>
-            <div layout layout-fill id="filters">
+            <div layout id="filters">
                 <div flex="10"></div>
                 <div layout flex="80" layout-align="center">
                     <md-card>
@@ -78,21 +78,19 @@ url: /paths
                             </div>
                         </md-card-content>
                     </md-card>
-                </div>
+            </div>
                 <div flex="10"></div>
             </div>
-            <div layout layout-fill layout-align="center">
+            <div layout layout-align="center">
                 <md-button class="md-raised md-warn" ng-click="pathsCtrl.updateLocationFromAddress(); pathsCtrl.updateData();">Cerca</md-button>
             </div>
-            </form>
+        </form>
+        <div layout-fill layout-padding="" ng-mouseup="pathsCtrl.updateData()">
+
+
+            <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' flex>
+                <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
+            </ui-gmap-google-map>
         </div>
-    <div class="searchMap centered-image" ng-mouseup="pathsCtrl.updateData()">
-        <md-card flex="70">
-            <md-card-content>
-                <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom' class="searchMap">
-                    <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
-                </ui-gmap-google-map>
-            </md-card-content>
-        </md-card>
     </div>
 </div>

@@ -1,0 +1,88 @@
+---
+name: log
+url: /log
+---
+<div layout="row" layout-align="space-around center" ng-controller="pathDetailsController as pathController">
+    <div layout="column" layout-margin>
+        <h2>Logga la tua esperienza</h2>
+
+        <div layout="row" layout-align="center">
+            <md-card flex>
+                <md-card-title>
+                    <md-card-title-text>
+                        <div layout="row">
+                            <div flex="20" layout-margin>
+                                <img src="/assets/img/white-flag.jpg">
+                            </div>
+                            <div layout-margin>
+                                <span class="md-headline">Giro del Bondone{{pathController.path.name}}</span>
+
+                                <p>Creato da: {{pathController.path.owner}}</p>
+
+                                <p class="italic">{{pathController.path.subtitle}}</p>
+                            </div>
+                        </div>
+
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+        <form>
+            <div layout="column" layout-align="center">
+                <p>
+                    Esprimi un giudizio riguardo alla bellezza, alla complessità delle sfide
+                    e alla difficoltà fisica richiesta per completare il percorso.
+                </p>
+
+                <div layout layout-align="center">
+                    <md-card flex>
+                        <h3 align="center">Bellezza</h3>
+                        <md-card-content layout layout-align="center">
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            {{pathController.path.ownerVote.beauty}}
+                        </md-card-content>
+                    </md-card>
+                    <md-card flex>
+                        <h3 align="center">Complessità</h3>
+                        <md-card-content layout layout-align="center">
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            {{pathController.path.ownerVote.complexity}}
+                        </md-card-content>
+                    </md-card>
+                    <md-card flex>
+                        <h3 align="center">Difficoltà</h3>
+                        <md-card-content layout layout-align="center">
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            <i class="material-icons color-yellow">star_rate</i>
+                            {{pathController.path.ownerVote.difficulty}}
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
+            <div layout="column" layout-align="center">
+                <md-card>
+                    <p align="center">Racconta la tua esperienza</p>
+                    <md-card-content>
+                        <md-input-container>
+                            <textarea rows="4" cols="50"></textarea>
+                        </md-input-container>
+                    </md-card-content>
+                </md-card>
+            </div>
+            <div layout="row" layout-align="center" layout-margin>
+                <md-button flex="33" class="md-raised md-warn">Invia log</md-button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -61,14 +61,15 @@ url: /paths/:pathId
             </md-card>
         </div>
 
-        <div layout="row" layout layout-align="center" layout-md="column" layout-sm="column">
-            <md-card class="descriptionMap">
-                <ui-gmap-google-map class="descriptionMap" center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
+        <div layout layout-align="center" layout-md="column" layout-sm="column">
+            <md-card flex layout-align="center center">
+                <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'
+                                    layout-fill>
                     <ui-gmap-marker idKey='1' coords='pathController.marker.coordinates' options="pathController.marker.options">
                     </ui-gmap-marker>
                 </ui-gmap-google-map>
             </md-card>
-            <md-card>
+            <md-card flex>
                 <md-content>
                     <md-list>
                         <md-list-item class="md-3-line">
@@ -173,33 +174,5 @@ url: /paths/:pathId
                 </md-content>
             </md-card>
         </div>
-        <!--<div class="grid-block">-->
-
-
-            <!--<div class="grid-content">-->
-                <!--&lt;!&ndash;<img src="https://www.placehold.it/300x300" alt="Mappa">&ndash;&gt;-->
-                <!--<div class="grid-content">-->
-                    <!--<div class="grid-block vertical" style = "overflow-y: scroll; height: 400px">-->
-                        <!--<div class="grid-content" ng-repeat=" feedback in pathController.path.feedbacks">-->
-                            <!--<table>-->
-                                <!--<tr>-->
-                                    <!--<td>-->
-                                        <!--<img src="https://www.placehold.it/100x100">-->
-                                    <!--</td>-->
-                                    <!--<td>-->
-                                        <!--<div><b>{{feedback.user}}</b></div>-->
-                                        <!--<div>{{feedback.review}}</div>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
-                            <!--</table>-->
-                            <!--<div class="review">-->
-
-
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
 </div>
