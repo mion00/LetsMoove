@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-.angular-google-map-container { height: 700px; }
+.descriptionMap .angular-google-map-container { height: 540px; width: 500px; }
 
 .dialogdemoBasicUsage #popupContainer {
   position: relative; }
@@ -48,7 +48,7 @@ md-ink-bar {
 }
 
 .material-icons.color-yellow {
-  color: rgb(255, 250, 114);
+  color: #ffeb3b;
 }
 
 .material-icons.color-green {
@@ -61,4 +61,8 @@ md-ink-bar {
 
 .centered-image {
   text-align:-webkit-center;
+}
+
+.material-icons.color-light-yellow {
+  color: #fff9c4;
 }

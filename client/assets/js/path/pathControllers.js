@@ -2,18 +2,21 @@
  * Created by mion00 on 18/11/15.
  */
 (function () {
-    var app = angular.module('pathControllers', ['pathServices', 'ui.router', 'uiGmapgoogle-maps', 'terrainTypeServices']);
+    var app = angular.module('pathControllers', ['pathServices', 'ui.router', 'uiGmapgoogle-maps', 'terrainTypeServices', 'userServices']);
 
-    app.controller('pathListController', ['$scope', 'Path', function ($scope, Path) {
-        $scope.result = Path.query({where: {lastname: "doe"}});
-    }]);
-
-    app.controller('pathDetailsController', ['$stateParams', 'Path', 'uiGmapGoogleMapApi', function ($stateParams, Path, uiGmapGoogleMapApi) {
+    app.controller('pathDetailsController', ['$stateParams', 'Path', 'User','uiGmapGoogleMapApi', function ($stateParams, Path, User, uiGmapGoogleMapApi) {
         var scope = this;
 
         var callback = function (path) {
             scope.path = path;
-            scope.marker = jQuery.extend(true, {}, path.locationData.startPoint.coordinates);
+            scope.marker = {};
+             User.get({teamId:scope.path.owner, projection:{username : 1}},function(name){
+                 scope.path.owner=name.username;
+             },function(){
+                 console.log("FAIL");
+             })
+            scope.marker.coordinates = jQuery.extend(true, {}, path.locationData.startPoint);
+            scope.marker.options = {labelClass: 'marker_labels', labelAnchor: '10 60', labelContent: path.name}
         };
 
         var error = function () {
@@ -161,9 +164,9 @@
                         $near: {
                             $geometry: {
                                 type: "Point",
-                                coordinates: [scope.location.latitude, scope.location.longitude]
+                                coordinates: [scope.location.longitude, scope.location.latitude]
                             },
-                            $maxDistance: scope.range
+                            $maxDistance: scope.range*1000
                         }
                     },
                     "pathData.time": {
@@ -188,30 +191,7 @@
                 function (path) {
                     console.log(path._items);
                     scope.paths = path._items;
-                    scope.paths = [{
-                        name: "passeggiata fra i monti",
-                        locationData: {
-                            startPoint: {
-                                coordinates: [11, 46]
-                            }
-                        }
-                    },
-                        {
-                            name: "Il bosco dei misteri",
-                            locationData: {
-                                startPoint: {
-                                    coordinates: [11.2, 46.3]
-                                }
-                            }
-                        },
-                        {
-                            name: "Giro della pineta",
-                            locationData: {
-                                startPoint: {
-                                    coordinates: [10.8, 45.9]
-                                }
-                            }
-                        }];//to remove
+                    scope.markers=[];
                     scope.updateMarkers();
                 }, function () {
                     console.log("FAIL");

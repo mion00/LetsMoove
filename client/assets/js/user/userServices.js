@@ -30,6 +30,12 @@
         return service;
     }]);
 
+    app.factory('User', ['$resource', 'apiURL',function ($resource, apiURL) {
+            return $resource(apiURL.buildURL("teams/:teamId"), {}, {
+                query: {method: 'GET'}
+            });
+        }]);
+
     app.run(function ($rootScope, $state, AuthenticationService) {
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
                 if (toState.data.vars.authenticate && !AuthenticationService.userData.loggedIn){

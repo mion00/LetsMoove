@@ -14,20 +14,18 @@ url: /paths/:pathId
                                 <img src="/assets/img/white-flag.jpg">
                             </div>
                             <div layout-margin>
-                                <span class="md-headline">Percorso: Giro del Bondone{{pathController.path.name}}</span>
+                                <span class="md-headline">{{pathController.path.name}}</span>
 
-                                <p class="italic">Una semplice passeggiata nei dintorni di
-                                    Trento{{pathController.path.subtitle}}</p>
+                                <p class="italic">{{pathController.path.subtitle}}</p>
 
-                                <p>Creato da: Alessandro{{pathController.path.owner}}</p>
+                                <p>{{pathController.path.owner}}</p>
                             </div>
                         </div>
 
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
-                    <p class="italic">Il Bondone è la montagna di Trento. A inizio estate, la piccola area naturale
-                        protetta si trasforma in un tappeto di colori, formato da millioni di fiori alpini.</p>
+                    <p class="italic">{{pathController.path.description}}</p>
                 </md-card-content>
             </md-card>
             <md-card>
@@ -36,10 +34,8 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Bellezza</h3>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.beauty}}
+                                <i class="material-icons color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.beauty">star_rate</i>
+                                <i class="material-icons color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.beauty">star_rate</i>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -47,9 +43,8 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Complessità</h3>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.complexity}}
+                                <i class="material-icons color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.complexity">star_rate</i>
+                                <i class="material-icons color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.complexity">star_rate</i>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -57,12 +52,8 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Difficoltà</h3>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.difficulty}}
+                                <i class="material-icons color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.difficulty">star_rate</i>
+                                <i class="material-icons color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.difficulty">star_rate</i>
                             </div>
                         </md-list-item>
                     </md-list>
@@ -71,8 +62,11 @@ url: /paths/:pathId
         </div>
 
         <div layout="row" layout layout-align="center" layout-md="column" layout-sm="column">
-            <md-card class="centered-image">
-                    <img src="/assets/img/mappaPlaceholder.jpg" alt="Mappa" style="max-height: 544px;max-width: 544px;">
+            <md-card class="descriptionMap">
+                <ui-gmap-google-map class="descriptionMap" center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
+                    <ui-gmap-marker idKey='1' coords='pathController.marker.coordinates' options="pathController.marker.options">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
             </md-card>
             <md-card>
                 <md-content>
@@ -85,7 +79,7 @@ url: /paths/:pathId
                                     <div layout="column">
                                         <h3>Lunghezza</h3>
 
-                                        <p><strong class="italic">1300{{pathController.path.pathData.length}}</strong>
+                                        <p><strong class="italic">{{pathController.path.pathData.length}}</strong>
                                             metri</p>
                                     </div>
                                 </div>
@@ -101,7 +95,7 @@ url: /paths/:pathId
                                     <div layout="column">
                                         <h3>Altitudine</h3>
 
-                                        <p><strong class="italic">140{{pathController.path.pathData.altitude}}</strong>
+                                        <p><strong class="italic">{{pathController.path.pathData.altitude}}</strong>
                                             metri s.l.m.</p>
                                     </div>
                                 </div>
@@ -118,7 +112,7 @@ url: /paths/:pathId
                                         <h3>Differenza di altitudine</h3>
 
                                         <p><strong
-                                                class="italic">30{{pathController.path.ownerVote.altitudeDifference}}</strong>
+                                                class="italic">{{pathController.path.pathData.deltaAltitude}}</strong>
                                             m
                                         </p>
                                     </div>
@@ -136,7 +130,7 @@ url: /paths/:pathId
                                         <h3>Tipo di terreno</h3>
 
                                         <p><strong
-                                                class="italic">Sterrato{{pathController.path.ownerVote.terrainType}}</strong>
+                                                class="italic">{{pathController.path.pathData.terrainType}}</strong>
                                         </p>
                                     </div>
                                 </div>
@@ -152,7 +146,8 @@ url: /paths/:pathId
                                     <div layout="column">
                                         <h3>Percorso avventuroso</h3>
 
-                                        <p><strong class="italic">No{{pathController.path.ownerVote.adventure}}</strong>
+                                        <p><strong class="italic" ng-show="pathController.path.ownerVote.adventure">si</strong>
+                                            <strong class="italic" ng-hide="pathController.path.ownerVote.adventure">no</strong>
                                         </p>
                                     </div>
                                 </div>
@@ -168,7 +163,7 @@ url: /paths/:pathId
                                         <h3>Tempo stimato di completamento</h3>
 
                                         <p><strong
-                                                class="italic">130{{pathController.path.ownerVote.completementTime}}</strong>
+                                                class="italic">{{pathController.path.pathData.time}}</strong>
                                             minuti</p>
                                     </div>
                                 </div>
@@ -179,10 +174,7 @@ url: /paths/:pathId
             </md-card>
         </div>
         <!--<div class="grid-block">-->
-        <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
-            <ui-gmap-marker idKey='1' coords='pathController.marker'>
-            </ui-gmap-marker>
-        </ui-gmap-google-map>
+
 
             <!--<div class="grid-content">-->
                 <!--&lt;!&ndash;<img src="https://www.placehold.it/300x300" alt="Mappa">&ndash;&gt;-->
