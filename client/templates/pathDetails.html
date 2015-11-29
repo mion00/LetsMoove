@@ -3,39 +3,34 @@ name: pathDetails
 url: /paths/:pathId
 ---
 
-<div layout="column" ng-controller="pathDetailsController as pathController">
-
-    <div layout>
-        <md-card flex>
-                <md-card-title>
-                    <md-card-title-text>
-                        <div layout="row">
-                            <div flex="20" layout-margin>
-                                <img src="/assets/img/white-flag.jpg">
-                            </div>
-                            <div layout-margin>
-                                <span class="md-headline">{{pathController.path.name}}</span>
-
-                                <p class="italic">{{pathController.path.subtitle}}</p>
-
-                                <p>{{pathController.path.owner}}</p>
-                            </div>
-                        </div>
-
-                    </md-card-title-text>
-                </md-card-title>
+<div layout="row" layout-align="center center">
+    <div layout="column" ng-controller="pathDetailsController as pathController">
+        <div layout="row">
+            <md-card>
                 <md-card-content>
-                    <p class="italic">{{pathController.path.description}}</p>
+                    <div layout="row" layout-margin>
+                        <div>
+                            <img src="/assets/img/white-flag.jpg">
+                        </div>
+                        <div>
+                            <span class="md-headline">{{pathController.path.name}}</span>
+                            <p class="italic">{{pathController.path.subtitle}}</p>
+                            <p>Owner: {{pathController.path.owner}}</p>
+                        </div>
+                    </div>
+                    <p class="italic" style="max-width: 700px;">{{pathController.path.description}}</p>
                 </md-card-content>
             </md-card>
-        <md-card flex>
+            <md-card>
                 <md-content style="overflow: visible;">
                     <md-list>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Bellezza</h3>
-                                <i class="material-icons color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.beauty">star_rate</i>
-                                <i class="material-icons color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.beauty">star_rate</i>
+                                <i class="material-icons color-yellow"
+                                   ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.beauty">star_rate</i>
+                                <i class="material-icons color-light-yellow"
+                                   ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.beauty">star_rate</i>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -43,8 +38,10 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Complessità</h3>
-                                <i class="material-icons color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.complexity">star_rate</i>
-                                <i class="material-icons color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.complexity">star_rate</i>
+                                <i class="material-icons color-yellow"
+                                   ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.complexity">star_rate</i>
+                                <i class="material-icons color-light-yellow"
+                                   ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.complexity">star_rate</i>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -52,8 +49,10 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Difficoltà</h3>
-                                <i class="material-icons color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.difficulty">star_rate</i>
-                                <i class="material-icons color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.difficulty">star_rate</i>
+                                <i class="material-icons color-yellow"
+                                   ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.difficulty">star_rate</i>
+                                <i class="material-icons color-light-yellow"
+                                   ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.difficulty">star_rate</i>
                             </div>
                         </md-list-item>
                     </md-list>
@@ -61,14 +60,17 @@ url: /paths/:pathId
             </md-card>
         </div>
 
-    <div layout layout-md="column" layout-sm="column">
-        <md-card flex style="min-height: 20rem;">
-            <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
-                    <ui-gmap-marker idKey='1' coords='pathController.marker.coordinates' options="pathController.marker.options">
-                    </ui-gmap-marker>
-                </ui-gmap-google-map>
-            </md-card>
+        <div layout="row" layout-md="column" layout-sm="column">
             <md-card flex>
+                <md-card-content flex>
+                    <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
+                        <ui-gmap-marker idKey='1' coords='pathController.marker.coordinates'
+                                        options="pathController.marker.options">
+                        </ui-gmap-marker>
+                    </ui-gmap-google-map>
+                </md-card-content>
+            </md-card>
+            <md-card>
                 <md-content>
                     <md-list>
                         <md-list-item class="md-3-line">
@@ -146,8 +148,10 @@ url: /paths/:pathId
                                     <div layout="column">
                                         <h3>Percorso avventuroso</h3>
 
-                                        <p><strong class="italic" ng-show="pathController.path.ownerVote.adventure">si</strong>
-                                            <strong class="italic" ng-hide="pathController.path.ownerVote.adventure">no</strong>
+                                        <p><strong class="italic"
+                                                   ng-show="pathController.path.ownerVote.adventure">si</strong>
+                                            <strong class="italic"
+                                                    ng-hide="pathController.path.ownerVote.adventure">no</strong>
                                         </p>
                                     </div>
                                 </div>
@@ -173,5 +177,5 @@ url: /paths/:pathId
                 </md-content>
             </md-card>
         </div>
-
+    </div>
 </div>

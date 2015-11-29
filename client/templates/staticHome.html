@@ -3,12 +3,12 @@ name: staticHome
 url: /
 ---
 
-<div layout="row" layout-align="space-around center">
-    <div layout="column" layout-margin>
-        <div style="text-align:-webkit-center;">
+<div layout="row" layout-align="center center">
+    <div layout="column">
+        <div class="centered-image">
             <img src="/assets/img/BannerStaticHome.jpg" style="max-width:100%">
         </div>
-        <div layout="row" layout-md="column" layout-sm="column" layout-margin layout-align="center">
+        <div layout="row" layout-md="column" layout-sm="column">
             <div flex>
                 <md-card>
                     <md-card-content class="home-card">
@@ -62,8 +62,7 @@ url: /
                 </md-card>
             </div>
         </div>
-        <div layout="row" layout-margin layout-align="center">
-
+        <div layout="row" layout-align="center center">
             <div ng-include="'/templates/signup.html'"></div>
         </div>
     </div>
