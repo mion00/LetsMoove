@@ -95,6 +95,7 @@ url: /insert
                                                 </div>
                                             </div>
                                         </div>
+                                        <md-divider hide show-sm></md-divider>
                                     </md-list-item>
                                 </md-list>
                             </div>
@@ -168,7 +169,7 @@ url: /insert
             <div>
                 <md-card>
                     <md-card-content>
-                        <md-input-container>
+                        <md-input-container style="width:100%;">
                             <label>Descrizione</label>
                                 <textarea ng-model="path.description" columns="10" md-maxlength="300"
                                           rows="5"></textarea>
@@ -179,40 +180,40 @@ url: /insert
             <div>
                 <md-card>
                     <md-card-content layout="row">
-                        <div layout="column" flex>
+                        <div layout="column" style="text-align:center" flex>
                             <label align="center">Bellezza</label>
 
-                            <div layout-align="center center" layout="row" layout-sm="column" style="text-align:center">
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
+                            <div layout-align="center center" layout="row" layout-sm="column">
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
                                 {{pathController.path.ownerVote.beauty}}
                             </div>
                         </div>
-                        <div layout="column" flex>
+                        <div layout="column" style="text-align:center" flex>
                             <label align="center">Complessità</label>
 
-                            <div layout-align="center center" layout="row" layout-sm="column" style="text-align:center">
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.beauty}}
+                            <div layout-align="center center" layout="row" layout-sm="column">
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                {{pathController.path.ownerVote.complexity}}
                             </div>
                         </div>
-                        <div layout="column" flex>
+                        <div layout="column" style="text-align:center" flex>
                             <label align="center">Difficoltà</label>
 
-                            <div layout-align="center center" layout="row" layout-sm="column" style="text-align:center">
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.beauty}}
+                            <div layout-align="center center" layout="row" layout-sm="column">
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                {{pathController.path.ownerVote.difficulty}}
                             </div>
                         </div>
                     </md-card-content>

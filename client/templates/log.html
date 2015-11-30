@@ -12,7 +12,7 @@ url: /log
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
-                <div layout="row" layout-margin>
+                <div layout="row" layout-margin style="overflow:auto;">
                     <div>
                         <img src="/assets/img/white-flag.jpg">
                     </div>
@@ -35,16 +35,16 @@ url: /log
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
-                    <div layout="row">
+                    <div layout="row" layout-sm="column">
                         <div layout="column" flex>
                             <h2 align="center">Bellezza</h2>
 
                             <div layout="row" layout-align="center center">
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
                                 {{pathController.path.ownerVote.beauty}}
                             </div>
                         </div>
@@ -52,24 +52,24 @@ url: /log
                             <h2 align="center">Complessità</h2>
 
                             <div layout="row" layout-align="center center">
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.beauty}}
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                {{pathController.path.ownerVote.complexity}}
                             </div>
                         </div>
                         <div layout="column" flex>
                             <h2 align="center">Difficoltà</h2>
 
                             <div layout="row" layout-align="center center">
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                <i class="material-icons color-yellow">star_rate</i>
-                                {{pathController.path.ownerVote.beauty}}
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                <md-icon class="color-yellow star">star_rate</md-icon>
+                                {{pathController.path.ownerVote.difficulty}}
                             </div>
                         </div>
                     </div>

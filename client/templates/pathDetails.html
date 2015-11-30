@@ -5,7 +5,7 @@ url: /paths/:pathId
 
 <div layout="row" layout-align="center center">
     <div layout="column" ng-controller="pathDetailsController as pathController">
-        <div layout="row">
+        <div layout="row" layout-sm="column">
             <md-card>
                 <md-card-content>
                     <div layout="row" layout-margin>
@@ -14,23 +14,37 @@ url: /paths/:pathId
                         </div>
                         <div>
                             <span class="md-headline">{{pathController.path.name}}</span>
+
                             <p class="italic">{{pathController.path.subtitle}}</p>
+
                             <p>Owner: {{pathController.path.owner}}</p>
                         </div>
                     </div>
-                    <p class="italic" style="max-width: 700px;">{{pathController.path.description}}</p>
+                    <div layout="column">
+                        <p class="italic" style="max-width: 700px;">{{pathController.path.description}}</p>
+
+                        <div layout="row" layout-align="center center">
+                            <md-button class="md-raised md-primary">
+                                <a class="button" ng-click="log()">Completato? Logga!</a>
+                            </md-button>
+                        </div>
+                    </div>
                 </md-card-content>
             </md-card>
-            <md-card>
+            <md-card style="min-width:156px;">
                 <md-content style="overflow: visible;">
                     <md-list>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Bellezza</h3>
-                                <i class="material-icons color-yellow"
-                                   ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.beauty">star_rate</i>
-                                <i class="material-icons color-light-yellow"
-                                   ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.beauty">star_rate</i>
+                                <md-icon class="color-yellow"
+                                         ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.beauty">
+                                    star_rate
+                                </md-icon>
+                                <md-icon class="color-yellow"
+                                         ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.beauty">
+                                    star_rate
+                                </md-icon>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -38,10 +52,14 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Complessità</h3>
-                                <i class="material-icons color-yellow"
-                                   ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.complexity">star_rate</i>
-                                <i class="material-icons color-light-yellow"
-                                   ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.complexity">star_rate</i>
+                                <md-icon class="color-yellow"
+                                         ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.complexity">
+                                    star_rate
+                                </md-icon>
+                                <md-icon class="color-yellow"
+                                         ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.complexity">
+                                    star_rate
+                                </md-icon>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -49,10 +67,14 @@ url: /paths/:pathId
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
                                 <h3>Difficoltà</h3>
-                                <i class="material-icons color-yellow"
-                                   ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.difficulty">star_rate</i>
-                                <i class="material-icons color-light-yellow"
-                                   ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.difficulty">star_rate</i>
+                                <md-icon class="color-yellow"
+                                         ng-repeat="i in [1,2,3,4,5] | limitTo: pathController.path.ownerVote.difficulty">
+                                    star_rate
+                                </md-icon>
+                                <md-icon class="color-yellow"
+                                         ng-repeat="i in [1,2,3,4,5] | limitTo: 5-pathController.path.ownerVote.difficulty">
+                                    star_rate
+                                </md-icon>
                             </div>
                         </md-list-item>
                     </md-list>
