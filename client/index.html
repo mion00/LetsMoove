@@ -16,10 +16,11 @@
 
     <title>Let's Moove</title>
 </head>
-<body>
-    <letsmoove-header></letsmoove-header>
+<body layout="column">
 
-    <div style="overflow:hidden" ui-view layout-margin></div>
+<letsmoove-header layout="row"></letsmoove-header>
+
+<div ui-view layout-margin layout="column" layout-align="center center"></div>
 
     <letsmoove-footer></letsmoove-footer>
 
