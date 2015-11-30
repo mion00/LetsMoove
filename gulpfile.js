@@ -27,7 +27,7 @@ var paths = {
     // Sass will check these folders for files when you use @import.
     sass: [
         'client/assets/scss',
-        //'bower_components/foundation-apps/scss',
+        'bower_components/foundation-apps/scss/vendor',
         'bower_components/slick-carousel/slick',
         'bower_components/angular-material'
     ],

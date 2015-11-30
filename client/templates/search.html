@@ -17,16 +17,16 @@ url: /search
                             </md-input-container>
                         </div>
                         Inserisci un raggio di ricerca in km
-                        <div layout="row" layout-align="center space-between">
-                            <div flex="80">
-                                <md-slider min="1" max="100" ng-model="pathsCtrl.range" aria-label="red"
+                        <md-input-container layout="row">
+
+                            <md-slider flex="50" min="1" max="100" ng-model="pathsCtrl.range" aria-label="red"
                                            id="red-slider"></md-slider>
-                            </div>
-                            <div flex="20">
-                                <input min="0" max="100" flex type="number" ng-model="pathsCtrl.range" aria-label="red"
+
+                            <input flex="50" min="0" max="100" flex type="number" ng-model="pathsCtrl.range"
+                                   aria-label="red"
                                        aria-controls="red-slider">
-                            </div>
-                        </div>
+
+                        </md-input-container>
                     </div>
                 </md-card-content>
             </md-card>
