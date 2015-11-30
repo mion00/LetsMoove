@@ -10,7 +10,9 @@
     "slick-carousel": "~1.5.8",
     "angular-google-maps": "2.2.1",
     "angular-material": "1.0.0-rc5",
-    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e"
+    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e",
+    "angular-mocks": "~1.4.x",
+    "jasmine":"~2.3.2"
   },
   "private": true,
   "resolutions": {

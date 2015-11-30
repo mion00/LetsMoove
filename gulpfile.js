@@ -1,4 +1,4 @@
-// FOUNDATION FOR APPS TEMPLATE GULPFILE
+;// FOUNDATION FOR APPS TEMPLATE GULPFILE
 // -------------------------------------
 // This file processes all of the assets in the "client" folder, combines them with the Foundation for Apps assets, and outputs the finished files in the "build" folder as a finished app.
 
@@ -18,6 +18,8 @@ var isProduction = !!(argv.production);
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
 var buildDir = "./build";
+var testDir = "./test";
+
 var paths = {
     assets: [
         './client/**/*.*',
@@ -56,8 +58,18 @@ var paths = {
     ],
     // These files are for your app's JavaScript
     appJS: [
-        'bower_components/slick-carousel/slick/slick.js',
         'client/assets/js/**/*.js'
+    ],
+    appTest: [
+        'client/assets/js/**/*.js',
+        '!client/assets/js/app.js'
+    ],
+    angularTest:[
+        'bower_components/jasmine/lib/jasmine-core/jasmine.js',
+        'bower_components/jasmine/lib/jasmine-core/jasmine-html.js',
+        'bower_components/jasmine/lib/jasmine-core/boot.js',
+        'bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js'
     ]
 }
 
@@ -66,7 +78,8 @@ var paths = {
 
 // Cleans the build directory
 gulp.task('clean', function (cb) {
-    rimraf(buildDir, cb);
+    rimraf(buildDir, function () {});
+    rimraf(testDir, cb);
 });
 
 // Copies everything in the client folder except templates, Sass, and JS
@@ -171,8 +184,34 @@ gulp.task('build', function (cb) {
     sequence('clean', ['copy', 'sass', 'uglify'], 'copy:templates', cb);
 });
 
+gulp.task('appTest', function(cb) {
+    gulp.src(paths.appTest)
+        .pipe($.concat('app.js'))
+        .pipe(gulp.dest(testDir))
+        ;
+    gulp.src('./bower_components/jasmine/lib/jasmine-core/jasmine.css')
+        .pipe(gulp.dest(testDir))
+    ;
+    gulp.src('./spec/*.js')
+        .pipe($.concat('spec.js'))
+        .pipe(gulp.dest(testDir))
+    ;
+    gulp.src('./spec/SpecRunner.html')
+        .pipe(gulp.dest(testDir))
+    ;
+    cb();
+});
+
+gulp.task('buildTest', ['clean', 'appTest'], function() {
+
+        return gulp.src(paths.angularTest, {})
+            .pipe($.concat('angular.js'))
+            .pipe(gulp.dest(testDir))
+            ;
+
+});
 // Default task: builds your app, starts a server, and recompiles assets when they change
-gulp.task('default', ['build'], function () {
+gulp.task('default', ['buildTest'], function () {
     // Watch Sass
     gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
 
@@ -184,4 +223,6 @@ gulp.task('default', ['build'], function () {
 
     // Watch app templates
     gulp.watch(['./client/templates/**/*.html'], ['copy:templates']);
+
+    gulp.watch(['./spec/*'], ['appTest']);
 });
