@@ -10,9 +10,13 @@
   height: 100%;
 }
 
+.home-photo {
+  max-width: 100%;
+}
 //.descriptionMap .angular-google-map-container { height: 540px; width: 500px; }
 .angular-google-map-container, .angular-google-map {
   min-height: 32rem;
+  height: 100%;
   width: 100%;
 }
 
