@@ -70,7 +70,8 @@ var paths = {
         'bower_components/jasmine/lib/jasmine-core/boot.js',
         'bower_components/angular/angular.js',
         'bower_components/angular-mocks/angular-mocks.js',
-        'bower_components/angular-resource/angular-resource.js'
+        'bower_components/angular-resource/angular-resource.js',
+        'spec/mocks/*.js'
     ]
 };
 
