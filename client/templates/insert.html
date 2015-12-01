@@ -32,7 +32,7 @@ url: /insert
             <div>
                 <md-card>
                     <md-card-content>
-                        <div layout="row" layout-sm="column">
+                        <div layout-gt-sm="row" layout-sm="column">
                             <div flex>
                                 <md-list>
                                     <md-list-item class="md-3-line">
@@ -179,11 +179,11 @@ url: /insert
             </div>
             <div>
                 <md-card>
-                    <md-card-content layout="row">
+                    <md-card-content layout-gt-sm="row" layout-sm="column">
                         <div layout="column" style="text-align:center" flex>
                             <label align="center">Bellezza</label>
 
-                            <div layout-align="center center" layout="row" layout-sm="column">
+                            <div layout-align="center center" layout="row">
                                 <md-icon class="color-yellow star">star_rate</md-icon>
                                 <md-icon class="color-yellow star">star_rate</md-icon>
                                 <md-icon class="color-yellow star">star_rate</md-icon>
@@ -195,7 +195,7 @@ url: /insert
                         <div layout="column" style="text-align:center" flex>
                             <label align="center">Complessità</label>
 
-                            <div layout-align="center center" layout="row" layout-sm="column">
+                            <div layout-align="center center" layout="row">
                                 <md-icon class="color-yellow star">star_rate</md-icon>
                                 <md-icon class="color-yellow star">star_rate</md-icon>
                                 <md-icon class="color-yellow star">star_rate</md-icon>
@@ -207,7 +207,7 @@ url: /insert
                         <div layout="column" style="text-align:center" flex>
                             <label align="center">Difficoltà</label>
 
-                            <div layout-align="center center" layout="row" layout-sm="column">
+                            <div layout-align="center center" layout="row">
                                 <md-icon class="color-yellow star">star_rate</md-icon>
                                 <md-icon class="color-yellow star">star_rate</md-icon>
                                 <md-icon class="color-yellow star">star_rate</md-icon>
@@ -232,7 +232,7 @@ url: /insert
                             <md-tabs md-dynamic-height md-border-bottom>
                                 <md-tab label="Inizio">
                                     <md-content>
-                                        <div layout="row" layout-sm="column">
+                                        <div layout-gt-sm="row" layout-sm="column">
                                             <md-input-container flex>
                                                 <label>Coordinata di inizio (N)</label>
                                                 <input type="text"
@@ -254,7 +254,7 @@ url: /insert
                                                 <label>Nome tappa</label>
                                                 <input type="text" ng-model="path.locationData.stages[0].name">
                                             </md-input-container>
-                                            <div layout="row" layout-sm="column">
+                                            <div layout-gt-sm="row" layout-sm="column">
                                                 <md-input-container flex>
                                                     <label>Coordinata tappa (N)</label>
                                                     <input type="text"
