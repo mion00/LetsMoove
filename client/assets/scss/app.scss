@@ -13,6 +13,7 @@
 .home-photo {
   max-width: 100%;
 }
+
 //.descriptionMap .angular-google-map-container { height: 540px; width: 500px; }
 .angular-google-map-container, .angular-google-map {
   min-height: 32rem;
@@ -21,19 +22,22 @@
 }
 
 .dialogdemoBasicUsage #popupContainer {
-  position: relative; }
+  position: relative;
+}
+
 .dialogdemoBasicUsage .footer {
   width: 100%;
   text-align: center;
-  margin-left: 20px; }
+  margin-left: 20px;
+}
 
 .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
   font-size: 0.8em;
-  margin-top: 50px; }
-
+  margin-top: 50px;
+}
 
 md-tab-item > span.ng-scope {
-  color:mediumblue;
+  color: mediumblue;
 }
 
 md-ink-bar {
@@ -68,7 +72,7 @@ md-ink-bar {
 }
 
 .centered-image {
-  text-align:center;
+  text-align: center;
 }
 
 .insert-input {
@@ -80,11 +84,17 @@ md-ink-bar {
 }
 
 .star {
-margin:0px;
-padding-right:8px;
+  margin: 0px;
+  padding-right: 8px;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
 }
 
 .spaced {
-  margin-left:5px;
-  margin-right:5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
