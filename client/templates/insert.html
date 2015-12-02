@@ -3,44 +3,39 @@ name: insert
 url: /insert
 ---
 
-
-<div layout="column" layout-margin ng-controller="pathInsertionController as insertionCtrl">
+<div layout="column" flex ng-controller="pathInsertionController as insertionCtrl">
     <form name="pathForm">
-        <div>
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <div layout="row">
-                            <div flex="20" layout-margin>
-                                <img src="/assets/img/white-flag.jpg">
-                            </div>
-                            <div layout-margin layout="column" flex="70">
-                                <md-input-container>
-                                    <label>Nome del percorso</label>
-                                    <input type="text" ng-model="insertionCtrl.path.name">
-                                </md-input-container>
-                                <md-input-container>
-                                    <label>Sottotitolo (opzionale)</label>
-                                    <input type="text" ng-model="insertionCtrl.path.subtitle">
-                                </md-input-container>
-                            </div>
-                        </div>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
-        </div>
-        <div>
+        <div layout="column" layout-align="center center">
+
             <md-card>
                 <md-card-content>
-                    <md-input-container style="width:100%;">
+                    <div layout="row">
+                        <div flex="20" layout-margin>
+                            <img class="responsive-img" src="/assets/img/white-flag.jpg">
+                        </div>
+                        <div layout-margin layout="column" flex="70">
+                            <md-input-container>
+                                <label>Nome del percorso</label>
+                                <input type="text" ng-model="insertionCtrl.path.name">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Sottotitolo (opzionale)</label>
+                                <input type="text" ng-model="insertionCtrl.path.subtitle">
+                            </md-input-container>
+                        </div>
+                            </div>
+                </md-card-content>
+            </md-card>
+
+            <md-card>
+                <md-card-content>
+                    <md-input-container>
                         <label>Descrizione</label>
-                                <textarea ng-model="path.description" columns="10" md-maxlength="300"
-                                          rows="5"></textarea>
+                        <textarea ng-model="path.description" columns="10" md-maxlength="300" rows="10"></textarea>
                     </md-input-container>
                 </md-card-content>
             </md-card>
-        </div>
-        <div>
+
             <md-card>
                 <md-card-content>
                     <div layout-gt-sm="row" layout-sm="column">
@@ -58,8 +53,8 @@ url: /insert
                                                         class="italic">{{insertionCtrl.path.pathData.length}}</strong>
                                                     metri</p>
                                             </div>
+                                            </div>
                                         </div>
-                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
 
@@ -75,8 +70,8 @@ url: /insert
                                                         class="italic">{{insertionCtrl.path.pathData.altitude}}</strong>
                                                     metri s.l.m.</p>
                                             </div>
+                                            </div>
                                         </div>
-                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
 
@@ -93,8 +88,8 @@ url: /insert
                                                     m
                                                 </p>
                                             </div>
+                                            </div>
                                         </div>
-                                    </div>
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -117,9 +112,9 @@ url: /insert
                                                         </md-option>
                                                     </md-select>
                                                 </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
 
@@ -135,9 +130,9 @@ url: /insert
                                                     <md-switch ng-model="insertionCtrl.path.pathData.adventure">
                                                     </md-switch>
                                                 </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
                                 <md-list-item class="md-3-line">
@@ -152,17 +147,15 @@ url: /insert
                                                         class="italic">{{insertionCtrl.path.pathData.time}}</strong>
                                                     minuti</p>
                                             </div>
+                                            </div>
                                         </div>
-                                    </div>
                                 </md-list-item>
                             </md-list>
                         </div>
-                    </div>
+                        </div>
                 </md-card-content>
             </md-card>
-        </div>
 
-        <div>
             <md-card>
                 <md-card-content layout-gt-sm="row" layout-sm="column">
                     <div layout="column" style="text-align:center" flex>
@@ -175,7 +168,7 @@ url: /insert
                                 star_rate
                             </md-icon>
                         </div>
-                    </div>
+                        </div>
                     <div layout="column" style="text-align:center" flex>
                         <label align="center">Complessità</label>
 
@@ -186,9 +179,10 @@ url: /insert
                                 star_rate
                             </md-icon>
                         </div>
-                    </div>
+                        </div>
                     <div layout="column" style="text-align:center" flex>
                         <label align="center">Difficoltà</label>
+
                         <div layout-align="center center" layout="row">
                             <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
                                      ng-click="insertionCtrl.path.ownerVote.difficulty=i"
@@ -196,74 +190,80 @@ url: /insert
                                 star_rate
                             </md-icon>
                         </div>
-                    </div>
+                        </div>
                 </md-card-content>
             </md-card>
-        </div>
-        <div>
-            <md-card>
-                <md-card-content>
-                    <md-toolbar>
-                        <div class="md-toolbar-tools">
-                            <label>Tappe</label>
-                            <span flex></span>
-                        </div>
-                    </md-toolbar>
-                    <md-dialog-content>
-                        <md-tabs md-dynamic-height md-border-bottom>
-                            <md-tab label="Inizio">
-                                <md-content>
-                                    <div layout-gt-sm="row" layout-sm="column">
-                                        <md-input-container flex>
-                                            <label>Coordinata di inizio (N)</label>
-                                            <input type="text"
-                                                   ng-model="path.locationData.stages[0].location.coordinates[0]">
-                                        </md-input-container>
-                                        <md-input-container flex>
-                                            <label>Coordinata di inizio (E)</label>
-                                            <input type="text"
-                                                   ng-model="path.locationData.stages[0].location.coordinates[1]">
-                                        </md-input-container>
-                                    </div>
-                                </md-content>
-                            </md-tab>
 
-                            <md-tab label="Tappa 1">
-                                <md-content>
-                                    <div layout="column" layout-align="center stretch">
-                                        <md-input-container>
-                                            <label>Nome tappa</label>
-                                            <input type="text" ng-model="path.locationData.stages[0].name">
-                                        </md-input-container>
-                                        <div layout-gt-sm="row" layout-sm="column">
-                                            <md-input-container flex>
-                                                <label>Coordinata tappa (N)</label>
-                                                <input type="text"
-                                                       ng-model="path.locationData.stages[0].location.coordinates[0]">
-                                            </md-input-container>
-                                            <md-input-container flex>
-                                                <label>Coordinata tappa (E)</label>
-                                                <input type="text"
-                                                       ng-model="path.locationData.stages[0].location.coordinates[1]">
-                                            </md-input-container>
-                                        </div>
-                                        <md-input-container>
-                                            <label>Domanda</label>
-                                            <input type="text"
-                                                   ng-model="path.locationData.stages[0].question">
-                                        </md-input-container>
-                                        <md-input-container>
-                                            <label>Risposta</label>
-                                            <input type="text"
-                                                   ng-model="path.locationData.stages[0].answer">
-                                        </md-input-container>
-                                    </div>
-                                </md-content>
-                            </md-tab>
-                        </md-tabs>
-                    </md-dialog-content>
-                </md-card-content>
+        </div>
+        <div layout="row" layout-align="center stretch">
+            <md-card flex>
+                <ui-gmap-google-map center="insertionCtrl.center"></ui-gmap-google-map>
+                <div class="list-results">
+
+                </div>
+                <!--<md-card-content>-->
+                <!--<md-toolbar>-->
+                <!--<div class="md-toolbar-tools">-->
+                <!--<label>Tappe</label>-->
+                <!--<span flex></span>-->
+                <!--</div>-->
+                <!--</md-toolbar>-->
+                <!--<md-dialog-content>-->
+                <!--<md-tabs md-dynamic-height md-border-bottom>-->
+                <!--<md-tab label="Inizio">-->
+                <!--<md-content>-->
+                <!--<div layout-gt-sm="row" layout-sm="column">-->
+                <!--<md-input-container flex>-->
+                <!--<label>Coordinata di inizio (N)</label>-->
+                <!--<input type="text"-->
+                <!--ng-model="path.locationData.stages[0].location.coordinates[0]">-->
+                <!--</md-input-container>-->
+                <!--<md-input-container flex>-->
+                <!--<label>Coordinata di inizio (E)</label>-->
+                <!--<input type="text"-->
+                <!--ng-model="path.locationData.stages[0].location.coordinates[1]">-->
+                <!--</md-input-container>-->
+                <!--</div>-->
+                <!--</md-content>-->
+                <!--</md-tab>-->
+
+                <!--<md-tab label="Tappa 1">-->
+                <!--<md-content>-->
+                <!--<div layout="column" layout-align="center stretch">-->
+                <!--<md-input-container>-->
+                <!--<label>Nome tappa</label>-->
+                <!--<input type="text" ng-model="path.locationData.stages[0].name">-->
+                <!--</md-input-container>-->
+                <!--<div layout-gt-sm="row" layout-sm="column">-->
+                <!--<md-input-container flex>-->
+                <!--<label>Coordinata tappa (N)</label>-->
+                <!--<input type="text"-->
+                <!--ng-model="path.locationData.stages[0].location.coordinates[0]">-->
+                <!--</md-input-container>-->
+                <!--<md-input-container flex>-->
+                <!--<label>Coordinata tappa (E)</label>-->
+                <!--<input type="text"-->
+                <!--ng-model="path.locationData.stages[0].location.coordinates[1]">-->
+                <!--</md-input-container>-->
+                <!--</div>-->
+                <!--<md-input-container>-->
+                <!--<label>Domanda</label>-->
+                <!--<input type="text"-->
+                <!--ng-model="path.locationData.stages[0].question">-->
+                <!--</md-input-container>-->
+                <!--<md-input-container>-->
+                <!--<label>Risposta</label>-->
+                <!--<input type="text"-->
+                <!--ng-model="path.locationData.stages[0].answer">-->
+                <!--</md-input-container>-->
+                <!--</div>-->
+                <!--</md-content>-->
+                <!--</md-tab>-->
+                <!--</md-tabs>-->
+                <!--</md-dialog-content>-->
+                <!--</md-card-content>-->
             </md-card>
         </div>
     </form>
+
 </div>
