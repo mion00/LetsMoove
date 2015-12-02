@@ -59,7 +59,7 @@ md-ink-bar {
   font-size: 24px;
 }
 
-.material-icons.color-yellow {
+.color-yellow {
   color: #ffeb3b;
 }
 
@@ -79,7 +79,7 @@ md-ink-bar {
   max-width: 150px;
 }
 
-.material-icons.color-light-yellow {
+.color-light-yellow {
   color: #fff9c4;
 }
 
@@ -92,9 +92,10 @@ md-ink-bar {
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+
 }
 
 .spaced {
-  margin-left: 5px;
+  margin-left: 3px;
   margin-right: 5px;
 }
