@@ -197,7 +197,17 @@ url: /insert
         </div>
         <div layout="row" layout-align="center stretch">
             <md-card flex layout="row">
-                <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" zoom="insertionCtrl.zoom">
+                <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" zoom="insertionCtrl.zoom"  events="{click:insertionCtrl.addClickMarker}">
+                    <ui-gmap-map-control
+                            template='templates/parts/button.tmpl.html'
+                            position="top-right"
+                            controller="stageInsertionController as stageIntertionCtrl">
+                    </ui-gmap-map-control>
+                    <ui-gmap-map-control
+                            template='templates/parts/searchBar.tmpl.html'
+                            position="top-center"
+                            controller="mapSearchController as mapSearchCtrl">
+                    </ui-gmap-map-control>
                     <ui-gmap-markers models='insertionCtrl.markers' coords="'self'" options="'options'" events="{dragend: insertionCtrl.computePathData}"></ui-gmap-markers>
                     <ui-gmap-polyline path='insertionCtrl.markers' icons="insertionCtrl.pathIcon"></ui-gmap-polyline>
                 </ui-gmap-google-map>
@@ -206,11 +216,9 @@ url: /insert
 
                         <md-list-item ng-repeat="stage in insertionCtrl.markers" layout="column">
                             <div layout="row">
-                                <md-input-container>
-                                    <label>Posizione o Coordinate</label>
-                                    <input ng-model="stage.address">
-                                </md-input-container>
-                                <md-button ng-click="stage.updateLocation()"> Cerca </md-button>
+
+                                    <h1>Tappa {{stage.id+1}}</h1>
+
                             </div>
                             <div layout="column">
                                 <md-input-container>
@@ -225,11 +233,6 @@ url: /insert
                             <md-divider></md-divider>
                         </md-list-item>
                     </md-content>
-
-                    <md-button class="md-fab md-primary" style="float: right;" ng-click="insertionCtrl.addNewStage()">
-                        <md-icon>add</md-icon>
-                    </md-button>
-
                 </div>
 
 

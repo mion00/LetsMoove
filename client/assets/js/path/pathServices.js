@@ -10,4 +10,20 @@
                 query: {method: 'GET'}
             });
         }]);
+
+    pathServices.factory('AddStage', ['$http',function ($http) {
+        var service = {
+            addMode: {
+                active: false
+            }
+        };
+           return service;
+        }]);
+
+    pathServices.factory('MapCenterService', [function () {
+        var service = {
+            center : {}
+        };
+        return service;
+    }]);
 })();

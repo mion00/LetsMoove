@@ -211,7 +211,7 @@
 
     }]);
 
-    app.controller('pathInsertionController', ['Path', 'TerrainType', 'uiGmapGoogleMapApi', '$scope', function (Path, TerrainType, uiGmapGoogleMapApi, $scope) {
+    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage','MapCenterService', 'uiGmapGoogleMapApi', '$scope', function (Path, TerrainType, AddStage, MapCenterService,uiGmapGoogleMapApi, $scope) {
         var scope = this;
 
         this.path = {
@@ -248,6 +248,7 @@
             type: "Point",
             coordinates: [0, 20]
         };
+        MapCenterService.center=scope.center;
         this.markers = [];
 
         this.terrainTypes = {};
@@ -269,54 +270,33 @@
             scope.geocoder = new google.maps.Geocoder();
             scope.distanceMatrix = new google.maps.DistanceMatrixService();
             scope.elevator = new google.maps.ElevationService;
-            //scope.updateMarkers(); //to remove
-            scope.computePathData();
             scope.pathIcon = [{
                 icon: {
                     path: google.maps.SymbolPath.FORWARD_OPEN_ARROW
                 },
             }];
+            console.log(scope);
+            google.maps.event.addListener(maps,"click", function(event) {
+
+
+            });
         });
 
-        this.updateMarkers = function () {
-            var stages = [{
-                location: {
-                    type: "Point",
-                    coordinates: [12, 46]
-                },
-                question: "",
-                answer: ""
-            },
-                {
-                    location: {
-                        type: "Point",
-                        coordinates: [12, 46.5]
-                    },
-                    question: "",
-                    answer: ""
-                },
-                {
-                    location: {
-                        type: "Point",
-                        coordinates: [12, 46.7]
-                    },
-                    question: "",
-                    answer: ""
-                }];
-            for (var i = 0; i < stages.length; i++) {
-                scope.markers.push(
-                    {
-                        id: i,
-                        latitude: stages[i].location.coordinates[1],
-                        longitude: stages[i].location.coordinates[0],
-                        title: (i + 1),
-                        options: {
-                            label: (""+(i+1)),
-                            draggable: true,
-                        }
-                    });
+        this.addClickMarker = function(map,eventName,params){
+            console.log(params[0]);
+            if(AddStage.addMode.active){
+                var lat = params[0].latLng.lat();
+                var lng = params[0].latLng.lng();
+                scope.addNewStage(params[0].latLng);
+                scope.computePathData();
+                AddStage.addMode.active=false;
+                $scope.$apply();
             }
-        }; //to remove
+        }
+
+        this.isAddModeActive = function(){
+            return AddStage.addMode.active;
+        };
 
         this.updateStagesFromMarkers = function () {
             for (var i = 0; i < scope.markers; i++) {
@@ -328,11 +308,13 @@
             this.path.locationData.startPoint = this.path.locationData.stages[0].location;
         };
 
-        this.addNewStage = function (){
+        this.addNewStage = function (location){
             var marker = {
                 address: "",
                 id: scope.markers.length,
                 title: scope.markers.length,
+                latitude: location.lat(),
+                longitude: location.lng(),
                 options: {
                     label: ""+(1+scope.markers.length),
                     draggable: true,
@@ -349,20 +331,19 @@
                         var meanLat = 0;
                         var meanLng = 0;
                         scope.markers.forEach(function(m){
-                            meanLat+= m.latitude/scope.markers.length;
-                            meanLng+= m.longitude/scope.markers.length;
+                            if(m.latitude){
+                                meanLat+= m.latitude/scope.markers.length;
+                                meanLng+= m.longitude/scope.markers.length;
+                            }
                         });
 
                         scope.center.coordinates[0]=meanLng;
                         scope.center.coordinates[1]=meanLat;
-
                         scope.zoom=15;
                         scope.computePathData();
                         $scope.$apply();
                     }
                 });
-
-
 
                 console.log(scope.center);
 
@@ -422,4 +403,20 @@
 
     }]);
 
+    app.controller('stageInsertionController', ['AddStage', function (AddStage){
+        this.clickNewStage = function() {
+            console.log("clicked");
+            AddStage.addMode.active = true;
+        }
+        this.isAddModeActive = function(){
+            return AddStage.addMode.active;
+        };
+    }]);
+
+    app.controller('mapSearchController', [function (){
+        var scope = this;
+        this.updateCenter = function(){
+            console.log(scope.address);
+        }
+    }]);
 }());
