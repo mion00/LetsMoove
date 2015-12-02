@@ -197,7 +197,10 @@ url: /insert
         </div>
         <div layout="row" layout-align="center stretch">
             <md-card flex>
-                <ui-gmap-google-map center="insertionCtrl.center"></ui-gmap-google-map>
+                <ui-gmap-google-map center="insertionCtrl.center" zoom="insertionCtrl.zoom">
+                    <ui-gmap-markers models='insertionCtrl.markers' coords="'self'" options="'options'" events="{dragend: insertionCtrl.computePathData}"></ui-gmap-markers>
+                    <ui-gmap-polyline path='insertionCtrl.markers' icons="insertionCtrl.pathIcon"></ui-gmap-polyline>
+                </ui-gmap-google-map>
                 <div class="list-results">
 
                 </div>
