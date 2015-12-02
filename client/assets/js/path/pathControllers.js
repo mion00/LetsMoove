@@ -252,14 +252,7 @@
         this.markers = [];
 
         this.terrainTypes = {};
-        TerrainType.get({}, function (terrainTypes) {
-                scope.terrainTypes = terrainTypes._items;
-                scope.path.pathData.terrainType = scope.terrainTypes[0].type;
-            },
-            function () {
-                console.log("ERROR");
-            }
-        );
+
 
         this.log = function () {
             console.log(scope);
@@ -270,6 +263,14 @@
             scope.geocoder = new google.maps.Geocoder();
             scope.distanceMatrix = new google.maps.DistanceMatrixService();
             scope.elevator = new google.maps.ElevationService;
+            TerrainType.get({}, function (terrainTypes) {
+                    scope.terrainTypes = terrainTypes._items;
+                    scope.path.pathData.terrainType = scope.terrainTypes[0].type;
+                },
+                function () {
+                    console.log("ERROR");
+                }
+            );
             scope.pathIcon = [{
                 icon: {
                     path: google.maps.SymbolPath.FORWARD_OPEN_ARROW
