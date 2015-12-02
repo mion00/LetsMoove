@@ -208,5 +208,131 @@
         }
       ]
     }
+  },
+  {
+    "name": "I laghi di Mantova - Lago Superiore",
+    "subtitle": "Un percorso che vi porta sulle sponde del lago Superiore, partendo in prossimità della Canottieri Mincio fino a Belfiore."
+    "description": "Il lago Superiore è il più grande dei tre per superficie e volume ed è regolato a una quota di 18 m s.l.m., circa tre metri più alta rispetto ai laghi Inferiore e di Mezzo al secondo dei quali è collegato attraverso il manufatto di sostegno del Vaso di Porto o Vasarone. Questa diga creò per invaso la formazione del lago Superiore allontanando il rischio dell'impaludamento.",
+    "owner": "1",
+    "ownerVote": {
+      "beauty": 5,
+      "complexity": 2,
+      "difficulty": 1
+    },
+    "pathData": {
+      "length": 3400,
+      "altitude": 20,
+      "deltaAltitude": 0,
+      "terrainType": "misto",
+      "adventure": false,
+      "time": 90
+    },
+    "logCount": 13,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          10.786650,
+          45.170797
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              10.786650,
+              45.170797
+            ]
+          },
+          "question": "Come si chiama il tipico fiore che compare in estate sulle rive del lago Superiore?",
+          "answer": "Fior di Loto"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La città dei Gonzaga",
+    "subtitle": "Mantova è una città del Rinascimento italiano e patrimonio mondiale dell'umanità dal 2008.",
+    "description": "Questo itinerario vi conduce per le splendide vie e piazze del centro storico, dandovi l'occasione di apprezzare i capolavori dell'architettura come il castello di San Giorgio, Palazzo Ducale, le Pescherie e Palazzo Te.",
+    "owner": "3",
+    "ownerVote": {
+      "beauty": 5,
+      "complexity": 3,
+      "difficulty": 3
+    },
+    "pathData": {
+      "length": 2800,
+      "altitude": 15,
+      "deltaAltitude": 0,
+      "terrainType": "asfaltato",
+      "adventure": false,
+      "time": 90
+    },
+    "logCount": 28,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          10.801186,
+          45.160908
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              10.801186,
+              45.160908
+            ]
+          },
+          "question": "In che anno si insediarono a Mantova i Gonzaga?",
+          "answer": "1328"
+        }
+      ]
+    }
+  },
+  {
+    "name": "La forra del Lupo",
+    "subtitle": "Nei pressi di Serrada, frazione di Folgaria, un percorso a tema sulle trincee della prima guerra mondiale.",
+    "description": "Sull’Altopiano di Folgaria un ulteriore tassello di memoria si aggiunge alle fortezze austroungariche e ad altre notevoli testimonianze della Grande Guerra in Trentino. É una lunga trincea di crinale, scavata tra alte pareti di roccia, fatta di feritoie, osservatori e caverne che si affacciano su strapiombi e ripidi pendii, in faccia al Pasubio, la montagna sacra della Grande Guerra.Era chiamata la “Forra del Lupo” (Wolfsschlucht) e da Serrada di Folgaria saliva fino al Forte austro-ungarico del Dosso delle Somme (Werk Serrada per gli austriaci), passando attraverso una serie di conformazioni rocciose.",
+    "owner": "2",
+    "ownerVote": {
+      "beauty": 3,
+      "complexity": 4,
+      "difficulty": 3
+    },
+    "pathData": {
+      "length": 4800,
+      "altitude": 1500,
+      "deltaAltitude": 460,
+      "terrainType": "sterrato",
+      "adventure": false,
+      "time": 200
+    },
+    "logCount": 14,
+    "locationData": {
+      "startPoint": {
+        "type": "Point",
+        "coordinates": [
+          11.176173,
+          45.888106
+        ]
+      },
+      "stages": [
+        {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              11.176173,
+              45.888106
+            ]
+          },
+          "question": "Come si chiama il paesino nella valle che si può vedere dal sentiero?",
+          "answer": "Terragnolo"
+        }
+      ]
+    }
   }
 ]
