@@ -204,32 +204,29 @@ url: /insert
                 <div layout="column" flex="33">
                     <md-content>
 
-                        <md-list-item ng-repeat="i in [1,2,3,4,5]" layout="column">
+                        <md-list-item ng-repeat="stage in insertionCtrl.markers" layout="column">
                             <div layout="row">
                                 <md-input-container>
-                                    <label>Latitudine</label>
-                                    <input disabled>
+                                    <label>Posizione o Coordinate</label>
+                                    <input ng-model="stage.address">
                                 </md-input-container>
-                                <md-input-container>
-                                    <label>Longitudine</label>
-                                    <input disabled>
-                                </md-input-container>
+                                <md-button ng-click="stage.updateLocation()"> Cerca </md-button>
                             </div>
                             <div layout="column">
                                 <md-input-container>
                                     <label>Domanda</label>
-                                    <input>
+                                    <input ng-model="stage.question">
                                 </md-input-container>
                                 <md-input-container>
                                     <label>Risposta</label>
-                                    <input>
+                                    <input ng-model="stage.answer">
                                 </md-input-container>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
                     </md-content>
 
-                    <md-button class="md-fab md-primary" style="float: right;">
+                    <md-button class="md-fab md-primary" style="float: right;" ng-click="insertionCtrl.addNewStage()">
                         <md-icon>add</md-icon>
                     </md-button>
 

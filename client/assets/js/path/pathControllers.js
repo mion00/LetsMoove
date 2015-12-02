@@ -232,7 +232,14 @@
             },
             locationData: {
                 startPoint: {},
-                stages: []
+                stages: [{
+                    location: {
+                        type: "Point",
+                        coordinates: []
+                    },
+                    question: "",
+                    answer: ""
+                }]
             }
 
         };
@@ -257,11 +264,12 @@
             console.log(scope);
         }
 
+
         uiGmapGoogleMapApi.then(function (maps) {
             scope.geocoder = new google.maps.Geocoder();
             scope.distanceMatrix = new google.maps.DistanceMatrixService();
             scope.elevator = new google.maps.ElevationService;
-            scope.updateMarkers(); //to remove
+            //scope.updateMarkers(); //to remove
             scope.computePathData();
             scope.pathIcon = [{
                 icon: {
@@ -320,6 +328,47 @@
             this.path.locationData.startPoint = this.path.locationData.stages[0].location;
         };
 
+        this.addNewStage = function (){
+            var marker = {
+                address: "",
+                id: scope.markers.length,
+                title: scope.markers.length,
+                options: {
+                    label: ""+(1+scope.markers.length),
+                    draggable: true,
+                }
+            };
+            marker.updateLocation = function(){
+
+                scope.geocoder.geocode({"address": marker.address}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+                        marker.latitude = results[0].geometry.location.lat();
+                        marker.longitude = results[0].geometry.location.lng();
+                        marker.address = results[0].formatted_address;
+                        console.log(results[0]);
+                        var meanLat = 0;
+                        var meanLng = 0;
+                        scope.markers.forEach(function(m){
+                            meanLat+= m.latitude/scope.markers.length;
+                            meanLng+= m.longitude/scope.markers.length;
+                        });
+
+                        scope.center.coordinates[0]=meanLng;
+                        scope.center.coordinates[1]=meanLat;
+
+                        scope.zoom=15;
+                        scope.computePathData();
+                        $scope.$apply();
+                    }
+                });
+
+
+
+                console.log(scope.center);
+
+            }
+            scope.markers.push(marker);
+        }
         this.computePathData = function () {
             var stages = scope.markers; // to update
             scope.path.pathData.length = 0;
