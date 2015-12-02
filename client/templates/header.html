@@ -11,19 +11,24 @@
                 Accedi
             </md-button>
 
-            <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.search()">
+            <md-button ng-show="user.userData.loggedIn" ui-sref="search">
+                <md-icon>search</md-icon>
                 Cerca
             </md-button>
-            <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.insert()">
+            <md-button ng-show="user.userData.loggedIn" ui-sref="insert">
+                <md-icon>add</md-icon>
                 Inserisci
             </md-button>
-            <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.log()">
+            <md-button ng-show="user.userData.loggedIn" ui-sref="log">
+                <md-icon>create</md-icon>
                 Logga
             </md-button>
-            <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.team()">
+            <md-button ng-show="user.userData.loggedIn" ui-sref="team">
+                <md-icon>account_circle</md-icon>
                 Profilo
             </md-button>
-            <md-button ng-show="user.userData.loggedIn" class="hide" ng-click="user.logout()">
+            <md-button ng-show="user.userData.loggedIn" ng-click="user.logout()">
+                <md-icon>exit_to_app</md-icon>
                 Log Out
             </md-button>
         </div>

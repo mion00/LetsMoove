@@ -6,7 +6,7 @@
     app.controller("loginController",["$state","AuthenticationService",function($state,AuthenticationService){
         this.doLogin = function () {
             var callback = function(result){
-                console.log(result);
+                //console.log(result);
                 if(result){
                     $state.transitionTo("userHome");
                 }
