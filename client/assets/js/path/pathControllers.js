@@ -213,8 +213,8 @@
             name: "",
             subtitle: "",
             description: "",
-            ownerVote :{
-                beauty : 1,
+            ownerVote: {
+                beauty: 1,
                 difficulty: 1,
                 complexity: 1
             },
@@ -223,9 +223,25 @@
                 altitude: 0,
                 deltaAltitude: 0,
                 adventure: false,
-                time : 0
+                time: 0
+            },
+            locationData: {
+                startPoint: {},
+                stages: [
+                    {
+                        location: {
+                            type: "Point",
+                            coordinates: []
+                        },
+                        question: "",
+                        answer: ""
+                    }
+                ]
             }
+
         };
+
+        this.path.locationData.startPoint = this.path.locationData.stages[0].location;
 
         this.terrainTypes = {};
         TerrainType.get({}, function (terrainTypes) {
@@ -240,6 +256,88 @@
         this.log = function () {
             console.log(scope);
         }
+
+        uiGmapGoogleMapApi.then(function (maps) {
+            scope.geocoder = new google.maps.Geocoder();
+            scope.distanceMatrix = new google.maps.DistanceMatrixService();
+            scope.elevator = new google.maps.ElevationService;
+            scope.computePathData();
+        });
+
+        this.computePathData = function () {
+            var stages = [
+                {
+                    location: {
+                        type: "Point",
+                        coordinates: [12,46]
+                    },
+                    question: "",
+                    answer: ""
+                },
+                {
+                    location: {
+                        type: "Point",
+                        coordinates: [12,46.5]
+                    },
+                    question: "",
+                    answer: ""
+                },
+                {
+                    location: {
+                        type: "Point",
+                        coordinates: [12,46.7]
+                    },
+                    question: "",
+                    answer: ""
+                }
+
+            ]; // to update
+            scope.path.length = 0;
+            scope.path.time = 0;
+            scope.path.altitude = 0;
+            for(var i=0;i<stages.length-1;i++){
+                var origin = {lat:stages[i].location.coordinates[1],lng:stages[i].location.coordinates[0]};
+                var destination = {lat:stages[i+1].location.coordinates[1],lng:stages[i+1].location.coordinates[0]};
+
+                scope.distanceMatrix.getDistanceMatrix({
+                    origins: [origin],
+                    destinations: [destination],
+                    travelMode: google.maps.TravelMode.WALKING,
+                    unitSystem: google.maps.UnitSystem.METRIC
+                }, function (response, status) {
+                    if (status !== google.maps.DistanceMatrixStatus.OK) {
+                        alert('Error was: ' + status);
+                    } else {
+                        if(response.rows.length==1){
+                            console.log(response.rows[0].elements[0]);
+                            scope.path.pathData.length += response.rows[0].elements[0].distance.value;
+                            scope.path.pathData.time += Math.floor(response.rows[0].elements[0].duration.value/60);
+                        } else {
+                            console.log("error");
+                        }
+
+                    }
+                });
+            }
+            var minh=10000000,maxh=-10000000;
+            for(var i=0;i<stages.length;i++) {
+                var stage = {lat:stages[i].location.coordinates[1],lng:stages[i].location.coordinates[0]};
+                scope.elevator.getElevationForLocations({
+                    'locations': [stage]
+                }, function (responce) {
+                    console.log(responce[0].elevation);
+                    if(responce[0].elevation<minh){
+                        minh=responce[0].elevation
+                    }
+                    if(responce[0].elevation>maxh){
+                        maxh=responce[0].elevation
+                    }
+                    scope.path.pathData.altitude += Math.floor(responce[0].elevation/stages.length);
+                    scope.path.pathData.deltaAltitude = Math.floor(maxh-minh);
+                });
+            }
+        };
+
     }]);
 
 }());
