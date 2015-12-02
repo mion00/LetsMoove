@@ -23,7 +23,7 @@ url: /insert
                                 <input type="text" ng-model="insertionCtrl.path.subtitle">
                             </md-input-container>
                         </div>
-                            </div>
+                    </div>
                 </md-card-content>
             </md-card>
 
@@ -53,8 +53,8 @@ url: /insert
                                                         class="italic">{{insertionCtrl.path.pathData.length}}</strong>
                                                     metri</p>
                                             </div>
-                                            </div>
                                         </div>
+                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
 
@@ -70,8 +70,8 @@ url: /insert
                                                         class="italic">{{insertionCtrl.path.pathData.altitude}}</strong>
                                                     metri s.l.m.</p>
                                             </div>
-                                            </div>
                                         </div>
+                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
 
@@ -88,8 +88,8 @@ url: /insert
                                                     m
                                                 </p>
                                             </div>
-                                            </div>
                                         </div>
+                                    </div>
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -112,9 +112,9 @@ url: /insert
                                                         </md-option>
                                                     </md-select>
                                                 </div>
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
 
@@ -130,9 +130,9 @@ url: /insert
                                                     <md-switch ng-model="insertionCtrl.path.pathData.adventure">
                                                     </md-switch>
                                                 </div>
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
                                     <md-divider></md-divider>
                                 </md-list-item>
                                 <md-list-item class="md-3-line">
@@ -147,12 +147,12 @@ url: /insert
                                                         class="italic">{{insertionCtrl.path.pathData.time}}</strong>
                                                     minuti</p>
                                             </div>
-                                            </div>
                                         </div>
+                                    </div>
                                 </md-list-item>
                             </md-list>
                         </div>
-                        </div>
+                    </div>
                 </md-card-content>
             </md-card>
 
@@ -168,7 +168,7 @@ url: /insert
                                 star_rate
                             </md-icon>
                         </div>
-                        </div>
+                    </div>
                     <div layout="column" style="text-align:center" flex>
                         <label align="center">Complessità</label>
 
@@ -179,7 +179,7 @@ url: /insert
                                 star_rate
                             </md-icon>
                         </div>
-                        </div>
+                    </div>
                     <div layout="column" style="text-align:center" flex>
                         <label align="center">Difficoltà</label>
 
@@ -190,20 +190,52 @@ url: /insert
                                 star_rate
                             </md-icon>
                         </div>
-                        </div>
+                    </div>
                 </md-card-content>
             </md-card>
 
         </div>
         <div layout="row" layout-align="center stretch">
-            <md-card flex>
-                <ui-gmap-google-map center="insertionCtrl.center" zoom="insertionCtrl.zoom">
+            <md-card flex layout="row">
+                <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" zoom="insertionCtrl.zoom">
                     <ui-gmap-markers models='insertionCtrl.markers' coords="'self'" options="'options'" events="{dragend: insertionCtrl.computePathData}"></ui-gmap-markers>
                     <ui-gmap-polyline path='insertionCtrl.markers' icons="insertionCtrl.pathIcon"></ui-gmap-polyline>
                 </ui-gmap-google-map>
-                <div class="list-results">
+                <div layout="column" flex="33">
+                    <md-content>
+
+                        <md-list-item ng-repeat="i in [1,2,3,4,5]" layout="column">
+                            <div layout="row">
+                                <md-input-container>
+                                    <label>Latitudine</label>
+                                    <input disabled>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Longitudine</label>
+                                    <input disabled>
+                                </md-input-container>
+                            </div>
+                            <div layout="column">
+                                <md-input-container>
+                                    <label>Domanda</label>
+                                    <input>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Risposta</label>
+                                    <input>
+                                </md-input-container>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                    </md-content>
+
+                    <md-button class="md-fab md-primary" style="float: right;">
+                        <md-icon>add</md-icon>
+                    </md-button>
 
                 </div>
+
+
                 <!--<md-card-content>-->
                 <!--<md-toolbar>-->
                 <!--<div class="md-toolbar-tools">-->
@@ -265,7 +297,7 @@ url: /insert
                 <!--</md-tabs>-->
                 <!--</md-dialog-content>-->
                 <!--</md-card-content>-->
-            </md-card>
+
         </div>
     </form>
 
