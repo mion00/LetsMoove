@@ -293,8 +293,10 @@
                 AddStage.addMode.active=false;
                 $scope.$apply();
             }
-        }
-
+        };
+        this.event = function (event) {
+            console.log(event);
+        };
         this.isAddModeActive = function(){
             return AddStage.addMode.active;
         };

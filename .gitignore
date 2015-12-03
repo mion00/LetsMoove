@@ -18,7 +18,6 @@ eggs/
 .eggs/
 lib/
 lib64/
-parts/
 sdist/
 var/
 *.egg-info/
@@ -72,6 +71,4 @@ gen
 bower_components
 .DS_Store
 node_modules
-npm-debug.log
-build
 .sass-cache

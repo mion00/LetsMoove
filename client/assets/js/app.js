@@ -33,6 +33,7 @@
 
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyCGyfBFxoCCe2IOHSdhXrRRdTtsclma94Q',
+            libraries: 'places'
         });
     }
 

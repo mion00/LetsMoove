@@ -203,11 +203,17 @@ url: /insert
                             position="top-right"
                             controller="stageInsertionController as stageIntertionCtrl">
                     </ui-gmap-map-control>
-                    <ui-gmap-map-control
-                            template='templates/parts/searchBar.tmpl.html'
-                            position="top-center"
-                            controller="mapSearchController as mapSearchCtrl">
-                    </ui-gmap-map-control>
+                    <!--<ui-gmap-map-control-->
+                    <!--template='templates/parts/searchBar.tmpl.html'-->
+                    <!--position="top-center"-->
+                    <!--controller="mapSearchController as mapSearchCtrl">-->
+                    <!--</ui-gmap-map-control>-->
+                    <ui-gmap-search-box
+                            template="'templates/parts/searchBar.tmpl.html'"
+                            position="'top-center'"
+                            events="{place_changed:insertionCtrl.event}"
+                            options="{autocomplete:true}">
+                    </ui-gmap-search-box>
                     <ui-gmap-markers models='insertionCtrl.markers' coords="'self'" options="'options'" events="{dragend: insertionCtrl.computePathData}"></ui-gmap-markers>
                     <ui-gmap-polyline path='insertionCtrl.markers' icons="insertionCtrl.pathIcon"></ui-gmap-polyline>
                 </ui-gmap-google-map>
