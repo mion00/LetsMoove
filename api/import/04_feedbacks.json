@@ -47,6 +47,56 @@
       "complexity": "3",
       "difficulty": "1"
     },
-    "review": "Oggi abbiamo visitato le interessanti trincee di Sorasass, davvero interessanti."
+    "review": "Oggi abbiamo visitato le storiche trincee di Sorasass, davvero interessanti."
+  },
+  {
+    "path": 4,
+    "team": 4,
+    "vote": {
+      "beauty": "2",
+      "complexity": "3",
+      "difficulty": "1"
+    },
+    "review": "Non è stata un'esperienza proprio entusiasmante, siamo arrivati alla fine stremati..."
+  },
+  {
+    "path": 5,
+    "team": 5,
+    "vote": {
+      "beauty": "4",
+      "complexity": "2",
+      "difficulty": "1"
+    },
+    "review": "Oggi io e la mia nipotina abbiamo trascorso una splendida giornata a Trento. Il tempo era invidiabile: soleggiato dopo tanti giorni di pioggia. Grazie a Let's Moove si scoprono sempre angoli bellissimi!"
+  },
+  {
+    "path": 6,
+    "team": 6,
+    "vote": {
+      "beauty": "5",
+      "complexity": "3",
+      "difficulty": "1"
+    },
+    "review": "Ma che spettacolo il tramonto visto sulle sponde del Lago Superiore. Grazie all'owner per aver ideato questo itinerario a stretto contatto con la natura."
+  },
+  {
+    "path": 7,
+    "team": 7,
+    "vote": {
+      "beauty": "4",
+      "complexity": "5",
+      "difficulty": "2"
+    },
+    "review": "L'itinerario sugli antichi Signori di Mantova è davvero piacevole. Le sfide ci hanno messo davvero a dura prova, ma alla fine con un po' di fatica ed ingegno siamo riusciti a risolverle tutte.."
+  },
+  {
+    "path": 8,
+    "team": 8,
+    "vote": {
+      "beauty": "2",
+      "complexity": "3",
+      "difficulty": "3"
+    },
+    "review": "Non è stata una bella esperienza: freddo e pioggia ci hanno colto di sorpresa mentre eravamo a metà del percorso, così siamo tornati indietro. Torneremo, magari d'estate, per riprovare."
   }
 ]
