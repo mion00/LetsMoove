@@ -14,8 +14,7 @@
   max-width: 100%;
 }
 
-//.descriptionMap .angular-google-map-container { height: 540px; width: 500px; }
-.angular-google-map-container, .angular-google-map {
+.angular-google-map-container {
   min-height: 32rem;
   height: 100%;
   width: 100%;
@@ -85,7 +84,7 @@ md-ink-bar {
 
 .star {
   margin: 0px;
-  padding-right: 8px;
+  padding-right: 0px;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
