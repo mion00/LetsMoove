@@ -211,7 +211,7 @@
 
     }]);
 
-    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage','MapCenterService', 'uiGmapGoogleMapApi', '$scope', function (Path, TerrainType, AddStage, MapCenterService,uiGmapGoogleMapApi, $scope) {
+    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage', 'MapCenterService', 'uiGmapGoogleMapApi', '$scope','$state', function (Path, TerrainType, AddStage, MapCenterService, uiGmapGoogleMapApi, $scope, $state) {
         var scope = this;
 
         this.path = {
@@ -244,11 +244,21 @@
 
         };
         this.zoom = 2;
+        this.viewport = {
+            northeast: {
+                latitude: -90,
+                longitude: -90
+            },
+            southwest: {
+                latitude: 90,
+                longitude: 90
+            }
+        };
         this.center = {
             type: "Point",
             coordinates: [0, 20]
         };
-        MapCenterService.center=scope.center;
+        MapCenterService.center = scope.center;
         this.markers = [];
 
         this.terrainTypes = {};
@@ -258,6 +268,7 @@
             console.log(scope);
         }
 
+        this.markerId = 0;
 
         uiGmapGoogleMapApi.then(function (maps) {
             scope.geocoder = new google.maps.Geocoder();
@@ -276,31 +287,41 @@
                     path: google.maps.SymbolPath.FORWARD_OPEN_ARROW
                 },
             }];
-            console.log(scope);
-            google.maps.event.addListener(maps,"click", function(event) {
+            google.maps.event.addListener(maps, "click", function (event) {
 
 
             });
         });
 
-        this.addClickMarker = function(map,eventName,params){
+        this.addClickMarker = function (map, eventName, params) {
             console.log(params[0]);
-            if(AddStage.addMode.active){
+            if (AddStage.addMode.active) {
                 var lat = params[0].latLng.lat();
                 var lng = params[0].latLng.lng();
                 scope.addNewStage(params[0].latLng);
                 scope.computePathData();
-                AddStage.addMode.active=false;
+                scope.computePathData();
                 $scope.$apply();
             }
         };
-        this.event = function (event) {
-            console.log(event);
+        this.locationInserted = function (event, name, autocomplete, d) {
+            scope.center.coordinates[1] = event.getPlace().geometry.location.lat();
+            scope.center.coordinates[0] = event.getPlace().geometry.location.lng();
+            //if (event.getPlace().geometry.viewport) {
+            //
+            //    scope.viewport.northeast.latitude = event.getPlace().geometry.viewport.getNorthEast().lat();
+            //    scope.viewport.northeast.longitude = event.getPlace().geometry.viewport.getNorthEast().lng();
+            //
+            //    scope.viewport.southwest.latitude = event.getPlace().geometry.viewport.getSouthWest().lat();
+            //    scope.viewport.southwest.longitude = event.getPlace().geometry.viewport.getSouthWest().lng();
+            //
+            //    console.log(scope.viewport);
+            //}
+            scope.zoom = 12;
         };
-        this.isAddModeActive = function(){
+        this.isAddModeActive = function () {
             return AddStage.addMode.active;
         };
-
         this.updateStagesFromMarkers = function () {
             for (var i = 0; i < scope.markers; i++) {
                 scope.path.locationData.stages[i].location = {
@@ -310,20 +331,20 @@
             }
             this.path.locationData.startPoint = this.path.locationData.stages[0].location;
         };
-
-        this.addNewStage = function (location){
+        this.addNewStage = function (location) {
             var marker = {
                 address: "",
-                id: scope.markers.length,
-                title: scope.markers.length,
+                id: scope.markerId,
+                title: scope.markers.length + 1,
                 latitude: location.lat(),
                 longitude: location.lng(),
                 options: {
-                    label: ""+(1+scope.markers.length),
+                    label: "" + (1 + scope.markers.length),
                     draggable: true,
                 }
             };
-            marker.updateLocation = function(){
+            scope.markerId++;
+            marker.updateLocation = function () {
 
                 scope.geocoder.geocode({"address": marker.address}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
@@ -333,25 +354,32 @@
                         console.log(results[0]);
                         var meanLat = 0;
                         var meanLng = 0;
-                        scope.markers.forEach(function(m){
-                            if(m.latitude){
-                                meanLat+= m.latitude/scope.markers.length;
-                                meanLng+= m.longitude/scope.markers.length;
+                        scope.markers.forEach(function (m) {
+                            if (m.latitude) {
+                                meanLat += m.latitude / scope.markers.length;
+                                meanLng += m.longitude / scope.markers.length;
                             }
                         });
 
-                        scope.center.coordinates[0]=meanLng;
-                        scope.center.coordinates[1]=meanLat;
-                        scope.zoom=15;
+                        scope.center.coordinates[0] = meanLng;
+                        scope.center.coordinates[1] = meanLat;
                         scope.computePathData();
                         $scope.$apply();
                     }
                 });
-
-                console.log(scope.center);
-
             }
             scope.markers.push(marker);
+            $scope.$apply();
+        }
+        this.removeStage = function (id) {
+            scope.markers.splice(id-1, 1);
+            var newName = 1;
+            scope.markers.forEach(function (marker) {
+                marker.title = "" + (newName);
+                marker.options.label = "" + (newName);
+                newName++;
+            });
+            scope.computePathData
         }
         this.computePathData = function () {
             var stages = scope.markers; // to update
@@ -371,8 +399,7 @@
                     if (status !== google.maps.DistanceMatrixStatus.OK) {
                         alert('Error was: ' + status);
                     } else {
-                        if (response.rows.length == 1) {
-                            console.log(response.rows[0].elements[0]);
+                        if (response.rows[0].elements[0].distance) {
                             scope.path.pathData.length += response.rows[0].elements[0].distance.value;
                             scope.path.pathData.time += Math.floor(response.rows[0].elements[0].duration.value / 60);
                         } else {
@@ -403,22 +430,64 @@
                 });
             }
         };
+        this.upload = function () {
+            scope.computePathData();
+            scope.path.locationData.stages = [];
+            scope.markers.forEach(function(marker){
+                scope.path.locationData.stages.push({
+                    location : {
+                        type : "Point",
+                        coordinates : [marker.longitude,marker.latitude]
+                    },
+                    question : marker.question,
+                    answer : marker.answer,
+                });
+            });
+            scope.path.locationData.startPoint=scope.path.locationData.stages[0].location;
+            console.log(scope.path);
 
-    }]);
+           //DEVI POSTARE scope.path
+           $state.transitionTo("userHome");
 
-    app.controller('stageInsertionController', ['AddStage', function (AddStage){
-        this.clickNewStage = function() {
+        }
+
+        this.clickNewStage = function () {
             console.log("clicked");
             AddStage.addMode.active = true;
         }
-        this.isAddModeActive = function(){
-            return AddStage.addMode.active;
-        };
+
+
+
+
     }]);
 
-    app.controller('mapSearchController', [function (){
+    app.controller('stageInsertionController', ['AddStage', '$scope', function (AddStage,$scope) {
         var scope = this;
-        this.updateCenter = function(){
+        this.click = function(){
+            if(!AddStage.addMode.active){
+                AddStage.addMode.active=true;
+                $scope.map.setOptions({
+                    draggableCursor:"url(/assets/img/mapPin.svg) 16 32, auto",
+                    draggingCursor:"url(/assets/img/mapPin2.svg) 16 32, auto"
+                });
+            } else {
+                AddStage.addMode.active=false;
+                $scope.map.setOptions({
+                    draggableCursor:"",
+                    draggingCursor:""
+                });
+            }
+
+            this.isAddModeActive = function(){
+                return AddStage.addMode.active;
+            }
+
+        }
+    }]);
+
+    app.controller('mapSearchController', [function () {
+        var scope = this;
+        this.updateCenter = function () {
             console.log(scope.address);
         }
     }]);

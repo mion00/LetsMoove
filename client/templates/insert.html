@@ -31,7 +31,7 @@ url: /insert
                 <md-card-content>
                     <md-input-container>
                         <label>Descrizione</label>
-                        <textarea ng-model="path.description" columns="10" md-maxlength="300" rows="10"></textarea>
+                        <textarea ng-model="path.description" columns="10" md-maxlength="300" rows="10" ng-model="insertionCtrl.path.description"></textarea>
                     </md-input-container>
                 </md-card-content>
             </md-card>
@@ -196,12 +196,12 @@ url: /insert
 
         </div>
         <div layout="row" layout-align="center stretch">
-            <md-card flex layout="row">
-                <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" zoom="insertionCtrl.zoom"  events="{click:insertionCtrl.addClickMarker}">
+            <md-card flex layout="row" style="height: 32rem; overflow-y: true;">
+                <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" bounds="insertionCtrl.viewport"  control="insertionCtrl.map" zoom="insertionCtrl.zoom" events="{click:insertionCtrl.addClickMarker}">
                     <ui-gmap-map-control
                             template='templates/parts/button.tmpl.html'
                             position="top-right"
-                            controller="stageInsertionController as stageIntertionCtrl">
+                            controller="stageInsertionController as iCtrl">
                     </ui-gmap-map-control>
                     <!--<ui-gmap-map-control-->
                     <!--template='templates/parts/searchBar.tmpl.html'-->
@@ -211,30 +211,43 @@ url: /insert
                     <ui-gmap-search-box
                             template="'templates/parts/searchBar.tmpl.html'"
                             position="'top-center'"
-                            events="{place_changed:insertionCtrl.event}"
+                            events="{place_changed:insertionCtrl.locationInserted}"
                             options="{autocomplete:true}">
                     </ui-gmap-search-box>
                     <ui-gmap-markers models='insertionCtrl.markers' coords="'self'" options="'options'" events="{dragend: insertionCtrl.computePathData}"></ui-gmap-markers>
                     <ui-gmap-polyline path='insertionCtrl.markers' icons="insertionCtrl.pathIcon"></ui-gmap-polyline>
                 </ui-gmap-google-map>
-                <div layout="column" flex="33">
+                <div layout="column" flex="33" >
                     <md-content>
 
-                        <md-list-item ng-repeat="stage in insertionCtrl.markers" layout="column">
-                            <div layout="row">
+                        <md-list-item ng-repeat="stage in insertionCtrl.markers" layout="column" layout-align="end end">
+                            <div layout="row" flex="grow">
+                                <div layout="column" flex="70">
+                                    <div layout="column">
 
-                                    <h1>Tappa {{stage.id+1}}</h1>
+                                        <h1>Tappa {{stage.title}}</h1>
+                                        <label class="aria-label">N {{stage.latitude | number:3}}, E {{stage.longitude | number:3}}</label>
 
-                            </div>
-                            <div layout="column">
-                                <md-input-container>
-                                    <label>Domanda</label>
-                                    <input ng-model="stage.question">
-                                </md-input-container>
-                                <md-input-container>
-                                    <label>Risposta</label>
-                                    <input ng-model="stage.answer">
-                                </md-input-container>
+                                    </div>
+
+
+                                    <div layout="column">
+                                        <md-input-container>
+                                            <label>Domanda</label>
+                                            <input ng-model="stage.question">
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>Risposta</label>
+                                            <input ng-model="stage.answer">
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="column">
+                                    <md-button class="close-button md-warn" flex ng-click="insertionCtrl.removeStage(stage.title)">
+                                        <md-icon >close</md-icon>
+                                    </md-button>
+                                </div>
+
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>
@@ -305,6 +318,12 @@ url: /insert
                 <!--</md-card-content>-->
 
         </div>
+        <div layout-align="center center" flex="grow" layout="column">
+            <md-button ng-click="insertionCtrl.upload()" class="md-primary md-raised">
+                <h2>Carica il tuo percorso</h2>
+            </md-button>
+        </div>
+
     </form>
 
 </div>

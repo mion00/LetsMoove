@@ -1,3 +1,3 @@
-<md-button class="md-fab md-warn" style="float: right;" ng-click="stageIntertionCtrl.clickNewStage()" ng-disabled="stageIntertionCtrl.isAddModeActive()">
+<md-button class="md-fab" style="float: right;" ng-click="iCtrl.click()" ng-class="{'button-disabled': iCtrl.isAddModeActive(), 'md-warn': !iCtrl.isAddModeActive()}">
     <md-icon>add_location</md-icon>
 </md-button>
