@@ -20,6 +20,16 @@
     "review": "Bellissimo percorso, il panorama in cima al Bondone è stupendo!"
   },
   {
+    "path": 1,
+    "team": 5,
+    "vote": {
+      "beauty": "5",
+      "complexity": "2",
+      "difficulty": "3"
+    },
+    "review": "Per i Trentini DOC questa camminata è un must! L'aria frizzantina in quota e la vista panoramica valgono davvero lo sforzo."
+  },
+  {
     "path": 2,
     "team": 1,
     "vote": {
@@ -28,6 +38,26 @@
       "difficulty": "2"
     },
     "review": "Con questo percorso abbiamo appreso meglio la zona di Oltrecastello. Facili le sfide e sostenibile lo sforzo fisico."
+  },
+  {
+    "path": 2,
+    "team": 4,
+    "vote": {
+      "beauty": "5",
+      "complexity": "2",
+      "difficulty": "2"
+    },
+    "review": "Non troppo distante da casa nostra, oggi abbiamo intrapreso questa breve avventura Ci è davvero piaciuta! Grazie Dreamers per questo percorso."
+  },
+  {
+    "path": 2,
+    "team": 3,
+    "vote": {
+      "beauty": "2",
+      "complexity": "2",
+      "difficulty": "4"
+    },
+    "review": "Eravamo convinti fosse una semplice passeggiata, invece abbiamo faticato in più punti. Dobbiamo fare più attività fisica in preparazione..."
   },
   {
     "path": 3,
@@ -50,6 +80,16 @@
     "review": "Oggi abbiamo visitato le storiche trincee di Sorasass, davvero interessanti."
   },
   {
+    "path": 3,
+    "team": 7,
+    "vote": {
+      "beauty": "3",
+      "complexity": "3",
+      "difficulty": "1"
+    },
+    "review": "La giornata prometteva bene, ma all'improvviso si è alzato un forte vento molto fastidioso. Il piccolo Antonio si è comunque molto divertito nella risoluzione delle sfide."
+  },
+  {
     "path": 4,
     "team": 4,
     "vote": {
@@ -58,6 +98,26 @@
       "difficulty": "1"
     },
     "review": "Non è stata un'esperienza proprio entusiasmante, siamo arrivati alla fine stremati..."
+  },
+  {
+    "path": 4,
+    "team": 8,
+    "vote": {
+      "beauty": "4",
+      "complexity": "2",
+      "difficulty": "5"
+    },
+    "review": "Il giro della Marzola ci ha messo a dura prova, ma con coraggio ed orgoglio siamo arrivati fino alla fine. Esperienza indimenticabile!"
+  },
+  {
+    "path": 4,
+    "team": 5,
+    "vote": {
+      "beauty": "4",
+      "complexity": "5",
+      "difficulty": "4"
+    },
+    "review": "Only the brave! Ce la siamo presa con comodo e abbiamo affrontato questo lungo percorso nell'arco di un'intera giornata, ma siamo entrambe del parere che sia stata una bellissima esperienza."
   },
   {
     "path": 5,
@@ -70,6 +130,26 @@
     "review": "Oggi io e la mia nipotina abbiamo trascorso una splendida giornata a Trento. Il tempo era invidiabile: soleggiato dopo tanti giorni di pioggia. Grazie a Let's Moove si scoprono sempre angoli bellissimi!"
   },
   {
+    "path": 5,
+    "team": 7,
+    "vote": {
+      "beauty": "4",
+      "complexity": "3",
+      "difficulty": "2"
+    },
+    "review": "Un percorso facile e relativamente veloce per conoscere meglio le bellezze del centro!"
+  },
+  {
+    "path": 5,
+    "team": 7,
+    "vote": {
+      "beauty": "5",
+      "complexity": "2",
+      "difficulty": "1"
+    },
+    "review": "Dopo la camminata in centro, non paghi, ci siamo concessi anche una visita al castello del Buonconsiglio. Alla prossima!"
+  },
+  {
     "path": 6,
     "team": 6,
     "vote": {
@@ -78,6 +158,26 @@
       "difficulty": "1"
     },
     "review": "Ma che spettacolo il tramonto visto sulle sponde del Lago Superiore. Grazie all'owner per aver ideato questo itinerario a stretto contatto con la natura."
+  },
+  {
+    "path": 6,
+    "team": 3,
+    "vote": {
+      "beauty": "3",
+      "complexity": "2",
+      "difficulty": "1"
+    },
+    "review": "Non fosse stato per le zanzare il giudizio sulla bellezza di questo percorso sarebbe stato più elevato... Colpa nostra che siamo dimenticati l'antizanzare!."
+  },
+  {
+    "path": 6,
+    "team": 4,
+    "vote": {
+      "beauty": "4",
+      "complexity": "4",
+      "difficulty": "1"
+    },
+    "review": "Un posto davvero meritevole! Come abbiamo fatto a non esser mai passati di qui prima d'oggi? Le sfide erano un po' complicate per le nostre menti..."
   },
   {
     "path": 7,
@@ -90,6 +190,26 @@
     "review": "L'itinerario sugli antichi Signori di Mantova è davvero piacevole. Le sfide ci hanno messo davvero a dura prova, ma alla fine con un po' di fatica ed ingegno siamo riusciti a risolverle tutte.."
   },
   {
+    "path": 7,
+    "team": 8,
+    "vote": {
+      "beauty": "5",
+      "complexity": "2",
+      "difficulty": "1"
+    },
+    "review": "Ma cosa c'è di più affascinante del centro storico di Mantova? Il caldo estivo deve ancora farsi sentire, così oggi gli Sneakers han deciso di muoversi verso il capoluogo di provincia ed immedesimarsi nei signori che hanno governato la città durante il Rinascimento italiano."
+  },
+  {
+    "path": 7,
+    "team": 8,
+    "vote": {
+      "beauty": "2",
+      "complexity": "2",
+      "difficulty": "1"
+    },
+    "review": "Un freddo cane, una nebbia fittissima! Forse non abbiamo scelto la giornata migliore per questo percorso..."
+  },
+  {
     "path": 8,
     "team": 8,
     "vote": {
@@ -98,5 +218,25 @@
       "difficulty": "3"
     },
     "review": "Non è stata una bella esperienza: freddo e pioggia ci hanno colto di sorpresa mentre eravamo a metà del percorso, così siamo tornati indietro. Torneremo, magari d'estate, per riprovare."
+  },
+  {
+    "path": 8,
+    "team": 2,
+    "vote": {
+      "beauty": "4",
+      "complexity": "2",
+      "difficulty": "3"
+    },
+    "review": "Grazie ai Dreamers per averci portato alla Forra del Lupo, si tratta di un luogo piuttosto interessante, dato anche il valore storico che detiene."
+  },
+  {
+    "path": 8,
+    "team": 1,
+    "vote": {
+      "beauty": "1",
+      "complexity": "4",
+      "difficulty": "3"
+    },
+    "review": "Non capisco se si trattasse del mio smartphone o fossero le coordinate sbagliate, ma ad un certo punto ci siamo persi e cominciava ad imbrunire. Abbiamo dovuto tornare sui nostri passi e rinunciare, peccato."
   }
 ]
