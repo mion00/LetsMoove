@@ -19,7 +19,6 @@ schema = {
     },
     'owner': {
         'type': 'string',
-        'required': True,
         'data_relation': {
             'resource': 'teams',
             'field': '_id',
@@ -51,7 +50,7 @@ schema = {
             },
             'deltaAltitude': {
                 'type': 'number',
-                'max': 1000
+                'max': 5000
             },
             'terrainType': {
                 'required': True,

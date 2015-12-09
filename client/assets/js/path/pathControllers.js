@@ -211,7 +211,7 @@
 
     }]);
 
-    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage', 'MapCenterService', 'uiGmapGoogleMapApi', '$scope','$state', function (Path, TerrainType, AddStage, MapCenterService, uiGmapGoogleMapApi, $scope, $state) {
+    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage', 'AuthenticationService', 'MapCenterService', 'uiGmapGoogleMapApi', '$scope','$state', function (Path, TerrainType, AddStage, AuthenticationService, MapCenterService, uiGmapGoogleMapApi, $scope, $state) {
         var scope = this;
 
         this.path = {
@@ -243,6 +243,8 @@
             }
 
         };
+
+
         this.zoom = 2;
         this.viewport = {
             northeast: {
@@ -431,7 +433,6 @@
             }
         };
         this.upload = function () {
-            scope.computePathData();
             scope.path.locationData.stages = [];
             scope.markers.forEach(function(marker){
                 scope.path.locationData.stages.push({
@@ -446,8 +447,12 @@
             scope.path.locationData.startPoint=scope.path.locationData.stages[0].location;
             console.log(scope.path);
 
-           //DEVI POSTARE scope.path
-           $state.transitionTo("userHome");
+           Path.save(scope.path,function(){
+               $state.transitionTo("userHome");
+           },function(){
+               console.log("FAIL");
+           })
+
 
         }
 
