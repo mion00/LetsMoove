@@ -3,8 +3,8 @@ name: search
 url: /search
 ---
 
-<div layout="column" flex>
-    <div layout="column" ng-controller="pathsController as pathsCtrl" layout-align="center center">
+<div layout="column" flex ng-controller="pathsController as pathsCtrl">
+    <div layout="column" layout-align="center center">
         <form>
             <md-card>
                 <md-card-content>
@@ -83,7 +83,7 @@ url: /search
         </form>
     </div>
 
-    <div class="mapDiv" layout-sm="column" layout-md="column" ng-controller="pathsController as pathsCtrl" layout-gt-sm="row">
+    <div class="mapDiv" layout-sm="column" layout-md="column" layout-gt-sm="row">
         <md-card flex="grow">
             <md-card-content flex="grow">
                 <ui-gmap-google-map style="height:100%;" center='pathsCtrl.location' zoom='pathsCtrl.zoom'>
@@ -91,19 +91,13 @@ url: /search
                 </ui-gmap-google-map>
             </md-card-content>
         </md-card>
-        <md-card flex>
-            <md-card-title>
-                <md-card-title-text style="text-align: center; background-color: #80d8ff;">
-                    <h3>Risultati</h3>
-                </md-card-title-text>
-            </md-card-title>
+        <md-card flex ng-show="pathsCtrl.paths.length>0">
             <md-card-content>
                 <md-list layout-sm="row" layout-gt-sm="column" layout-wrap layout-align="space-around">
-                    <md-divider></md-divider>
-                    <md-list-item ng-repeat="i in [1,2,3]" class="md-3-line">
+                    <md-list-item ng-repeat="path in pathsCtrl.paths" class="md-3-line">
                         <div layout="column" class="md-list-item-text" layout-margin>
                             <div layout="row" layout-align="center center">
-                                <h3>Nel bosco di Cadine</h3>
+                                <h3>{{path.name}}</h3>
                                 <md-button><md-icon>keyboard_arrow_right</md-icon>Info</md-button>
                             </div>
                             <div layout="row" layout-margin layout-sm="column" layout-align-sm="center center" layout-align="space-between stretch">
@@ -115,13 +109,16 @@ url: /search
                                     </div>
                                     <div layout="column">
                                         <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5]">star_rate</md-icon>
+                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.beauty">star_rate</md-icon>
+                                            <md-icon class="star color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.beauty">star_rate</md-icon>
                                         </div>
                                         <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5]">star_rate</md-icon>
+                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.complexity">star_rate</md-icon>
+                                            <md-icon class="star color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.complexity">star_rate</md-icon>
                                         </div>
                                         <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5]">star_rate</md-icon>
+                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.difficulty">star_rate</md-icon>
+                                            <md-icon class="star color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.difficulty">star_rate</md-icon>
                                         </div>
                                     </div>
                                 </div>
@@ -129,24 +126,24 @@ url: /search
                                     <div layout="row">
                                         <div layout="column" layout-align="cetnter start">
                                             <div layout="row">
-                                                <i class="material-icons">trending_flat</i><strong class="italic spaced">7000</strong>m
+                                                <i class="material-icons">trending_flat</i><strong class="italic spaced">{{path.pathData.length}}</strong>m
                                             </div>
                                             <div layout="row">
-                                                <i class="material-icons">trending_up</i><strong class="italic spaced">640</strong>m
+                                                <i class="material-icons">trending_up</i><strong class="italic spaced">{{path.pathData.altitude}}</strong>m
                                             </div>
                                             <div layout="row">
-                                                <i class="material-icons">swap_vert</i><strong class="italic spaced">200</strong>m
+                                                <i class="material-icons">swap_vert</i><strong class="italic spaced">{{path.pathData.deltaAltitude}}</strong>m
                                             </div>
                                         </div>
                                         <div layout="column" layout-align="cetnter start">
                                             <div layout="row">
-                                                <i class="material-icons">terrain</i><strong class="italic spaced">Sterrato</strong>
+                                                <i class="material-icons">terrain</i><strong class="italic spaced">{{path.pathData.terrainType}}</strong>
                                             </div>
                                             <div layout="row">
-                                                <i class="material-icons">explore</i><strong class="italic spaced">Si</strong>
+                                                <i class="material-icons">explore</i><strong class="italic spaced"><div ng-show="path.pathData.adventure">Sì</div><div ng-hide="path.pathData.adventure">No</div></strong>
                                             </div>
                                             <div layout="row">
-                                                <i class="material-icons">alarm</i><strong class="italic spaced">180</strong>min
+                                                <i class="material-icons">alarm</i><strong class="italic spaced">{{path.pathData.time}}</strong> min
                                             </div>
                                         </div>
                                     </div>
@@ -155,63 +152,9 @@ url: /search
                         </div>
                         <md-divider></md-divider>
                     </md-list-item>
-                    <md-list-item class="md-3-line">
-                        <div layout="column" class="md-list-item-text" layout-margin>
-                            <div layout="row" layout-align="center center">
-                                <h3>Nel bosco di Cadine</h3>
-                                <md-button><md-icon>keyboard_arrow_right</md-icon>Info</md-button>
-                            </div>
-                            <div layout="row" layout-margin layout-sm="column" layout-align-sm="center center" layout-align="space-between stretch">
-                                <div flex layout="row" style="margin-right:28px;">
-                                    <div layout="column" layout-align="space-between start">
-                                        <strong class="italic spaced">Bellezza</strong>
-                                        <strong class="italic spaced">Complessità</strong>
-                                        <strong class="italic spaced">Difficoltà</strong>
-                                    </div>
-                                    <div layout="column">
-                                        <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5]">star_rate</md-icon>
-                                        </div>
-                                        <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5]">star_rate</md-icon>
-                                        </div>
-                                        <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5]">star_rate</md-icon>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div flex layout="column">
-                                    <div layout="row">
-                                        <div layout="column" layout-align="cetnter start">
-                                            <div layout="row">
-                                                <i class="material-icons">trending_flat</i><strong class="italic spaced">7000</strong>m
-                                            </div>
-                                            <div layout="row">
-                                                <i class="material-icons">trending_up</i><strong class="italic spaced">640</strong>m
-                                            </div>
-                                            <div layout="row">
-                                                <i class="material-icons">swap_vert</i><strong class="italic spaced">200</strong>m
-                                            </div>
-                                        </div>
-                                        <div layout="column" layout-align="cetnter start">
-                                            <div layout="row">
-                                                <i class="material-icons">terrain</i><strong class="italic spaced">Sterrato</strong>
-                                            </div>
-                                            <div layout="row">
-                                                <i class="material-icons">explore</i><strong class="italic spaced">Si</strong>
-                                            </div>
-                                            <div layout="row">
-                                                <i class="material-icons">alarm</i><strong class="italic spaced">180</strong>min
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </md-list-item>
                 </md-list>
             </md-card-content>
-        </md-card>
+        </md-card >
     </div>
 </div>
 

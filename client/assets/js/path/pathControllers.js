@@ -46,17 +46,17 @@
             },
             {
                 id: 2,
-                value: [30, 120],
+                value: [29, 60],
                 label: " 30 min - 1 h"
             },
             {
                 id: 3,
-                value: [120, 240],
+                value: [59, 120],
                 label: " 1 h - 2 h"
             },
             {
                 id: 4,
-                value: [240, 100000],
+                value: [119, 100000],
                 label: " > 2 h"
             }
         ];
@@ -74,17 +74,17 @@
             },
             {
                 id: 2,
-                value: [1000, 5000],
+                value: [999, 5000],
                 label: " 1 Km - 5 Km"
             },
             {
                 id: 3,
-                value: [5000, 10000],
+                value: [4999, 10000],
                 label: " 5 Km - 10 Km"
             },
             {
                 id: 4,
-                value: [10000, 1000000000],
+                value: [9999, 1000000000],
                 label: " > 10 Km"
             }
         ];
@@ -99,7 +99,7 @@
         this.length = 0;
         this.terrainType = "qualsiasi";
 
-        this.location =
+        scope.location =
         {
             latitude: 43,
             longitude: 12
@@ -114,7 +114,8 @@
 
 
         navigator.geolocation.getCurrentPosition(function (position) {
-            scope.location = {latitude: position.coords.latitude, longitude: position.coords.longitude};
+            scope.location.latitude = position.coords.latitude;
+            scope.location.longitude = position.coords.longitude;
             scope.zoom = 11;
             $scope.$apply();
 
@@ -169,6 +170,7 @@
         };
 
         scope.updateData = function () {
+            console.log(scope.location);
             var query = {
                 where: {
                     "locationData.startPoint": {
@@ -193,6 +195,7 @@
             if (scope.terrainType != "qualsiasi") {
                 query.where["pathData.terrainType"] = scope.terrainType;
             }
+
             if (query != scope.lastQuery) {
                 console.log(query);
                 Path.get(query,
@@ -206,9 +209,7 @@
                     });
                 scope.lastQuery = query;
             }
-
         }
-
     }]);
 
     app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage', 'AuthenticationService', 'MapCenterService', 'uiGmapGoogleMapApi', '$scope','$state', function (Path, TerrainType, AddStage, AuthenticationService, MapCenterService, uiGmapGoogleMapApi, $scope, $state) {
