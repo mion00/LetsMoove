@@ -26,8 +26,10 @@ for file in files:
 
     jsonResponse = req.json()
 
+    if jsonResponse.get('_error'):
+        pprint(jsonResponse.get('_error'))
     if jsonResponse.get('_items'):
         for response in jsonResponse.get('_items'):
-            pprint(('id: ' + response.get('_id')) if response.get('_id') else response.get('_issues'))
-
+            pprint(('id: ' + str(response.get('id'))) if response.get('id') else response.get('_issues'))
+            # pprint(response.get('_issues'))
             # pprint(jsonResponse.get('_issues')) if jsonResponse.get('_issues') else None

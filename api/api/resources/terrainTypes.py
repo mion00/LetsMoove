@@ -8,6 +8,7 @@ schema = {
 }
 
 terrainTypes = {
-    'item_url': 'regex("\d*")',
+    'item_url': 'int',
+    'id_field': 'id',
     'schema': schema
 }

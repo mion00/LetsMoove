@@ -18,10 +18,10 @@ schema = {
         'maxlength': 4000
     },
     'owner': {
-        'type': 'string',
+        'type': 'integer',
         'data_relation': {
             'resource': 'teams',
-            'field': '_id',
+            'field': 'id',
             'embeddable': True
         }
     },
@@ -104,7 +104,8 @@ schema = {
 }
 
 paths = {
-    'item_url': 'regex("\d*")',
+    'item_url': 'int',
+    'id_field': 'id',
     'schema': schema,
     'mongo_indexes': {
         'locationIndex': [('locationData.startPoint', pymongo.GEOSPHERE)]
