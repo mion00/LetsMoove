@@ -3,10 +3,10 @@ name: userHome
 url: /user
 authenticate : false
 ---
-<div layout="column" layout-fill layout-align="center" ng-cloack>
+<div layout="column" layout-fill layout-align="center" ng-cloack onload="codeAddress()">
     <div ng-controller="pathsController as pathsCtrl" layout-sm="column" layout-gt-sm="row">
         <md-card flex="grow">
-            <md-card-content flex>
+            <md-card-content class="mapDiv" flex>
                 <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom'>
                     <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
                 </ui-gmap-google-map>
@@ -21,8 +21,7 @@ authenticate : false
             <md-card-content>
                 <md-list layout="column" layout-wrap layout-align="space-around">
                     <md-divider></md-divider>
-
-                    <md-list-item ng-repeat="i in [1,2,3]" layout-margin class="md-3-line">
+                    <md-list-item ng-repeat="i in [1,2,3]" class="md-3-line">
                         <div class="md-list-item-text">
                             <div layout="column" layout-align="center center">
                                 <div layout="row" layout-align="space-between center" layout-margin>
@@ -34,37 +33,34 @@ authenticate : false
                                 </div>
 
                                 <div layout="column" layout-align="space-between center" layout-margin>
-                                    <div layout="row" style="text-align:center" flex>
-                                        <label align="center">Bellezza</label>
-
-                                        <div layout-align="center center" layout="row">
-                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
-                                                     ng-click="insertionCtrl.path.ownerVote.beauty=i"
-                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.beauty, 'color-yellow': insertionCtrl.path.ownerVote.beauty>=i}">
-                                                star_rate
-                                            </md-icon>
+                                    <div layout="row" flex layout-margin>
+                                        <div layout="column" layout-align="space-around start">
+                                            <label>Bellezza</label>
+                                            <label>Complessità</label>
+                                            <label>Difficoltà</label>
                                         </div>
-                                    </div>
-                                    <div layout="row" style="text-align:center" flex>
-                                        <label align="center">Complessità</label>
-
-                                        <div layout-align="center center" layout="row">
-                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
-                                                     ng-click="insertionCtrl.path.ownerVote.complexity=i"
-                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.complexity, 'color-yellow': insertionCtrl.path.ownerVote.complexity>=i}">
-                                                star_rate
-                                            </md-icon>
-                                        </div>
-                                    </div>
-                                    <div layout="row" style="text-align:center" flex>
-                                        <label align="center">Difficoltà</label>
-
-                                        <div layout-align="center center" layout="row">
-                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
-                                                     ng-click="insertionCtrl.path.ownerVote.difficulty=i"
-                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.difficulty, 'color-yellow': insertionCtrl.path.ownerVote.difficulty>=i}">
-                                                star_rate
-                                            </md-icon>
+                                        <div layout="column" layout-align="start center">
+                                            <div layout="row">
+                                                <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                         ng-click="insertionCtrl.path.ownerVote.beauty=i"
+                                                         ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.beauty, 'color-yellow': insertionCtrl.path.ownerVote.beauty>=i}">
+                                                    star_rate
+                                                </md-icon>
+                                            </div>
+                                            <div layout="row">
+                                                <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                         ng-click="insertionCtrl.path.ownerVote.complexity=i"
+                                                         ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.complexity, 'color-yellow': insertionCtrl.path.ownerVote.complexity>=i}">
+                                                    star_rate
+                                                </md-icon>
+                                            </div>
+                                            <div layout="row">
+                                                <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                         ng-click="insertionCtrl.path.ownerVote.difficulty=i"
+                                                         ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.difficulty, 'color-yellow': insertionCtrl.path.ownerVote.difficulty>=i}">
+                                                    star_rate
+                                                </md-icon>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +68,7 @@ authenticate : false
                         </div>
                         <md-divider></md-divider>
                     </md-list-item>
-                    <md-list-item layout-margin class="md-3-line">
+                    <md-list-item class="md-3-line">
                         <div class="md-list-item-text">
                             <div layout="column" layout-align="center center">
                                 <div layout="row" layout-align="space-between center" layout-margin>
@@ -84,37 +80,34 @@ authenticate : false
                                 </div>
 
                                 <div layout="column" layout-align="space-between center" layout-margin>
-                                    <div layout="row" style="text-align:center" flex>
-                                        <label align="center">Bellezza</label>
-
-                                        <div layout-align="center center" layout="row">
-                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
-                                                     ng-click="insertionCtrl.path.ownerVote.beauty=i"
-                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.beauty, 'color-yellow': insertionCtrl.path.ownerVote.beauty>=i}">
-                                                star_rate
-                                            </md-icon>
+                                    <div layout="row" flex layout-margin>
+                                        <div layout="column" layout-align="space-around start">
+                                            <label>Bellezza</label>
+                                            <label>Complessità</label>
+                                            <label>Difficoltà</label>
                                         </div>
-                                    </div>
-                                    <div layout="row" style="text-align:center" flex>
-                                        <label align="center">Complessità</label>
-
-                                        <div layout-align="center center" layout="row">
-                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
-                                                     ng-click="insertionCtrl.path.ownerVote.complexity=i"
-                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.complexity, 'color-yellow': insertionCtrl.path.ownerVote.complexity>=i}">
-                                                star_rate
-                                            </md-icon>
-                                        </div>
-                                    </div>
-                                    <div layout="row" style="text-align:center" flex>
-                                        <label align="center">Difficoltà</label>
-
-                                        <div layout-align="center center" layout="row">
-                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
-                                                     ng-click="insertionCtrl.path.ownerVote.difficulty=i"
-                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.difficulty, 'color-yellow': insertionCtrl.path.ownerVote.difficulty>=i}">
-                                                star_rate
-                                            </md-icon>
+                                        <div layout="column" layout-align="start center">
+                                            <div layout="row">
+                                                <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                         ng-click="insertionCtrl.path.ownerVote.beauty=i"
+                                                         ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.beauty, 'color-yellow': insertionCtrl.path.ownerVote.beauty>=i}">
+                                                    star_rate
+                                                </md-icon>
+                                            </div>
+                                            <div layout="row">
+                                                <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                         ng-click="insertionCtrl.path.ownerVote.complexity=i"
+                                                         ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.complexity, 'color-yellow': insertionCtrl.path.ownerVote.complexity>=i}">
+                                                    star_rate
+                                                </md-icon>
+                                            </div>
+                                            <div layout="row">
+                                                <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                         ng-click="insertionCtrl.path.ownerVote.difficulty=i"
+                                                         ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.difficulty, 'color-yellow': insertionCtrl.path.ownerVote.difficulty>=i}">
+                                                    star_rate
+                                                </md-icon>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +183,7 @@ authenticate : false
                             <div class="md-list-item-text">
                                 <div layout="row" layout-align="start center">
                                     <i class="material-icons">straighten</i>
-                                    <label>Distanza camminata:</label>
+                                    <label>Distanza percorsa:</label>
                                     <strong class="italic spaced">15000</strong>metri
                                 </div>
                             </div>
@@ -270,5 +263,4 @@ authenticate : false
             </md-card-content>
         </md-card>
     </div>
-
 </div>
