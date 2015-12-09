@@ -11,6 +11,7 @@
         'pathControllers',
         'uiGmapgoogle-maps',
 
+            'ngMdIcons',
         //foundation
         //'foundation',
         'foundation.dynamicRouting',

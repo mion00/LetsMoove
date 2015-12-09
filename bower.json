@@ -9,8 +9,11 @@
     "angular-ui-router": "~0.2.15",
     "slick-carousel": "~1.5.8",
     "angular-google-maps": "2.2.1",
-    "angular-material": "a8342942396ec8745e4e61c24db13faee472fca2",
-    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e"
+    "angular-material": "1.0.0-rc7",
+    "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e",
+    "angular-material-icons": "master",
+    "svg-morpheus": "0.1.8"
+
   },
   "private": true,
   "resolutions": {

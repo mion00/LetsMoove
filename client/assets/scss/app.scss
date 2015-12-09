@@ -141,3 +141,7 @@ md-ink-bar {
 .button-disabled {
   background-color: #EE9999 !important;
 }
+
+.pin-hover {
+  cursor: url('/assets/img/mapPin.svg') 16 32, auto;
+}

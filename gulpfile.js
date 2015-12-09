@@ -52,7 +52,9 @@ var paths = {
         //Google maps
         'bower_components/lodash/lodash.js',
         'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
-        'bower_components/angular-google-maps/dist/angular-google-maps.js'
+        'bower_components/angular-google-maps/dist/angular-google-maps.js',
+        'bower_components/angular-material-icons/angular-material-icons.js',
+        'bower_components/svg-morpheus/compile/unminified/svg-morpheus.js'
     ],
     // These files are for your app's JavaScript
     appJS: [

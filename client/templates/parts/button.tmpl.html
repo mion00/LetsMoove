@@ -1,3 +1,9 @@
-<md-button class="md-fab" style="float: right;" ng-click="iCtrl.click()" ng-class="{'button-disabled': iCtrl.isAddModeActive(), 'md-warn': !iCtrl.isAddModeActive()}">
-    <md-icon>add_location</md-icon>
+<md-button class="md-fab" style="float: right;" ng-click="iCtrl.click()"
+           ng-class="{'button-disabled pin-hover': iCtrl.isAddModeActive(), 'md-warn': !iCtrl.isAddModeActive()}">
+    <md-icon>
+
+        <ng-md-icon options='{"duration": 750, "rotation":"none", "easing":"expo-in-out" }'
+                    style="fill: {{iCtrl.icon.color}};" icon='{{iCtrl.icon.name}}'></ng-md-icon>
+    </md-icon>
+
 </md-button>

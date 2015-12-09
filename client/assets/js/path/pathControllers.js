@@ -381,7 +381,7 @@
                 marker.options.label = "" + (newName);
                 newName++;
             });
-            scope.computePathData
+            scope.computePathData();
         }
         this.computePathData = function () {
             var stages = scope.markers; // to update
@@ -468,14 +468,22 @@
 
     app.controller('stageInsertionController', ['AddStage', '$scope', function (AddStage,$scope) {
         var scope = this;
+        this.icon = {};
+        this.icon.name = 'add_location';
+        this.icon.color = 'white';
+        var cancelIcon = 'clear';
         this.click = function(){
             if(!AddStage.addMode.active){
+                this.icon.name = cancelIcon;
+                this.icon.color = 'red';
                 AddStage.addMode.active=true;
                 $scope.map.setOptions({
                     draggableCursor:"url(/assets/img/mapPin.svg) 16 32, auto",
                     draggingCursor:"url(/assets/img/mapPin2.svg) 16 32, auto"
                 });
             } else {
+                this.icon.name = 'add_location';
+                this.icon.color = 'white';
                 AddStage.addMode.active=false;
                 $scope.map.setOptions({
                     draggableCursor:"",
