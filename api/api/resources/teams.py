@@ -69,6 +69,12 @@ schema = {
 }
 
 teams = {
-    'item_url': 'regex("\d*")',
+    'item_url': 'int',
+    'id_field': 'id',
     'schema': schema,
+    'projection': False,
+    'allowed_filters': ['id'],
+    'datasource': {
+        'projection': {'password': 0}
+    }
 }
