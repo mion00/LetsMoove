@@ -4,170 +4,139 @@ url: /user
 authenticate : false
 ---
 <div layout="column" layout-fill layout-align="center" ng-cloack>
-
     <div ng-controller="pathsController as pathsCtrl" layout-sm="column" layout-gt-sm="row">
         <md-card flex="grow">
             <md-card-content flex>
                 <ui-gmap-google-map center='pathsCtrl.location' zoom='pathsCtrl.zoom'>
-                <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
-            </ui-gmap-google-map>
-        </md-card-content>
-    </md-card>
+                    <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
+                </ui-gmap-google-map>
+            </md-card-content>
+        </md-card>
         <md-card flex>
             <md-card-title>
-                <md-card-title-text style="text-align: center;">
-                    Percorsi consigliati
+                <md-card-title-text style="text-align: center; background-color: #80d8ff;">
+                    <h3>Percorsi vicini a te</h3>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
-                <md-list layout-sm="row" layout-gt-sm="column" layout-wrap layout-align="space-around">
-                <md-list-item class="md-3-line">
-                    <div class="md-list-item-text">
-                        <div layout="column" layout-align="center center">
-                            <h3>Nel bosco di Cadine</h3>
-                            <div layout="row" layout-align="space-between center"  layout-margin>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_flat</i><strong class="italic spaced">7000</strong>m
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_up</i><strong class="italic spaced">640</strong>m
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">swap_vert</i><strong class="italic spaced">200</strong>m
-                                    </div>
-                                </div>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">terrain</i><strong class="italic spaced">Sterrato</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">explore</i><strong class="italic spaced">Si</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">alarm</i><strong class="italic spaced">180</strong>min
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                <md-list layout="column" layout-wrap layout-align="space-around">
                     <md-divider></md-divider>
-                </md-list-item>
-                <md-list-item class="md-3-line">
-                    <div class="md-list-item-text">
-                        <div layout="column" layout-align="center center">
-                            <h3>Nel bosco di Cadine</h3>
-                            <div layout="row" layout-align="space-between center"  layout-margin>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_flat</i><strong class="italic spaced">7000</strong>m
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_up</i><strong class="italic spaced">640</strong>m
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">swap_vert</i><strong class="italic spaced">200</strong>m
-                                    </div>
-                                </div>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">terrain</i><strong class="italic spaced">Sterrato</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">explore</i><strong class="italic spaced">Si</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">alarm</i><strong class="italic spaced">180</strong>min
-                                    </div>
+
+                    <md-list-item ng-repeat="i in [1,2,3]" layout-margin class="md-3-line">
+                        <div class="md-list-item-text">
+                            <div layout="column" layout-align="center center">
+                                <div layout="row" layout-align="space-between center" layout-margin>
+                                    <h3><strong>Nel bosco di Cadine</strong></h3>
+                                    <md-button>
+                                        <md-icon>keyboard_arrow_right</md-icon>
+                                        Info
+                                    </md-button>
                                 </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <md-divider></md-divider>
-                </md-list-item>
-                <md-list-item class="md-3-line">
-                    <div class="md-list-item-text">
-                        <div layout="column" layout-align="center center">
-                            <h3>Nel bosco di Cadine</h3>
-                            <div layout="row" layout-align="space-between center"  layout-margin>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_flat</i><strong class="italic spaced">7000</strong>m
+                                <div layout="column" layout-align="space-between center" layout-margin>
+                                    <div layout="row" style="text-align:center" flex>
+                                        <label align="center">Bellezza</label>
+
+                                        <div layout-align="center center" layout="row">
+                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                     ng-click="insertionCtrl.path.ownerVote.beauty=i"
+                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.beauty, 'color-yellow': insertionCtrl.path.ownerVote.beauty>=i}">
+                                                star_rate
+                                            </md-icon>
+                                        </div>
                                     </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_up</i><strong class="italic spaced">640</strong>m
+                                    <div layout="row" style="text-align:center" flex>
+                                        <label align="center">Complessità</label>
+
+                                        <div layout-align="center center" layout="row">
+                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                     ng-click="insertionCtrl.path.ownerVote.complexity=i"
+                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.complexity, 'color-yellow': insertionCtrl.path.ownerVote.complexity>=i}">
+                                                star_rate
+                                            </md-icon>
+                                        </div>
                                     </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">swap_vert</i><strong class="italic spaced">200</strong>m
+                                    <div layout="row" style="text-align:center" flex>
+                                        <label align="center">Difficoltà</label>
+
+                                        <div layout-align="center center" layout="row">
+                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                     ng-click="insertionCtrl.path.ownerVote.difficulty=i"
+                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.difficulty, 'color-yellow': insertionCtrl.path.ownerVote.difficulty>=i}">
+                                                star_rate
+                                            </md-icon>
+                                        </div>
                                     </div>
                                 </div>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">terrain</i><strong class="italic spaced">Sterrato</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">explore</i><strong class="italic spaced">Si</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">alarm</i><strong class="italic spaced">180</strong>min
-                                    </div>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                    <md-list-item layout-margin class="md-3-line">
+                        <div class="md-list-item-text">
+                            <div layout="column" layout-align="center center">
+                                <div layout="row" layout-align="space-between center" layout-margin>
+                                    <h3><strong>Nel bosco di Cadine</strong></h3>
+                                    <md-button>
+                                        <md-icon>keyboard_arrow_right</md-icon>
+                                        Info
+                                    </md-button>
                                 </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <md-divider></md-divider>
-                </md-list-item>
-                <md-list-item class="md-3-line">
-                    <div class="md-list-item-text">
-                        <div layout="column" layout-align="center center">
-                            <h3>Nel bosco di Cadine</h3>
-                            <div layout="row" layout-align="space-between center"  layout-margin>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_flat</i><strong class="italic spaced">7000</strong>m
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">trending_up</i><strong class="italic spaced">640</strong>m
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">swap_vert</i><strong class="italic spaced">200</strong>m
-                                    </div>
-                                </div>
-                                <div layout="column">
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">terrain</i><strong class="italic spaced">Sterrato</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">explore</i><strong class="italic spaced">Si</strong>
-                                    </div>
-                                    <div layout="row" layout-align="start center">
-                                        <i class="material-icons">alarm</i><strong class="italic spaced">180</strong>min
-                                    </div>
-                                </div>
+                                <div layout="column" layout-align="space-between center" layout-margin>
+                                    <div layout="row" style="text-align:center" flex>
+                                        <label align="center">Bellezza</label>
 
+                                        <div layout-align="center center" layout="row">
+                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                     ng-click="insertionCtrl.path.ownerVote.beauty=i"
+                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.beauty, 'color-yellow': insertionCtrl.path.ownerVote.beauty>=i}">
+                                                star_rate
+                                            </md-icon>
+                                        </div>
+                                    </div>
+                                    <div layout="row" style="text-align:center" flex>
+                                        <label align="center">Complessità</label>
+
+                                        <div layout-align="center center" layout="row">
+                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                     ng-click="insertionCtrl.path.ownerVote.complexity=i"
+                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.complexity, 'color-yellow': insertionCtrl.path.ownerVote.complexity>=i}">
+                                                star_rate
+                                            </md-icon>
+                                        </div>
+                                    </div>
+                                    <div layout="row" style="text-align:center" flex>
+                                        <label align="center">Difficoltà</label>
+
+                                        <div layout-align="center center" layout="row">
+                                            <md-icon class="color-yellow" ng-repeat="i in [1,2,3,4,5]"
+                                                     ng-click="insertionCtrl.path.ownerVote.difficulty=i"
+                                                     ng-class="{'color-light-yellow':i>insertionCtrl.path.ownerVote.difficulty, 'color-yellow': insertionCtrl.path.ownerVote.difficulty>=i}">
+                                                star_rate
+                                            </md-icon>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </md-list-item>
-            </md-list>
+                    </md-list-item>
+                </md-list>
             </md-card-content>
-    </md-card>
-</div>
+        </md-card>
+    </div>
     <div layout="row" layout-align="center start">
         <md-card flex>
-        <md-card-title layout-align="center center">
-            <h3>Le tue statistiche</h3>
-        </md-card-title>
-        <md-card-content>
-            <div layout-gt-sm="row" layout-sm="column" layout-align="space-around stretch">
+            <md-card-title layout-align="center center">
+                <h3>Le tue statistiche</h3>
+            </md-card-title>
+            <md-card-content>
+                <div layout-gt-sm="row" layout-sm="column" layout-align="space-around stretch">
 
-                <md-list layout="column">
+                    <md-list layout="column" flex>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">search</i>
                                     <label>Complessità media:</label>
                                     <strong class="italic spaced">2</strong>stelle
@@ -177,7 +146,7 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">hourglass_full</i>
                                     <label>Tempo trascorso:</label>
                                     <strong class="italic spaced">10</strong>ore
@@ -187,7 +156,7 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">find_replace</i>
                                     <label>Quiz risolti:</label>
                                     <strong class="italic spaced">20</strong>
@@ -197,7 +166,7 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">grade</i>
                                     <label>Percorsi preferiti:</label>
                                     <strong class="italic spaced">3</strong>
@@ -207,22 +176,21 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">question_answer</i>
                                     <label>Messaggi inviati (chat):</label>
                                     <strong class="italic spaced">200</strong>
                                 </div>
                             </div>
-                            <md-divider></md-divider>
                         </md-list-item>
                     </md-list>
 
-                <md-list layout="column">
+                    <md-list layout="column" flex>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">straighten</i>
-                                    <label>Distanza camminata</label>:</label>
+                                    <label>Distanza camminata:</label>
                                     <strong class="italic spaced">15000</strong>metri
                                 </div>
                             </div>
@@ -230,7 +198,7 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">local_offer</i>
                                     <label>Percorsi loggati:</label>
                                     <strong class="italic spaced">5</strong>
@@ -240,7 +208,7 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">trending_up</i>
                                     <label>Altitudine totale:</label>
                                     <strong class="italic spaced">3000</strong>metri
@@ -250,7 +218,7 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">terrain</i>
                                     <label>Terreno preferito:</label>
                                     <strong class="italic spaced">Sterrato</strong>
@@ -260,35 +228,47 @@ authenticate : false
                         </md-list-item>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text">
-                                <div layout="row" layout-align="center center">
+                                <div layout="row" layout-align="start center">
                                     <i class="material-icons">star_half</i>
                                     <label>Difficoltà media:</label>
                                     <strong class="italic spaced">3,5</strong>stelle
                                 </div>
                             </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-card flex>
+            <md-card-title layout-align="center center">
+                <h3>Feedback dati ai tuoi percorsi</h3>
+            </md-card-title>
+            <md-card-content>
+                <div layout-gt-sm="row" layout-sm="column" layout-align="space-around stretch">
+                    <md-list layout="column" flex="grow">
+                        <md-list-item ng-repeat="i in [1,2,3,4]" class="md-3-line">
+                            <div class="md-list-item-text">
+                                <div layout="row" layout-align="center">
+                                    <img ng-src="assets/img/accountPic.jpeg" class="md-avatar" />
+                                    <p>Il tipo mi ha venduto la droga l'altro ieri, non era affatto buona :(</br>
+                                        Se qualcuno lo vede in giro mi chiami che così arrivo e gli tiro un faffo</p>
+                                </div>
+                            </div>
                             <md-divider></md-divider>
                         </md-list-item>
-                </md-list>
-            </div>
-        </md-card-content>
-    </md-card>
-        <md-card flex>
-            <md-card-title>
-                <md-card-title-text style="text-align: center;">
-                    Cerca un percorso
-                </md-card-title-text>
-            </md-card-title>
-        <md-card-content>
-            <div layout="row" layout-align="center center">
-                <md-input-container>
-                    <label>Es. Nel bosco di Cadine</label>
-                    <input type="text">
-                </md-input-container>
-                <md-button class="md-raised md-primary">Cerca
-                </md-button>
-            </div>
-        </md-card-content>
-    </md-card>
+                        <md-list-item class="md-3-line">
+                            <div class="md-list-item-text">
+                                <div layout="row" layout-align="center">
+                                    <img ng-src="assets/img/accountPic.jpeg" class="md-avatar" />
+                                    <p>Il tipo mi ha venduto la droga l'altro ieri, non era affatto buona :(</br>
+                                    Se qualcuno lo vede in giro mi chiami che così arrivo e gli tiro un faffo</p>
+                                </div>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </md-card-content>
+        </md-card>
     </div>
 
 </div>

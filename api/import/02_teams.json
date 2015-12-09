@@ -74,5 +74,100 @@
     "email": "",
     "photo": "",
     "description": ""
+  },
+  {
+    "child": {
+      "name": "Susanna",
+      "surname": "Merini",
+      "gender": "",
+      "dateOfBirth": "31/1/2000"
+    },
+    "elder": {
+      "name": "Ennio",
+      "surname": "Merini",
+      "gender": "",
+      "dateOfBirth": "15/12/1948"
+    },
+    "username": "GliStambecchi",
+    "password": "trentino",
+    "email": "",
+    "photo": "",
+    "description": ""
+  },
+  {
+    "child": {
+      "name": "Francesco",
+      "surname": "Zucchi",
+      "gender": "",
+      "dateOfBirth": "14/11/2003"
+    },
+    "elder": {
+      "name": "Emma",
+      "surname": "Zucchi",
+      "gender": "",
+      "dateOfBirth": "29/04/1935"
+    },
+    "username": "Furetti",
+    "password": "zabaione",
+    "email": "",
+    "photo": "",
+    "description": ""
+  },
+  {
+    "child": {
+      "name": "Ludovica",
+      "surname": "Menozzi",
+      "gender": "",
+      "dateOfBirth": "09/07/2002"
+    },
+    "elder": {
+      "name": "Gina",
+      "surname": "Eccher",
+      "gender": "",
+      "dateOfBirth": "24/10/1946"
+    },
+    "username": "Unstoppable",
+    "password": "miele",
+    "email": "",
+    "photo": "",
+    "description": ""
+  },
+  {
+    "child": {
+      "name": "Antonio",
+      "surname": "Azzali",
+      "gender": "",
+      "dateOfBirth": "13/02/2004"
+    },
+    "elder": {
+      "name": "Alberto",
+      "surname": "Giusti",
+      "gender": "",
+      "dateOfBirth": "25/06/1948"
+    },
+    "username": "SoldatiDiPace",
+    "password": "carroarmato",
+    "email": "",
+    "photo": "",
+    "description": ""
+  },
+  {
+    "child": {
+      "name": "Michele",
+      "surname": "Gaber",
+      "gender": "",
+      "dateOfBirth": "21/08/1999"
+    },
+    "elder": {
+      "name": "Luigi",
+      "surname": "Bennato",
+      "gender": "",
+      "dateOfBirth": "11/09/1932"
+    },
+    "username": "Sneakers",
+    "password": "fahrenheit",
+    "email": "",
+    "photo": "",
+    "description": ""
   }
 ]
