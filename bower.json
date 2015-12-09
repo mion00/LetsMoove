@@ -12,8 +12,9 @@
     "angular-material": "1.0.0-rc7",
     "foundation-apps": "0c399e031fab1272c5158d4b7b626b2d24c2ed7e",
     "angular-material-icons": "master",
-    "svg-morpheus": "0.1.8"
-
+    "svg-morpheus": "0.1.8",
+    "angular-mocks": "~1.4.x",
+    "jasmine":"~2.3.2"
   },
   "private": true,
   "resolutions": {

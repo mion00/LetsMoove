@@ -3,14 +3,14 @@
  */
 (function () {
 
-    var app=angular.module('userServices',[]);
+    var app=angular.module('userServices',["ngResource"]);
     app.factory('AuthenticationService', ['$http',function($http) {
         var service = {};
         service.userData = {
             username : "",
             loggedIn : false
             };
-        service.Login = function Login(username, password, callback) {
+        service.Login = function(username, password, callback) {
             service.userData.loggedIn = true;
             service.userData.username = username;
             callback(true);
@@ -30,8 +30,8 @@
         return service;
     }]);
 
-    app.factory('User', ['$resource', 'apiURL',function ($resource, apiURL) {
-            return $resource(apiURL.buildURL("teams/:teamId"), {}, {
+    app.factory('User', ['$resource',function ($resource, apiURL) {
+            return $resource("/api/teams/:teamId", {}, {
                 query: {method: 'GET'}
             });
         }]);
