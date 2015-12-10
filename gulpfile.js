@@ -34,28 +34,27 @@ var paths = {
     ],
     // These files include Foundation for Apps and its dependencies
     angularJS: [
-        'bower_components/jquery/dist/jquery.js',
-        'bower_components/fastclick/lib/fastclick.js',
+        'node_modules/jquery/dist/jquery.js',
         //'bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
         //'bower_components/tether/tether.js',
         //'bower_components/hammerjs/hammer.js',
-        'bower_components/angular/angular.js',
-        'bower_components/angular-aria/angular-aria.js',
-        'bower_components/angular-resource/angular-resource.js',
-        'bower_components/angular-animate/angular-animate.js',
-        'bower_components/angular-material/angular-material.js',
+        'node_modules/angular/angular.js',
+        'node_modules/angular-aria/angular-aria.js',
+        'node_modules/angular-resource/angular-resource.js',
+        'node_modules/angular-animate/angular-animate.js',
+        'node_modules/angular-material/angular-material.js',
         //DynamicRouting di foundation apps
-        'bower_components/angular-ui-router/release/angular-ui-router.js',
-        'bower_components/foundation-apps/js/angular/services/*.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.js',
+        'node_modules/foundation-apps/js/angular/services/*.js',
         //'bower_components/foundation-apps/js/vendor/**/*.js',
         //'bower_components/foundation-apps/js/angular/**/*.js',
         //'!bower_components/foundation-apps/js/angular/app.js'
         //Google maps
-        'bower_components/lodash/lodash.js',
-        'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
-        'bower_components/angular-google-maps/dist/angular-google-maps.js',
-        'bower_components/angular-material-icons/angular-material-icons.js',
-        'bower_components/svg-morpheus/compile/unminified/svg-morpheus.js'
+        'node_modules/lodash/dist/lodash.js',
+        'node_modules/angular-simple-logger/dist/angular-simple-logger.js',
+        'node_modules/angular-google-maps/dist/angular-google-maps.js',
+        'node_modules/angular-material-icons/angular-material-icons.js',
+        'node_modules/svg-morpheus/compile/unminified/svg-morpheus.js'
     ],
     // These files are for your app's JavaScript
     appJS: [
@@ -66,12 +65,12 @@ var paths = {
         '!client/assets/js/app.js'
     ],
     angularTest: [
-        'bower_components/jasmine/lib/jasmine-core/jasmine.js',
-        'bower_components/jasmine/lib/jasmine-core/jasmine-html.js',
-        'bower_components/jasmine/lib/jasmine-core/boot.js',
-        'bower_components/angular/angular.js',
-        'bower_components/angular-mocks/angular-mocks.js',
-        'bower_components/angular-resource/angular-resource.js',
+        'node_modules/jasmine/lib/jasmine-core/jasmine.js',
+        'node_modules/jasmine/lib/jasmine-core/jasmine-html.js',
+        'node_modules/jasmine/lib/jasmine-core/boot.js',
+        'node_modules/angular/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/angular-resource/angular-resource.js',
         'spec/mocks/*.js'
     ]
 };
@@ -106,27 +105,6 @@ gulp.task('copy:templates', function () {
         }))
         .pipe(gulp.dest(buildDir + '/templates'))
         ;
-});
-
-// Compiles the Foundation for Apps directive partials into a single JavaScript file
-gulp.task('copy:foundation', function (cb) {
-    gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
-        .pipe($.ngHtml2js({
-            prefix: 'components/',
-            moduleName: 'foundation',
-            declareModule: false
-        }))
-        .pipe($.uglify())
-        .pipe($.concat('templates.js'))
-        .pipe(gulp.dest(buildDir + '/assets/js'))
-    ;
-
-    // Iconic SVG icons
-    gulp.src('./bower_components/foundation-apps/iconic/**/*')
-        .pipe(gulp.dest(buildDir + '/assets/img/iconic/'))
-    ;
-
-    cb();
 });
 
 // Compiles Sass
@@ -209,7 +187,7 @@ gulp.task('angularTest', function (cb) {
     gulp.src(paths.angularTest, {})
         .pipe($.concat('angular.js'))
         .pipe(gulp.dest(testDir));
-    gulp.src('./bower_components/jasmine/lib/jasmine-core/jasmine.css')
+    gulp.src('./node_modules/jasmine/lib/jasmine-core/jasmine.css')
         .pipe(gulp.dest(testDir))
     ;
     cb();

@@ -18,7 +18,6 @@
         'foundation.dynamicRouting.animations'
         ])
         .config(config)
-        .run(run)
     ;
 
     config.$inject = ['$urlRouterProvider', '$locationProvider','uiGmapGoogleMapApiProvider'];
@@ -36,10 +35,6 @@
             key: 'AIzaSyCGyfBFxoCCe2IOHSdhXrRRdTtsclma94Q',
             libraries: 'places'
         });
-    }
-
-    function run() {
-        FastClick.attach(document.body);
     }
 
 })();
