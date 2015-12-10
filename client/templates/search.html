@@ -66,7 +66,7 @@ url: /search
             </md-card-content>
         </md-card>
         <md-card flex ng-show="pathsCtrl.paths.length>0">
-            <md-card-content>
+            <md-card-content style="max-height: 32rem; overflow-y: auto;">
                 <md-list layout-sm="row" layout-gt-sm="column" layout-wrap layout-align="space-around">
                     <md-list-item ng-repeat="path in pathsCtrl.paths" class="md-3-line">
                         <div layout="column" class="md-list-item-text" layout-margin>

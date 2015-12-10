@@ -37,7 +37,7 @@
             {
                 id: 0,
                 value: [0, 1000000],
-                label: "qualsiasi"
+                label: "Qualsiasi"
             },
             {
                 id: 1,
@@ -65,7 +65,7 @@
             {
                 id: 0,
                 value: [0, 10000000000],
-                label: "qualsiasi"
+                label: "Qualsiasi"
             },
             {
                 id: 1,
@@ -91,13 +91,13 @@
         this.terrainTypes = {};
         TerrainType.get({}, function (terrainTypes) {
             scope.terrainTypes = terrainTypes._items;
-            scope.terrainTypes.push({type: "qualsiasi", id: 0});
+            scope.terrainTypes.push({type: "Qualsiasi", id: 0});
         }, function () {
             console.log("ERROR");
         })
         this.duration = 0;
         this.length = 0;
-        this.terrainType = "qualsiasi";
+        this.terrainType = "Qualsiasi";
 
         scope.location =
         {
