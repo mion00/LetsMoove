@@ -28,7 +28,7 @@
 //    });
 //});
 
-describe('user controllers', function() {
+describe('User controllers', function() {
     beforeEach(module('userControllers'));
     beforeEach(module('userServices'));
 
@@ -48,7 +48,6 @@ describe('user controllers', function() {
                 '$scope': scope
             })};
 
-
         createLogoutController = function() { return $controller('logoutController', {
                 '$scope': scope
             })};
@@ -63,6 +62,24 @@ describe('user controllers', function() {
         var userDataController = createUserDataController();
         expect(AuthenticationService.userData.loggedIn).toBe(true);
         expect(userDataController.userData.loggedIn).toBe(true);
+    });
+
+    it('should not let the user log in without credentials', function(){
+        var loginController = createLoginController();
+        loginController.username="";
+        loginController.password="";
+        loginController.doLogin();
+
+        expect(AuthenticationService.userData.loggedIn).toBe(false);
+    });
+
+    it('should not let the user log in without password', function(){
+        var loginController = createLoginController();
+        loginController.username="test";
+        loginController.password="";
+        loginController.doLogin();
+
+        expect(AuthenticationService.userData.loggedIn).toBe(false);
     });
 
     it('should tell the correct username', function() {

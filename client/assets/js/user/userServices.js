@@ -10,10 +10,18 @@
             username : "",
             loggedIn : false
             };
+
         service.Login = function(username, password, callback) {
-            service.userData.loggedIn = true;
-            service.userData.username = username;
-            callback(true);
+
+            //ToDo Codice mockup in attesa di implementare l'interfaccia col Database
+            if(username == "test" && password == "test") {
+                service.userData.loggedIn = true;
+                service.userData.username = username;
+                callback(true);
+            }else{
+                service.userData.loggedIn = false;
+                callback(false)
+            }
 
             //$http.post('/api/authenticate', { username: username, password: password })
             //    .success(function (response) {
