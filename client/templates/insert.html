@@ -198,7 +198,7 @@ url: /insert
             </md-card-content>
         </md-card>
         <div layout="row" layout-align="center stretch">
-            <md-card flex layout="row" style="height: 32rem; overflow-y: true;">
+            <md-card flex layout="row" style="height: 32rem;">
                 <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" bounds="insertionCtrl.viewport"
                                     control="insertionCtrl.map" zoom="insertionCtrl.zoom"
                                     events="{click:insertionCtrl.addClickMarker}">
@@ -223,7 +223,7 @@ url: /insert
                     <ui-gmap-polyline path='insertionCtrl.markers' icons="insertionCtrl.pathIcon"></ui-gmap-polyline>
                 </ui-gmap-google-map>
                 <div layout="column" flex="33">
-                    <md-card-content style="overflow:auto;">
+                    <md-card-content style="overflow-y:auto; overflow-x: hidden;">
                         <md-list>
                             <md-list-item class="stage-item" ng-repeat="stage in insertionCtrl.markers" layout="column" layout-align="center stretch">
                                 <div layout="row">

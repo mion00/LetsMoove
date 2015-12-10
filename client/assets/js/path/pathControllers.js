@@ -504,7 +504,7 @@
         this.click = function(){
             if(!AddStage.addMode.active){
                 this.icon.name = cancelIcon;
-                this.icon.color = 'red';
+                this.icon.color = '#885252';
                 AddStage.addMode.active=true;
                 $scope.map.setOptions({
                     draggableCursor:"url(/assets/img/mapPin.svg) 16 32, auto",
