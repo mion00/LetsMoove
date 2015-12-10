@@ -17,7 +17,7 @@
     "angular-route": "~1.4",
     "angular-ui-router": "~0.2.15",
     "angular-google-maps": "2.2.1",
-    "angular-material": "https://github.com/angular/bower-material#v1.0.0-rc6",
+    "angular-material": "https://github.com/angular/bower-material#v1.0.0-rc7",
     "foundation-apps": "~1.2",
     "angular-material-icons": "klarsys/angular-material-icons",
     "svg-morpheus": "https://github.com/alexk111/SVG-Morpheus#v0.1.8",
