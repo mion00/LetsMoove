@@ -29,7 +29,7 @@
 
     }]);
 
-    app.controller('pathsController', ['$stateParams', 'Path', 'TerrainType', 'uiGmapGoogleMapApi', '$scope', function ($stateParams, Path, TerrainType, uiGmapGoogleMapApi, $scope) {
+    app.controller('pathsController', ['$stateParams', 'Path', 'TerrainType', 'uiGmapGoogleMapApi', '$scope', '$state', function ($stateParams, Path, TerrainType, uiGmapGoogleMapApi, $scope, $state) {
         var scope = this;
         this.zoom = 5;
 
@@ -138,26 +138,55 @@
 
         uiGmapGoogleMapApi.then(function (maps) {
             scope.geocoder = new google.maps.Geocoder();
+            scope.updateData();
         });
 
+        this.locationInserted = function (event, name, autocomplete, d) {
+            scope.location.latitude = event.getPlace().geometry.location.lat();
+            scope.location.longitude = event.getPlace().geometry.location.lng();
+            scope.zoom = 12;
+            scope.updateData();
+        };
+
         scope.updateMarkers = function () {
+            var markers = [];
             for (var i = 0; i < scope.paths.length; i++) {
-                scope.markers.push(
-                    {
-                        id: i,
+
+                var marker = {
+                    id: scope.paths[i]._id,
+                    position :{
                         latitude: scope.paths[i].locationData.startPoint.coordinates[1],
-                        longitude: scope.paths[i].locationData.startPoint.coordinates[0],
-                        title: scope.paths[i].name,
-                        options: {
-                            labelClass: 'marker_labels',
-                            labelAnchor: '10 60',
-                            labelContent: scope.paths[i].name,
-                            animation: google.maps.Animation.DROP
-                        }
-                    });
+                        longitude: scope.paths[i].locationData.startPoint.coordinates[0]
+                    },
+                    title: scope.paths[i].name,
+                    options: {
+                        animation: google.maps.Animation.DROP
+                    }
+                }
+                markers.push(marker);
+            }
+            for(var i=0;i<scope.markers.length;i++){
+                if(markers.indexOf(scope.markers[i])==-1){
+                    scope.markers.splice(i, 1);
+                }
+            }
+            for(var i=0;i<markers.length;i++){
+                if(scope.markers.indexOf(markers[i])==-1){
+                    scope.markers.push(markers[i]);
+                }
             }
         }
 
+        scope.markerClick = function(marker,name,markerObject){
+            var infoWindow = new google.maps.InfoWindow({
+                content: "<h1>"+scope.paths[markerObject.id].name+"</h1>"+scope.paths[markerObject.id].description//+ "<br><button ng-click=\"pathsCtrl.goto("+markerObject.id+")\"> Info </button>"
+            });
+            infoWindow.open(marker.map, marker);
+        }
+
+        scope.goto = function(id){
+            $state.transitionTo("pathDetails",{pathId:id});
+        }
         scope.updateLocationFromAddress = function () {
             scope.geocoder.geocode({"address": scope.address}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
@@ -179,7 +208,7 @@
                                 type: "Point",
                                 coordinates: [scope.location.longitude, scope.location.latitude]
                             },
-                            $maxDistance: scope.range * 1000
+                            $maxDistance: 40075000/(Math.pow(2,scope.zoom))
                         }
                     },
                     "pathData.time": {
@@ -201,9 +230,24 @@
                 Path.get(query,
                     function (path) {
                         console.log(path._items);
-                        scope.paths = path._items;
-                        scope.markers = [];
-                        scope.updateMarkers();
+                        console.log(scope.paths);
+                        var equals = true;
+                        for(var i=0;i<scope.paths.length;i++){
+                            var found = false;
+                            for(var j=0; j<path._items.length;j++){
+                                if(scope.paths[i]._id==path._items[j]._id) {
+                                    found=true;
+                                }
+                            }
+                            if(!found) {
+                                equals = false;
+                                break;
+                            }
+                        }
+                        if(!equals || path._items.length!=scope.paths.length){
+                            scope.paths = path._items;
+                            scope.updateMarkers();
+                        }
                     }, function () {
                         console.log("FAIL");
                     });
@@ -310,16 +354,6 @@
         this.locationInserted = function (event, name, autocomplete, d) {
             scope.center.coordinates[1] = event.getPlace().geometry.location.lat();
             scope.center.coordinates[0] = event.getPlace().geometry.location.lng();
-            //if (event.getPlace().geometry.viewport) {
-            //
-            //    scope.viewport.northeast.latitude = event.getPlace().geometry.viewport.getNorthEast().lat();
-            //    scope.viewport.northeast.longitude = event.getPlace().geometry.viewport.getNorthEast().lng();
-            //
-            //    scope.viewport.southwest.latitude = event.getPlace().geometry.viewport.getSouthWest().lat();
-            //    scope.viewport.southwest.longitude = event.getPlace().geometry.viewport.getSouthWest().lng();
-            //
-            //    console.log(scope.viewport);
-            //}
             scope.zoom = 12;
         };
         this.isAddModeActive = function () {

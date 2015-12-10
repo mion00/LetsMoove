@@ -8,32 +8,6 @@ url: /search
         <form>
             <md-card>
                 <md-card-content>
-                    <h3>Cerca un percorso</h3>
-
-                    <div id="searchInput">
-                        <div layout="column" layout-align="center stretch">
-                            <md-input-container>
-                                <label>Posizione</label>
-                                <input type="text" ng-model="pathsCtrl.address">
-                            </md-input-container>
-                        </div>
-                        Inserisci un raggio di ricerca in km
-                        <md-input-container layout="row">
-
-                            <md-slider flex="70" min="1" max="100" ng-model="pathsCtrl.range" aria-label="red"
-                                       id="red-slider"></md-slider>
-
-                            <input flex="30" min="0" max="100" flex type="number" ng-model="pathsCtrl.range"
-                                   aria-label="red"
-                                   aria-controls="red-slider">
-
-                        </md-input-container>
-                    </div>
-                </md-card-content>
-            </md-card>
-
-            <md-card>
-                <md-card-content>
                     <h3>Aggiungi dei filtri alla ricerca</h3>
 
                     <div layout="row" id="filters" layout-align="center stretch">
@@ -74,20 +48,20 @@ url: /search
                     </div>
                 </md-card-content>
             </md-card>
-
-            <div layout="row" layout-align="center center">
-                <md-button class="md-raised md-warn"
-                           ng-click="pathsCtrl.updateLocationFromAddress(); pathsCtrl.updateData();">Cerca
-                </md-button>
-            </div>
         </form>
     </div>
 
     <div class="mapDiv" layout-sm="column" layout-md="column" layout-gt-sm="row">
         <md-card flex="grow">
             <md-card-content flex="grow">
-                <ui-gmap-google-map style="height:100%;" center='pathsCtrl.location' zoom='pathsCtrl.zoom'>
-                    <ui-gmap-markers models='pathsCtrl.markers' coords="'self'" options="'options'"></ui-gmap-markers>
+                <ui-gmap-google-map style="height:100%;" center='pathsCtrl.location' zoom='pathsCtrl.zoom' events="{dragend:pathsCtrl.updateData, zoom_changed:pathsCtrl.updateData}">
+                    <ui-gmap-markers models='pathsCtrl.markers' coords="'position'" options="'options'" click="pathsCtrl.markerClick"></ui-gmap-markers>
+                    <ui-gmap-search-box
+                            template="'templates/parts/searchBar.tmpl.html'"
+                            position="'top-center'"
+                            events="{place_changed:pathsCtrl.locationInserted}"
+                            options="{autocomplete:true}">
+                    </ui-gmap-search-box>
                 </ui-gmap-google-map>
             </md-card-content>
         </md-card>
@@ -98,7 +72,7 @@ url: /search
                         <div layout="column" class="md-list-item-text" layout-margin>
                             <div layout="row" layout-align="center center">
                                 <h3>{{path.name}}</h3>
-                                <md-button><md-icon>keyboard_arrow_right</md-icon>Info</md-button>
+                                <md-button ng-click="pathsCtrl.goto(path._id)"><md-icon>keyboard_arrow_right</md-icon>Info</md-button>
                             </div>
                             <div layout="row" layout-margin layout-sm="column" layout-align-sm="center center" layout-align="space-between stretch">
                                 <div flex layout="row" style="margin-right:28px;">
