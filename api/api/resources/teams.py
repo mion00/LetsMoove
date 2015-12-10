@@ -1,4 +1,8 @@
 schema = {
+    'id': {
+        'type': 'integer',
+        'readonly': True
+    },
     'username': {
         'type': 'string',
         'required': True,
@@ -70,7 +74,7 @@ schema = {
 
 teams = {
     'item_url': 'int',
-    'id_field': 'id',
+    'item_lookup_field': 'id',
     'schema': schema,
     'projection': False,
     'allowed_filters': ['id'],

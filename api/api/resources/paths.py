@@ -3,6 +3,10 @@ import pymongo
 from .votes import votes_schema
 
 schema = {
+    'id': {
+        'type': 'integer',
+        'readonly': True
+    },
     'name': {
         'type': 'string',
         'required': True,
@@ -105,7 +109,7 @@ schema = {
 
 paths = {
     'item_url': 'int',
-    'id_field': 'id',
+    'item_lookup_field': 'id',
     'schema': schema,
     'mongo_indexes': {
         'locationIndex': [('locationData.startPoint', pymongo.GEOSPHERE)]

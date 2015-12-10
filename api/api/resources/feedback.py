@@ -1,4 +1,8 @@
 feedback_schema = {
+    'id': {
+        'type': 'integer',
+        'readonly': True
+    },
     'path': {
         'type': 'integer',
         'required': True,
@@ -52,6 +56,6 @@ feedback_schema = {
 
 feedback = {
     'item_url': 'int',
-    'id_field': 'id',
+    'item_lookup_field': 'id',
     'schema': feedback_schema
 }

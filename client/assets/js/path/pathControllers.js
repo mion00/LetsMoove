@@ -91,7 +91,7 @@
         this.terrainTypes = {};
         TerrainType.get({}, function (terrainTypes) {
             scope.terrainTypes = terrainTypes._items;
-            scope.terrainTypes.push({type: "qualsiasi", _id: 0});
+            scope.terrainTypes.push({type: "qualsiasi", id: 0});
         }, function () {
             console.log("ERROR");
         })
@@ -226,7 +226,7 @@
                         for(var i=0;i<scope.paths.length;i++){
                             var found = false;
                             for(var j=0; j<path._items.length;j++){
-                                if(scope.paths[i]._id==path._items[j]._id) {
+                                if(scope.paths[i].id==path._items[j].id) {
                                     found=true;
                                 }
                             }

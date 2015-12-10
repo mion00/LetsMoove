@@ -1,4 +1,8 @@
 schema = {
+    'id': {
+        'type': 'integer',
+        'readonly': True
+    },
     'type': {
         'type': 'string',
         'required': True,
@@ -9,6 +13,6 @@ schema = {
 
 terrainTypes = {
     'item_url': 'int',
-    'id_field': 'id',
+    'item_lookup_field': 'id',
     'schema': schema
 }
