@@ -65,9 +65,9 @@ var paths = {
         '!client/assets/js/app.js'
     ],
     angularTest: [
-        'node_modules/jasmine/lib/jasmine-core/jasmine.js',
-        'node_modules/jasmine/lib/jasmine-core/jasmine-html.js',
-        'node_modules/jasmine/lib/jasmine-core/boot.js',
+        'node_modules/jasmine-core/lib/jasmine-core/jasmine.js',
+        'node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js',
+        'node_modules/jasmine-core/lib/jasmine-core/boot.js',
         'node_modules/angular/angular.js',
         'node_modules/angular-mocks/angular-mocks.js',
         'node_modules/angular-resource/angular-resource.js',
@@ -187,7 +187,7 @@ gulp.task('angularTest', function (cb) {
     gulp.src(paths.angularTest, {})
         .pipe($.concat('angular.js'))
         .pipe(gulp.dest(testDir));
-    gulp.src('./node_modules/jasmine/lib/jasmine-core/jasmine.css')
+    gulp.src('./node_modules/jasmine-core/lib/jasmine-core/jasmine.css')
         .pipe(gulp.dest(testDir))
     ;
     cb();
