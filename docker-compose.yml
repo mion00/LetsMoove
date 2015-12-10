@@ -31,11 +31,10 @@ api_server:
     DEVELOPMENT: "true"
 
 frontend:
-  build: ./frontendDocker
-  #image: digitallyseamless/nodejs-bower-grunt
+#  build: ./frontendDocker
+  image: library/node
   command: /usr/local/bin/npm start
   working_dir: /data
   volumes:
-#    - /usr/share/nginx/html
     - ./:/data
   net: "host"
