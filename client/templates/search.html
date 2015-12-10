@@ -4,64 +4,62 @@ url: /search
 ---
 
 <div layout="column" flex ng-controller="pathsController as pathsCtrl">
-    <div layout="column" layout-align="center center">
-        <form>
-            <md-card>
+    <md-sidenav md-component-id="filters" class="md-sidenav-left">
+        <div layout="column" id="filters" layout-align="center stretch">
+            <md-card flex>
                 <md-card-content>
-                    <h3>Aggiungi dei filtri alla ricerca</h3>
-
-                    <div layout="row" id="filters" layout-align="center stretch">
-                        <md-card flex>
-                            <md-card-content>
-                                <h4>Lunghezza percorso</h4>
-                                <md-radio-group ng-model="pathsCtrl.length" ng-click="pathsCtrl.updateData()">
-                                    <md-radio-button value="{{lengthClass.id}}"
-                                                     ng-repeat="lengthClass in pathsCtrl.lengthClasses">
-                                        {{lengthClass.label}}
-                                    </md-radio-button>
-                                </md-radio-group>
-                            </md-card-content>
-                        </md-card>
-                        <md-card flex>
-                            <md-card-content>
-                                <h4>Tipologia di terreno</h4>
-                                <md-radio-group ng-model="pathsCtrl.terrainType"
-                                                ng-click="pathsCtrl.updateData()">
-                                    <md-radio-button value="{{terrain.type}}"
-                                                     ng-repeat="terrain in pathsCtrl.terrainTypes | orderBy: 'id'">
-                                        {{terrain.type}}
-                                    </md-radio-button>
-                                </md-radio-group>
-                            </md-card-content>
-                        </md-card>
-                        <md-card flex>
-                            <md-card-content>
-                                <h4>Durata</h4>
-                                <md-radio-group ng-model="pathsCtrl.duration" ng-click="pathsCtrl.updateData()">
-                                    <md-radio-button value="{{durationClass.id}}"
-                                                     ng-repeat="durationClass in pathsCtrl.durationClasses">
-                                        {{durationClass.label}}
-                                    </md-radio-button>
-                                </md-radio-group>
-                            </md-card-content>
-                        </md-card>
-                    </div>
+                    <h4>Lunghezza percorso</h4>
+                    <md-radio-group ng-model="pathsCtrl.length" ng-click="pathsCtrl.updateData()">
+                        <md-radio-button value="{{lengthClass.id}}"
+                                         ng-repeat="lengthClass in pathsCtrl.lengthClasses">
+                            {{lengthClass.label}}
+                        </md-radio-button>
+                    </md-radio-group>
                 </md-card-content>
             </md-card>
-        </form>
-    </div>
-
+            <md-card flex>
+                <md-card-content>
+                    <h4>Tipologia di terreno</h4>
+                    <md-radio-group ng-model="pathsCtrl.terrainType"
+                                    ng-click="pathsCtrl.updateData()">
+                        <md-radio-button value="{{terrain.type}}"
+                                         ng-repeat="terrain in pathsCtrl.terrainTypes | orderBy: 'id'">
+                            {{terrain.type}}
+                        </md-radio-button>
+                    </md-radio-group>
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <h4>Durata</h4>
+                    <md-radio-group ng-model="pathsCtrl.duration" ng-click="pathsCtrl.updateData()">
+                        <md-radio-button value="{{durationClass.id}}"
+                                         ng-repeat="durationClass in pathsCtrl.durationClasses">
+                            {{durationClass.label}}
+                        </md-radio-button>
+                    </md-radio-group>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-sidenav>
     <div class="mapDiv" layout-sm="column" layout-md="column" layout-gt-sm="row">
         <md-card flex="grow">
             <md-card-content flex="grow">
-                <ui-gmap-google-map style="height:100%;" center='pathsCtrl.location' zoom='pathsCtrl.zoom' events="{dragend:pathsCtrl.updateData, zoom_changed:pathsCtrl.updateData}">
-                    <ui-gmap-markers models='pathsCtrl.markers' coords="'position'" options="'options'" click="pathsCtrl.markerClick"></ui-gmap-markers>
+                <ui-gmap-google-map style="height:100%;" center='pathsCtrl.location' zoom='pathsCtrl.zoom'
+                                    events="{dragend:pathsCtrl.updateData, zoom_changed:pathsCtrl.updateData}">
+                    <ui-gmap-markers models='pathsCtrl.markers' coords="'position'" options="'options'"
+                                     click="pathsCtrl.markerClick"></ui-gmap-markers>
                     <ui-gmap-search-box
                             template="'templates/parts/searchBar.tmpl.html'"
                             position="'top-center'"
                             events="{place_changed:pathsCtrl.locationInserted}"
                             options="{autocomplete:true}">
                     </ui-gmap-search-box>
+                    <ui-gmap-map-control
+                            template='templates/parts/filters.html'
+                            position="top-right"
+                            controller="mapSearchController as mapCtrl">
+                    </ui-gmap-map-control>
                 </ui-gmap-google-map>
             </md-card-content>
         </md-card>
@@ -72,9 +70,13 @@ url: /search
                         <div layout="column" class="md-list-item-text" layout-margin>
                             <div layout="row" layout-align="center center">
                                 <h3>{{path.name}}</h3>
-                                <md-button ng-click="pathsCtrl.goto(path.id)"><md-icon>keyboard_arrow_right</md-icon>Info</md-button>
+                                <md-button ng-click="pathsCtrl.goto(path.id)">
+                                    <md-icon>keyboard_arrow_right</md-icon>
+                                    Info
+                                </md-button>
                             </div>
-                            <div layout="row" layout-margin layout-sm="column" layout-align-sm="center center" layout-align="space-between stretch">
+                            <div layout="row" layout-margin layout-sm="column" layout-align-sm="center center"
+                                 layout-align="space-between stretch">
                                 <div flex layout="row" style="margin-right:28px;">
                                     <div layout="column" layout-align="space-between start">
                                         <strong class="italic spaced">Bellezza</strong>
@@ -83,16 +85,34 @@ url: /search
                                     </div>
                                     <div layout="column">
                                         <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.beauty">star_rate</md-icon>
-                                            <md-icon class="star color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.beauty">star_rate</md-icon>
+                                            <md-icon class="star color-yellow"
+                                                     ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.beauty">
+                                                star_rate
+                                            </md-icon>
+                                            <md-icon class="star color-light-yellow"
+                                                     ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.beauty">
+                                                star_rate
+                                            </md-icon>
                                         </div>
                                         <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.complexity">star_rate</md-icon>
-                                            <md-icon class="star color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.complexity">star_rate</md-icon>
+                                            <md-icon class="star color-yellow"
+                                                     ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.complexity">
+                                                star_rate
+                                            </md-icon>
+                                            <md-icon class="star color-light-yellow"
+                                                     ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.complexity">
+                                                star_rate
+                                            </md-icon>
                                         </div>
                                         <div layout="row">
-                                            <md-icon class="star color-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.difficulty">star_rate</md-icon>
-                                            <md-icon class="star color-light-yellow" ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.difficulty">star_rate</md-icon>
+                                            <md-icon class="star color-yellow"
+                                                     ng-repeat="i in [1,2,3,4,5] | limitTo: path.ownerVote.difficulty">
+                                                star_rate
+                                            </md-icon>
+                                            <md-icon class="star color-light-yellow"
+                                                     ng-repeat="i in [1,2,3,4,5] | limitTo: 5-path.ownerVote.difficulty">
+                                                star_rate
+                                            </md-icon>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +120,8 @@ url: /search
                                     <div layout="row">
                                         <div layout="column" layout-align="cetnter start">
                                             <div layout="row">
-                                                <i class="material-icons">trending_flat</i><strong class="italic spaced">{{path.pathData.length}}</strong>m
+                                                <i class="material-icons">trending_flat</i><strong
+                                                    class="italic spaced">{{path.pathData.length}}</strong>m
                                             </div>
                                             <div layout="row">
                                                 <i class="material-icons">trending_up</i><strong class="italic spaced">{{path.pathData.altitude}}</strong>m
@@ -114,10 +135,14 @@ url: /search
                                                 <i class="material-icons">terrain</i><strong class="italic spaced">{{path.pathData.terrainType}}</strong>
                                             </div>
                                             <div layout="row">
-                                                <i class="material-icons">explore</i><strong class="italic spaced"><div ng-show="path.pathData.adventure">Sì</div><div ng-hide="path.pathData.adventure">No</div></strong>
+                                                <i class="material-icons">explore</i><strong class="italic spaced">
+                                                <div ng-show="path.pathData.adventure">Sì</div>
+                                                <div ng-hide="path.pathData.adventure">No</div>
+                                            </strong>
                                             </div>
                                             <div layout="row">
-                                                <i class="material-icons">alarm</i><strong class="italic spaced">{{path.pathData.time}}</strong> min
+                                                <i class="material-icons">alarm</i><strong class="italic spaced">{{path.pathData.time}}</strong>
+                                                min
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +153,7 @@ url: /search
                     </md-list-item>
                 </md-list>
             </md-card-content>
-        </md-card >
+        </md-card>
     </div>
 </div>
 

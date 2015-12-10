@@ -2,7 +2,7 @@
  * Created by mion00 on 18/11/15.
  */
 (function () {
-    var app = angular.module('pathControllers', ['pathServices', 'ui.router', 'uiGmapgoogle-maps', 'terrainTypeServices', 'userServices']);
+    var app = angular.module('pathControllers', ['pathServices', 'ui.router', 'uiGmapgoogle-maps', 'terrainTypeServices', 'userServices', 'ngMaterial']);
 
     app.controller('pathDetailsController', ['$stateParams', 'Path', 'User', 'uiGmapGoogleMapApi', function ($stateParams, Path, User, uiGmapGoogleMapApi) {
         var scope = this;
@@ -32,7 +32,6 @@
     app.controller('pathsController', ['$stateParams', 'Path', 'TerrainType', 'uiGmapGoogleMapApi', '$scope', '$state', function ($stateParams, Path, TerrainType, uiGmapGoogleMapApi, $scope, $state) {
         var scope = this;
         this.zoom = 5;
-        this.sharedLocation=false;
 
         this.durationClasses = [
             {
@@ -118,13 +117,11 @@
             scope.location.latitude = position.coords.latitude;
             scope.location.longitude = position.coords.longitude;
             scope.zoom = 11;
-            scope.sharedLocation=true;
             $scope.$apply();
 
             scope.updateAddressFromLocation();
 
             scope.updateData();
-
         });
 
         this.updateAddressFromLocation = function () {
@@ -140,6 +137,7 @@
         }
 
         uiGmapGoogleMapApi.then(function (maps) {
+            scope.map = maps.Map;
             scope.geocoder = new google.maps.Geocoder();
             scope.updateData();
         });
@@ -193,7 +191,7 @@
         };
 
         scope.updateData = function () {
-            console.log(scope.location);
+            //console.log(scope.location);
             var query = {
                 where: {
                     "locationData.startPoint": {
@@ -242,6 +240,7 @@
                             scope.paths = path._items;
                             scope.markers=[];
                             scope.updateMarkers();
+                            scope.map.control.refresh();
                         }
                     }, function () {
                         console.log("FAIL");
@@ -528,8 +527,11 @@
         }
     }]);
 
-    app.controller('mapSearchController', [function () {
+    app.controller('mapSearchController', ['$mdSidenav', function ($mdSidenav) {
         var scope = this;
+        this.openFilters = function () {
+            $mdSidenav('filters').toggle();
+        };
         this.updateCenter = function () {
             console.log(scope.address);
         }
