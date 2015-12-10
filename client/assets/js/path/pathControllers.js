@@ -153,7 +153,7 @@
             for (var i = 0; i < scope.paths.length; i++) {
 
                 var marker = {
-                    id: scope.paths[i]._id,
+                    id: i,
                     position :{
                         latitude: scope.paths[i].locationData.startPoint.coordinates[1],
                         longitude: scope.paths[i].locationData.startPoint.coordinates[0]
@@ -163,18 +163,9 @@
                         animation: google.maps.Animation.DROP
                     }
                 }
-                markers.push(marker);
+                scope.markers.push(marker);
             }
-            for(var i=0;i<scope.markers.length;i++){
-                if(markers.indexOf(scope.markers[i])==-1){
-                    scope.markers.splice(i, 1);
-                }
-            }
-            for(var i=0;i<markers.length;i++){
-                if(scope.markers.indexOf(markers[i])==-1){
-                    scope.markers.push(markers[i]);
-                }
-            }
+
         }
 
         scope.markerClick = function(marker,name,markerObject){
@@ -246,6 +237,7 @@
                         }
                         if(!equals || path._items.length!=scope.paths.length){
                             scope.paths = path._items;
+                            scope.markers=[];
                             scope.updateMarkers();
                         }
                     }, function () {
