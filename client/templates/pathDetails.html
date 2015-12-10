@@ -24,7 +24,7 @@ url: /paths/:pathId
                         <p class="italic" style="max-width: 700px;">{{pathController.path.description}}</p>
 
                         <div layout="row" layout-align="center center">
-                            <md-button class="md-raised md-primary" ui-sref="log">
+                            <md-button class="md-raised md-primary" href="log/{{pathController.path.id}}">
                                 Completato? Logga!
                             </md-button>
                         </div>

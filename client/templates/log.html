@@ -1,9 +1,9 @@
 ---
 name: log
-url: /log
+url: /log/:pathId
 ---
 
-<div layout="column">
+<div layout="column" ng-controller="pathLogController as pathLogCtrl">
     <md-card>
         <md-card-title>
             <md-card-title-text>
@@ -16,11 +16,11 @@ url: /log
                     <img src="/assets/img/white-flag.jpg">
                 </div>
                 <div>
-                    <span class="md-headline">Nome percorso {{pathController.path.name}}</span>
+                    <span class="md-headline">{{pathLogCtrl.path.name}}</span>
 
-                    <p class="italic">sottotitolo {{pathController.path.subtitle}}</p>
+                    <p class="italic">{{pathLogCtrl.path.subtitle}}</p>
 
-                    <p>Owner: {{pathController.path.owner}}</p>
+                    <p>Owner: {{pathLogCtrl.path.owner}}</p>
                 </div>
             </div>
         </md-card-content>
@@ -39,36 +39,33 @@ url: /log
                         <h2 align="center">Bellezza</h2>
 
                         <div layout="row" layout-align="center center">
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            {{pathController.path.ownerVote.beauty}}
+                            <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
+                                     ng-click="pathLogCtrl.beauty=i"
+                                     ng-class="{'color-light-yellow':i>pathLogCtrl.beauty, 'color-yellow': pathLogCtrl.beauty>=i}">
+                                star_rate
+                            </md-icon>
                         </div>
                     </div>
                     <div layout="column" flex>
                         <h2 align="center">Complessità</h2>
 
                         <div layout="row" layout-align="center center">
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            {{pathController.path.ownerVote.complexity}}
+                            <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
+                                     ng-click="pathLogCtrl.complexity=i"
+                                     ng-class="{'color-light-yellow':i>pathLogCtrl.complexity, 'color-yellow': pathLogCtrl.complexity>=i}">
+                                star_rate
+                            </md-icon>
                         </div>
                     </div>
                     <div layout="column" flex>
                         <h2 align="center">Difficoltà</h2>
 
                         <div layout="row" layout-align="center center">
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            <md-icon class="color-yellow star">star_rate</md-icon>
-                            {{pathController.path.ownerVote.difficulty}}
+                            <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
+                                     ng-click="pathLogCtrl.difficulty=i"
+                                     ng-class="{'color-light-yellow':i>pathLogCtrl.difficulty, 'color-yellow': pathLogCtrl.difficulty>=i}">
+                                star_rate
+                            </md-icon>
                         </div>
                     </div>
                 </div>
@@ -82,13 +79,13 @@ url: /log
             </md-card-title>
             <md-card-content>
                 <md-input-container  style="width:100%;">
-                        <textarea style="overflow:auto;" ng-model="review.description" columns="1" md-maxlength="300"
+                        <textarea style="overflow:auto;" ng-model="pathLogCtrl.review" columns="1" md-maxlength="300"
                                   rows="5"></textarea>
                 </md-input-container>
             </md-card-content>
         </md-card>
         <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-primary">Invia la tua recensione</md-button>
+            <md-button class="md-raised md-primary" >Invia la tua recensione</md-button>
         </div>
     </form>
 </div>

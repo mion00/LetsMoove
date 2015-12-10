@@ -32,6 +32,7 @@
     app.controller('pathsController', ['$stateParams', 'Path', 'TerrainType', 'uiGmapGoogleMapApi', '$scope', '$state', function ($stateParams, Path, TerrainType, uiGmapGoogleMapApi, $scope, $state) {
         var scope = this;
         this.zoom = 5;
+        this.sharedLocation=false;
 
         this.durationClasses = [
             {
@@ -117,11 +118,13 @@
             scope.location.latitude = position.coords.latitude;
             scope.location.longitude = position.coords.longitude;
             scope.zoom = 11;
+            scope.sharedLocation=true;
             $scope.$apply();
 
             scope.updateAddressFromLocation();
 
             scope.updateData();
+
         });
 
         this.updateAddressFromLocation = function () {
@@ -170,7 +173,7 @@
 
         scope.markerClick = function(marker,name,markerObject){
             var infoWindow = new google.maps.InfoWindow({
-                content: "<h1>"+scope.paths[markerObject.id].name+"</h1>"+scope.paths[markerObject.id].description//+ "<br><button ng-click=\"pathsCtrl.goto("+markerObject.id+")\"> Info </button>"
+                content: "<h1><a href=\"/paths/"+scope.paths[markerObject.id].id+"\">"+scope.paths[markerObject.id].name+"</a></h1>"+scope.paths[markerObject.id].description//+ "<br><button ng-click=\"pathsCtrl.goto("+markerObject.id+")\"> Info </button>"
             });
             infoWindow.open(marker.map, marker);
         }
@@ -212,7 +215,7 @@
                     }
                 }
             };
-            if (scope.terrainType != "qualsiasi") {
+            if (scope.terrainType != "Qualsiasi") {
                 query.where["pathData.terrainType"] = scope.terrainType;
             }
 
@@ -530,5 +533,28 @@
         this.updateCenter = function () {
             console.log(scope.address);
         }
+    }]);
+
+    app.controller('pathLogController',['Path','User','$stateParams',function(Path,User,$stateParams){
+        var scope = this;
+
+        this.beauty=1;
+        this.complexity=1;
+        this.difficulty=1;
+
+        var callback = function (path) {
+            scope.path = path;
+            User.get({teamId: scope.path.owner, projection: {username: 1}}, function (name) {
+                scope.path.owner = name.username;
+            }, function () {
+                console.log("FAIL");
+            })
+        };
+
+        var error = function () {
+            console.log("FAIL");
+        };
+
+        Path.query({pathId: $stateParams.pathId}, callback, error);
     }]);
 }());
