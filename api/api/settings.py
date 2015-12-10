@@ -16,6 +16,7 @@ URL_PREFIX = "api"
 XML = False
 EXTENDED_MEDIA_INFO = ['content_type']
 
+EXTRA_RESPONSE_FIELDS = ['id']
 CACHE_CONTROL = 'no-cache'
 
 DOMAIN = {
