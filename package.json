@@ -7,7 +7,6 @@
     "jasmineinit": "jasmine init",
     "jasmine": "jasmine"
   },
-  "cache": "/data/.npm",
   "devDependencies": {
     "jquery": "~2.1.4",
     "angular": "~1.4",
