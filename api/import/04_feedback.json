@@ -1,7 +1,7 @@
 [
   {
     "path": 1,
-    "team": 1,
+    "team": 7,
     "vote": {
       "beauty": "1",
       "complexity": "4",
@@ -31,7 +31,7 @@
   },
   {
     "path": 2,
-    "team": 1,
+    "team": 6,
     "vote": {
       "beauty": "4",
       "complexity": "3",
@@ -141,7 +141,7 @@
   },
   {
     "path": 5,
-    "team": 7,
+    "team": 8,
     "vote": {
       "beauty": "5",
       "complexity": "2",
@@ -191,7 +191,7 @@
   },
   {
     "path": 7,
-    "team": 8,
+    "team": 4,
     "vote": {
       "beauty": "5",
       "complexity": "2",
@@ -201,7 +201,7 @@
   },
   {
     "path": 7,
-    "team": 8,
+    "team": 9,
     "vote": {
       "beauty": "2",
       "complexity": "2",
@@ -231,7 +231,7 @@
   },
   {
     "path": 8,
-    "team": 1,
+    "team": 6,
     "vote": {
       "beauty": "1",
       "complexity": "4",

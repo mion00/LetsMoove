@@ -4,24 +4,24 @@ url: /paths/:pathId
 ---
 
 
-<div layout="column" ng-controller="pathDetailsController as pathController">
+<div layout="column" flex-xs="100" flex-gt-xs="80" ng-controller="pathDetailsController as pathController">
     <div layout-gt-sm="row" layout-sm="column" layout-align="center">
         <md-card flex>
                 <md-card-content>
                     <div layout="row" layout-margin>
 
-                        <img src="/assets/img/routeIcon.svg" style="height: 100px; width: 100px;">
+                        <img src="/assets/img/routeIcon.svg" style="height: 100px; width: 100px; margin: 2rem;">
 
                         <div>
-                            <span class="md-headline">{{pathController.path.name}}</span>
+                            <span class="md-headline"><strong>{{pathController.path.name}}</strong></span>
 
                             <p class="italic">{{pathController.path.subtitle}}</p>
 
-                            <p>Owner: {{pathController.path.owner}}</p>
+                            <p><strong>Owner</strong>: {{pathController.path.owner.username}}</p>
                         </div>
                     </div>
                     <div layout="column">
-                        <p class="italic" style="max-width: 700px;">{{pathController.path.description}}</p>
+                        <p class="italic" align="justify">{{pathController.path.description}}</p>
 
                         <div layout="row" layout-align="center center">
                             <md-button class="md-raised md-primary" href="log/{{pathController.path.id}}">
@@ -211,11 +211,11 @@ url: /paths/:pathId
                         <md-list-item ng-repeat="feedback in feedbackCtrl.feedback" class="md-3-line">
                             <div class="md-list-item-text">
                                 <div layout="row" layout-align="center">
-                                    <div layout="row" layout-align="space-around center" flex="33">
+                                    <div layout="row" layout-align="start center" flex="30">
                                         <img src="assets/img/userIcon.png" class="md-avatar"/>
-                                        <h3>{{feedback.id}}</h3>
+                                        <h3>{{feedback.team.username}}</h3>
                                     </div>
-                                    <div layout="column" flex="66">
+                                    <div layout="column" flex="60">
                                         <p>{{feedback.review}}</p>
                                     </div>
                                 </div>
