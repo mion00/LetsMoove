@@ -112,6 +112,8 @@
 
         this.lastQuery = {};
 
+        this.loadingDone= false;
+
 
         navigator.geolocation.getCurrentPosition(function (position) {
             scope.location.latitude = position.coords.latitude;
@@ -140,6 +142,9 @@
             scope.map = maps.Map;
             scope.geocoder = new google.maps.Geocoder();
             scope.updateData();
+            scope.loadingDone=true;
+            scope.map=maps.Map;
+            scope.map.control.refresh();
         });
 
         this.locationInserted = function (event, name, autocomplete, d) {
