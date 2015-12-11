@@ -40,6 +40,42 @@ url: /search
                     </md-radio-group>
                 </md-card-content>
             </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <h4>Bellezza minima</h4>
+                        <div layout="row">
+                            <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
+                                     ng-click="pathLogCtrl.beauty=i"
+                                     ng-class="{'color-light-yellow':i>pathLogCtrl.beauty, 'color-yellow': pathLogCtrl.beauty>=i}">
+                                star_rate
+                            </md-icon>
+                        </div>
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <h4>Complessità minima</h4>
+                    <div layout="row">
+                        <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
+                                 ng-click="pathLogCtrl.complexity=i"
+                                 ng-class="{'color-light-yellow':i>pathLogCtrl.complexity, 'color-yellow': pathLogCtrl.complexity>=i}">
+                            star_rate
+                        </md-icon>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <h4>Difficoltà minima</h4>
+                    <div layout="row">
+                        <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
+                                 ng-click="pathLogCtrl.difficulty=i"
+                                 ng-class="{'color-light-yellow':i>pathLogCtrl.difficulty, 'color-yellow': pathLogCtrl.difficulty>=i}">
+                            star_rate
+                        </md-icon>
+                    </div>
+                </md-card-content>
+            </md-card>
         </div>
     </md-sidenav>
     <div class="mapDiv" layout-sm="column" layout-md="column" layout-gt-sm="row">
