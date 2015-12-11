@@ -2,163 +2,168 @@
 name: insert
 url: /insert
 ---
+<div flex-xs="100" flex-gt-xs="60" layout="column" ng-controller="pathInsertionController as insertionCtrl">
 
-<div layout="column" ng-controller="pathInsertionController as insertionCtrl">
-    <form name="pathForm">
-        <div layout="row">
-            <div layout="column">
-                <md-card>
-                    <md-card-content>
-                        <div layout="row">
-                            <div flex="20" layout-margin>
-                                <img class="responsive-img" src="/assets/img/routeIcon.svg"
-                                     style="height: 76px; width: 76px;">
-                            </div>
-                            <div layout-margin layout="column" flex="70">
-                                <md-input-container>
-                                    <label>Nome del percorso</label>
-                                    <input type="text" ng-model="insertionCtrl.path.name">
-                                </md-input-container>
-                                <md-input-container>
-                                    <label>Sottotitolo (opzionale)</label>
-                                    <input type="text" ng-model="insertionCtrl.path.subtitle">
-                                </md-input-container>
-                            </div>
+    <div layout="column">
+        <div layout="column" layout-align="center stretch">
+
+            <md-card flex>
+                <md-card-content>
+                    <div layout="row">
+                        <div flex="20" layout-margin>
+                            <img class="responsive-img" src="/assets/img/routeIcon.svg"
+                                 style="height: 76px; width: 76px;">
                         </div>
-                    </md-card-content>
-                </md-card>
+                        <div layout-margin layout="column" flex="70">
+                            <md-input-container>
+                                <label>Nome del percorso</label>
+                                <input type="text" ng-model="insertionCtrl.path.name">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Sottotitolo (opzionale)</label>
+                                <input type="text" ng-model="insertionCtrl.path.subtitle">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
 
-                <md-card>
-                    <md-card-content>
-                        <md-input-container style="width:100%;">
-                            <label>Descrizione</label>
+
+            <md-card flex>
+                <md-card-content>
+                    <md-input-container style="width:100%;">
+                        <label>Descrizione</label>
                     <textarea style="overflow:auto;" columns="1" md-maxlength="300" rows="5"
                               ng-model="insertionCtrl.path.description"></textarea>
-                        </md-input-container>
-                    </md-card-content>
-                </md-card>
-            </div>
-            <div layout="column">
-                <md-card>
-                    <md-card-content>
-                        <div layout-gt-sm="row" layout-sm="column">
-                            <div flex>
-                                <md-list>
-                                    <md-list-item class="md-3-line">
-                                        <div class="md-list-item-text">
-                                            <div layout="row">
-                                                <i class="material-icons">trending_flat</i>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+    <div layout="column">
 
-                                                <div layout="column">
-                                                    <h3>Lunghezza</h3>
+        <div layout="row" layout-align="center stretch">
 
-                                                    <p><strong
-                                                            class="italic">{{insertionCtrl.path.pathData.length}}</strong>
-                                                        metri</p>
-                                                </div>
+            <md-card flex>
+                <md-card-content>
+                    <div layout-gt-sm="row" layout-sm="column">
+                        <div flex>
+                            <md-list>
+                                <md-list-item class="md-3-line">
+                                    <div class="md-list-item-text">
+                                        <div layout="row">
+                                            <i class="material-icons">trending_flat</i>
+
+                                            <div layout="column">
+                                                <h3>Lunghezza</h3>
+
+                                                <p><strong
+                                                        class="italic">{{insertionCtrl.path.pathData.length}}</strong>
+                                                    metri</p>
                                             </div>
                                         </div>
-                                        <md-divider></md-divider>
-                                    </md-list-item>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
 
-                                    <md-list-item class="md-3-line">
-                                        <div class="md-list-item-text">
-                                            <div layout="row">
-                                                <i class="material-icons">trending_up</i>
+                                <md-list-item class="md-3-line">
+                                    <div class="md-list-item-text">
+                                        <div layout="row">
+                                            <i class="material-icons">trending_up</i>
 
-                                                <div layout="column">
-                                                    <h3>Altitudine</h3>
+                                            <div layout="column">
+                                                <h3>Altitudine</h3>
 
-                                                    <p><strong
-                                                            class="italic">{{insertionCtrl.path.pathData.altitude}}</strong>
-                                                        metri s.l.m.</p>
-                                                </div>
+                                                <p><strong
+                                                        class="italic">{{insertionCtrl.path.pathData.altitude}}</strong>
+                                                    metri s.l.m.</p>
                                             </div>
                                         </div>
-                                        <md-divider></md-divider>
-                                    </md-list-item>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
 
-                                    <md-list-item class="md-3-line">
-                                        <div class="md-list-item-text">
-                                            <div layout="row">
-                                                <i class="material-icons">swap_vert</i>
+                                <md-list-item class="md-3-line">
+                                    <div class="md-list-item-text">
+                                        <div layout="row">
+                                            <i class="material-icons">swap_vert</i>
 
-                                                <div layout="column">
-                                                    <h3>Dislivello</h3>
+                                            <div layout="column">
+                                                <h3>Dislivello</h3>
 
-                                                    <p><strong
-                                                            class="italic">{{insertionCtrl.path.pathData.deltaAltitude}}</strong>
-                                                        m
-                                                    </p>
-                                                </div>
+                                                <p><strong
+                                                        class="italic">{{insertionCtrl.path.pathData.deltaAltitude}}</strong>
+                                                    m
+                                                </p>
                                             </div>
                                         </div>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                            <div flex>
-                                <md-list>
-                                    <md-list-item class="md-3-line">
-                                        <div class="md-list-item-text">
-                                            <div layout="row" layout-align="start center">
-                                                <i class="material-icons">terrain</i>
-
-                                                <div layout="column">
-                                                    <div layout="row" layout-align="start center">
-                                                        <label style="margin-left: 5px; margin-right: 10px;">Tipo di
-                                                            terreno</label>
-                                                        <md-select ng-model="insertionCtrl.path.pathData.terrainType"
-                                                                   style="min-width: 100px; text-align: center;">
-                                                            <md-option value="{{terrain.type}}"
-                                                                       ng-repeat="terrain in insertionCtrl.terrainTypes">
-                                                                {{terrain.type}}
-                                                            </md-option>
-                                                        </md-select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <md-divider></md-divider>
-                                    </md-list-item>
-
-                                    <md-list-item class="md-3-line">
-                                        <div class="md-list-item-text">
-                                            <div layout="row" layout-align="start center">
-                                                <i class="material-icons">explore</i>
-
-                                                <div layout="column">
-                                                    <div layout="row" layout-align="start center">
-                                                        <label style="margin-left: 5px; margin-right: 10px;">Percorso
-                                                            avventuroso</label>
-                                                        <md-switch ng-model="insertionCtrl.path.pathData.adventure">
-                                                        </md-switch>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <md-divider></md-divider>
-                                    </md-list-item>
-                                    <md-list-item class="md-3-line">
-                                        <div class="md-list-item-text">
-                                            <div layout="row">
-                                                <i class="material-icons">alarm</i>
-
-                                                <div layout="column">
-                                                    <h3>Tempo di completamento</h3>
-
-                                                    <p><strong
-                                                            class="italic">{{insertionCtrl.path.pathData.time}}</strong>
-                                                        minuti</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
                         </div>
-                    </md-card-content>
-                </md-card>
-            </div>
+                        <div flex>
+                            <md-list>
+                                <md-list-item class="md-3-line">
+                                    <div class="md-list-item-text">
+                                        <div layout="row" layout-align="start center">
+                                            <i class="material-icons">terrain</i>
+
+                                            <div layout="column">
+                                                <div layout="row" layout-align="start center">
+                                                    <label style="margin-left: 5px; margin-right: 10px;">Tipo di
+                                                        terreno</label>
+                                                    <md-select ng-model="insertionCtrl.path.pathData.terrainType"
+                                                               style="min-width: 100px; text-align: center;">
+                                                        <md-option value="{{terrain.type}}"
+                                                                   ng-repeat="terrain in insertionCtrl.terrainTypes">
+                                                            {{terrain.type}}
+                                                        </md-option>
+                                                    </md-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+
+                                <md-list-item class="md-3-line">
+                                    <div class="md-list-item-text">
+                                        <div layout="row" layout-align="start center">
+                                            <i class="material-icons">explore</i>
+
+                                            <div layout="column">
+                                                <div layout="row" layout-align="start center">
+                                                    <label style="margin-left: 5px; margin-right: 10px;">Percorso
+                                                        avventuroso</label>
+                                                    <md-switch ng-model="insertionCtrl.path.pathData.adventure">
+                                                    </md-switch>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+                                <md-list-item class="md-3-line">
+                                    <div class="md-list-item-text">
+                                        <div layout="row">
+                                            <i class="material-icons">alarm</i>
+
+                                            <div layout="column">
+                                                <h3>Tempo di completamento</h3>
+
+                                                <p><strong
+                                                        class="italic">{{insertionCtrl.path.pathData.time}}</strong>
+                                                    minuti</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+
         </div>
 
         <md-card>
@@ -198,6 +203,10 @@ url: /insert
                 </div>
             </md-card-content>
         </md-card>
+
+    </div>
+
+    <div layout="column">
         <div layout="row" layout-align="center stretch">
             <md-card flex layout="row" style="height: 32rem;">
                 <ui-gmap-google-map layout="row" flex="66" center="insertionCtrl.center" bounds="insertionCtrl.viewport"
@@ -226,7 +235,8 @@ url: /insert
                 <div layout="column" flex="33">
                     <md-card-content style="overflow-y:auto; overflow-x: hidden;">
                         <md-list>
-                            <md-list-item class="stage-item" ng-repeat="stage in insertionCtrl.markers" layout="column" layout-align="center stretch">
+                            <md-list-item class="stage-item" ng-repeat="stage in insertionCtrl.markers" layout="column"
+                                          layout-align="center stretch">
                                 <div layout="row">
                                     <div layout="column" flex="70">
                                         <div layout="column" flex="80">
@@ -330,6 +340,5 @@ url: /insert
                 Carica il tuo percorso
             </md-button>
         </div>
-    </form>
-
+    </div>
 </div>
