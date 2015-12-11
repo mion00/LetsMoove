@@ -37,4 +37,38 @@
                 scope.feedback = data._items;
             });
     }]);
+    app.controller("userPathsFeedback", ['Path', 'Feedback', function (Path, Feedback) {
+        var scope = this;
+        var userID = 3;
+        var userPaths = [];
+        scope.feedback = [];
+
+        Path.query({
+            where: {
+                owner: userID
+            }
+        }, function (data) {
+            console.log("path utente");
+            console.log(data);
+            data._items.forEach(function (path) {
+                userPaths.push(path.id);
+            });
+            if (userPaths.length > 0) {
+                getUserFeedback();
+            }
+        });
+
+        getUserFeedback = function () {
+            Feedback.query({
+                    where: {
+                        path: {
+                            $in: userPaths
+                        }
+                    }
+                },
+                function (data) {
+                    scope.feedback = data._items;
+                });
+        }
+    }]);
 })();
