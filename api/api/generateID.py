@@ -1,6 +1,5 @@
+from flask import current_app as appModule
 from pymongo import ReturnDocument
-
-from . import app as appModule
 
 
 def getNextSequence(name):

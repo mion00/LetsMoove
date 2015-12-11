@@ -1,1 +1,1 @@
-web: python api/apiServer.py
+web: gunicorn apiServer:app --chdir=api --log-file=-
