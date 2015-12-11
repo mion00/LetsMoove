@@ -18,7 +18,7 @@ feedback_schema = {
         'data_relation': {
             'resource': 'teams',
             'field': 'id',
-            'embeddable': False
+            'embeddable': True
         }
     },
     'vote': {
@@ -57,5 +57,6 @@ feedback_schema = {
 feedback = {
     'item_url': 'int',
     'item_lookup_field': 'id',
+    'embedded_fields': ['team'],
     'schema': feedback_schema
 }
