@@ -536,27 +536,4 @@
             console.log(scope.address);
         }
     }]);
-
-    app.controller('pathLogController',['Path','User','$stateParams',function(Path,User,$stateParams){
-        var scope = this;
-
-        this.beauty=1;
-        this.complexity=1;
-        this.difficulty=1;
-
-        var callback = function (path) {
-            scope.path = path;
-            User.get({teamId: scope.path.owner, projection: {username: 1}}, function (name) {
-                scope.path.owner = name.username;
-            }, function () {
-                console.log("FAIL");
-            })
-        };
-
-        var error = function () {
-            console.log("FAIL");
-        };
-
-        Path.query({pathId: $stateParams.pathId}, callback, error);
-    }]);
 }());

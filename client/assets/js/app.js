@@ -9,6 +9,7 @@
         'letsMooveDirectives',
         'userControllers',
         'pathControllers',
+            'feedbackControllers',
         'uiGmapgoogle-maps',
 
             'ngMdIcons',

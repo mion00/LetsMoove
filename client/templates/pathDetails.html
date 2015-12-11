@@ -5,8 +5,8 @@ url: /paths/:pathId
 
 
 <div layout="column" ng-controller="pathDetailsController as pathController">
-    <div layout-gt-sm="row" layout-sm="column">
-            <md-card>
+    <div layout-gt-sm="row" layout-sm="column" layout-align="center">
+        <md-card flex>
                 <md-card-content>
                     <div layout="row" layout-margin>
 
@@ -31,7 +31,7 @@ url: /paths/:pathId
                     </div>
                 </md-card-content>
             </md-card>
-            <md-card style="min-width:156px;">
+        <md-card>
                 <md-content style="overflow: visible;">
                     <md-list>
                         <md-list-item class="md-3-line">
@@ -205,33 +205,21 @@ url: /paths/:pathId
             <md-card-title layout-align="center center">
                 <h2>Feedback degli utenti</h2>
             </md-card-title>
-            <md-card-content>
+            <md-card-content ng-controller="showFeedbackController as feedbackCtrl">
                 <div layout-gt-sm="row" layout-sm="column" layout-align="space-around stretch">
                     <md-list layout="column" flex="grow">
-                        <md-list-item ng-repeat="i in [1,2,3,4]" class="md-3-line">
+                        <md-list-item ng-repeat="feedback in feedbackCtrl.feedback" class="md-3-line">
                             <div class="md-list-item-text">
                                 <div layout="row" layout-align="center">
                                     <div layout="column" layout-align="space-around center" flex="33">
                                         <img src="assets/img/userIcon.png" class="md-avatar"/>
                                     </div>
                                     <div layout="column" layout-align="space-around center" flex="66">
-                                        <p>Here goes the feedback review.</p>
+                                        <p>{{feedback.review}}</p>
                                     </div>
                                 </div>
                             </div>
                             <md-divider></md-divider>
-                        </md-list-item>
-                        <md-list-item class="md-3-line">
-                            <div class="md-list-item-text">
-                                <div layout="row" layout-align="center">
-                                    <div layout="column" layout-align="space-around center" flex="33">
-                                        <img src="assets/img/userIcon.png" class="md-avatar"/>
-                                    </div>
-                                    <div layout="column" layout-align="space-around center" flex="66">
-                                        <p>Here goes the feedback review.</p>
-                                    </div>
-                                </div>
-                            </div>
                         </md-list-item>
                     </md-list>
                 </div>
