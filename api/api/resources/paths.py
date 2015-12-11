@@ -111,6 +111,7 @@ paths = {
     'item_url': 'int',
     'item_lookup_field': 'id',
     'schema': schema,
+    'embedded_fields': ['owner'],
     'mongo_indexes': {
         'locationIndex': [('locationData.startPoint', pymongo.GEOSPHERE)]
     }
