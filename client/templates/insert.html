@@ -217,11 +217,7 @@ url: /insert
                             position="top-right"
                             controller="stageInsertionController as iCtrl">
                     </ui-gmap-map-control>
-                    <!--<ui-gmap-map-control-->
-                    <!--template='templates/parts/searchBar.tmpl.html'-->
-                    <!--position="top-center"-->
-                    <!--controller="mapSearchController as mapSearchCtrl">-->
-                    <!--</ui-gmap-map-control>-->
+
                     <ui-gmap-search-box
                             template="'templates/parts/searchBar.tmpl.html'"
                             position="'top-center'"
@@ -272,68 +268,6 @@ url: /insert
                     </md-card-content>
                 </div>
             </md-card>
-
-            <!--<md-card-content>-->
-            <!--<md-toolbar>-->
-            <!--<div class="md-toolbar-tools">-->
-            <!--<label>Tappe</label>-->
-            <!--<span flex></span>-->
-            <!--</div>-->
-            <!--</md-toolbar>-->
-            <!--<md-dialog-content>-->
-            <!--<md-tabs md-dynamic-height md-border-bottom>-->
-            <!--<md-tab label="Inizio">-->
-            <!--<md-content>-->
-            <!--<div layout-gt-sm="row" layout-sm="column">-->
-            <!--<md-input-container flex>-->
-            <!--<label>Coordinata di inizio (N)</label>-->
-            <!--<input type="text"-->
-            <!--ng-model="path.locationData.stages[0].location.coordinates[0]">-->
-            <!--</md-input-container>-->
-            <!--<md-input-container flex>-->
-            <!--<label>Coordinata di inizio (E)</label>-->
-            <!--<input type="text"-->
-            <!--ng-model="path.locationData.stages[0].location.coordinates[1]">-->
-            <!--</md-input-container>-->
-            <!--</div>-->
-            <!--</md-content>-->
-            <!--</md-tab>-->
-
-            <!--<md-tab label="Tappa 1">-->
-            <!--<md-content>-->
-            <!--<div layout="column" layout-align="center stretch">-->
-            <!--<md-input-container>-->
-            <!--<label>Nome tappa</label>-->
-            <!--<input type="text" ng-model="path.locationData.stages[0].name">-->
-            <!--</md-input-container>-->
-            <!--<div layout-gt-sm="row" layout-sm="column">-->
-            <!--<md-input-container flex>-->
-            <!--<label>Coordinata tappa (N)</label>-->
-            <!--<input type="text"-->
-            <!--ng-model="path.locationData.stages[0].location.coordinates[0]">-->
-            <!--</md-input-container>-->
-            <!--<md-input-container flex>-->
-            <!--<label>Coordinata tappa (E)</label>-->
-            <!--<input type="text"-->
-            <!--ng-model="path.locationData.stages[0].location.coordinates[1]">-->
-            <!--</md-input-container>-->
-            <!--</div>-->
-            <!--<md-input-container>-->
-            <!--<label>Domanda</label>-->
-            <!--<input type="text"-->
-            <!--ng-model="path.locationData.stages[0].question">-->
-            <!--</md-input-container>-->
-            <!--<md-input-container>-->
-            <!--<label>Risposta</label>-->
-            <!--<input type="text"-->
-            <!--ng-model="path.locationData.stages[0].answer">-->
-            <!--</md-input-container>-->
-            <!--</div>-->
-            <!--</md-content>-->
-            <!--</md-tab>-->
-            <!--</md-tabs>-->
-            <!--</md-dialog-content>-->
-            <!--</md-card-content>-->
         </div>
         <div layout-align="center center" flex="grow" layout="column">
             <md-button ng-click="insertionCtrl.upload()" class="md-primary md-raised">
