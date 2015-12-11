@@ -2,9 +2,7 @@ import os
 
 import api.resources as res
 
-MONGO_USERNAME = os.environ["MONGO_USERNAME"]
-MONGO_PASSWORD = os.environ["MONGO_PASSWORD"]
-MONGO_DBNAME = os.environ["MONGO_DBNAME"]
+MONGO_URI = os.environ["MONGOLAB_URI"]
 
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH']
