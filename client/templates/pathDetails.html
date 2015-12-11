@@ -5,13 +5,13 @@ url: /paths/:pathId
 
 
 <div layout="column" ng-controller="pathDetailsController as pathController">
-        <div layout="row" layout-sm="column">
+    <div layout-gt-sm="row" layout-sm="column">
             <md-card>
                 <md-card-content>
                     <div layout="row" layout-margin>
-                        <div>
-                            <img src="/assets/img/white-flag.jpg">
-                        </div>
+
+                        <img src="/assets/img/routeIcon.svg" style="height: 100px; width: 100px;">
+
                         <div>
                             <span class="md-headline">{{pathController.path.name}}</span>
 
@@ -82,7 +82,7 @@ url: /paths/:pathId
             </md-card>
         </div>
 
-        <div layout="row" layout-md="column" layout-sm="column">
+    <div layout-gt-sm="row" layout-sm="column">
             <md-card flex>
                 <md-card-content flex>
                     <ui-gmap-google-map center='pathController.path.locationData.startPoint' zoom='pathController.zoom'>
@@ -199,5 +199,44 @@ url: /paths/:pathId
                 </md-content>
             </md-card>
         </div>
+
+    <div layout-gt-sm="row" layout-sm="column">
+        <md-card flex>
+            <md-card-title layout-align="center center">
+                <h2>Feedback degli utenti</h2>
+            </md-card-title>
+            <md-card-content>
+                <div layout-gt-sm="row" layout-sm="column" layout-align="space-around stretch">
+                    <md-list layout="column" flex="grow">
+                        <md-list-item ng-repeat="i in [1,2,3,4]" class="md-3-line">
+                            <div class="md-list-item-text">
+                                <div layout="row" layout-align="center">
+                                    <div layout="column" layout-align="space-around center" flex="33">
+                                        <img src="assets/img/userIcon.png" class="md-avatar"/>
+                                    </div>
+                                    <div layout="column" layout-align="space-around center" flex="66">
+                                        <p>Here goes the feedback review.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-3-line">
+                            <div class="md-list-item-text">
+                                <div layout="row" layout-align="center">
+                                    <div layout="column" layout-align="space-around center" flex="33">
+                                        <img src="assets/img/userIcon.png" class="md-avatar"/>
+                                    </div>
+                                    <div layout="column" layout-align="space-around center" flex="66">
+                                        <p>Here goes the feedback review.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
     </div>
 
