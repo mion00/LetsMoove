@@ -12,7 +12,7 @@
             'feedbackControllers',
         'uiGmapgoogle-maps',
 
-            'ngMdIcons',
+        'ngMdIcons',
         //foundation
         //'foundation',
         'foundation.dynamicRouting',

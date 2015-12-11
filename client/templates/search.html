@@ -4,6 +4,7 @@ url: /search
 ---
 
 <div layout="column" flex ng-controller="pathsController as pathsCtrl">
+    <div ng-show="pathsCtrl.loadingDone">
     <md-sidenav md-component-id="filters" class="md-sidenav-left">
         <div layout="column" id="filters" layout-align="center stretch">
             <md-card flex>
@@ -191,6 +192,10 @@ url: /search
             </md-card-content>
         </md-card>
     </div>
+        <div flex="grow" ng-hide="pathsCtrl.loadingDone">
+            <loading-part></loading-part>
+        </div>
+        </div>
 </div>
 
 
