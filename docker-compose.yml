@@ -33,7 +33,7 @@ api_server:
 frontend:
 #  build: ./frontendDocker
   image: library/node
-  command: /usr/local/bin/npm start
+  command: /usr/local/bin/npm start --cache=/data/.npm
   working_dir: /data
   volumes:
     - ./:/data
