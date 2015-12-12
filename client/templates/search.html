@@ -47,8 +47,8 @@ url: /search
 
                         <div layout="row">
                             <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
-                                     ng-click="pathLogCtrl.beauty=i"
-                                     ng-class="{'color-light-yellow':i>pathLogCtrl.beauty, 'color-yellow': pathLogCtrl.beauty>=i}">
+                                     ng-click="pathsCtrl.minBeauty=i; pathsCtrl.updateData();"
+                                     ng-class="{'color-light-yellow':i>pathsCtrl.minBeauty, 'color-yellow': pathsCtrl.minBeauty>=i}">
                                 star_rate
                             </md-icon>
                         </div>
@@ -56,12 +56,12 @@ url: /search
                 </md-card>
                 <md-card flex>
                     <md-card-content>
-                        <h4>Complessità minima</h4>
+                        <h4>Complessità massima</h4>
 
                         <div layout="row">
                             <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
-                                     ng-click="pathLogCtrl.complexity=i"
-                                     ng-class="{'color-light-yellow':i>pathLogCtrl.complexity, 'color-yellow': pathLogCtrl.complexity>=i}">
+                                     ng-click="pathsCtrl.maxComplexity=i; pathsCtrl.updateData();"
+                                     ng-class="{'color-light-yellow':i>pathsCtrl.maxComplexity, 'color-yellow': pathsCtrl.maxComplexity>=i}">
                                 star_rate
                             </md-icon>
                         </div>
@@ -69,12 +69,12 @@ url: /search
                 </md-card>
                 <md-card flex>
                     <md-card-content>
-                        <h4>Difficoltà minima</h4>
+                        <h4>Difficoltà massima</h4>
 
                         <div layout="row">
                             <md-icon class="star" ng-repeat="i in [1,2,3,4,5]"
-                                     ng-click="pathLogCtrl.difficulty=i"
-                                     ng-class="{'color-light-yellow':i>pathLogCtrl.difficulty, 'color-yellow': pathLogCtrl.difficulty>=i}">
+                                     ng-click="pathsCtrl.maxDifficulty=i; pathsCtrl.updateData();"
+                                     ng-class="{'color-light-yellow':i>pathsCtrl.maxDifficulty, 'color-yellow': pathsCtrl.maxDifficulty>=i}">
                                 star_rate
                             </md-icon>
                         </div>

@@ -99,6 +99,10 @@
         this.length = 0;
         this.terrainType = "Qualsiasi";
 
+        this.minBeauty = 1;
+        this.maxComplexity = 5;
+        this.maxDifficulty = 5;
+
         scope.location =
         {
             latitude: 43,
@@ -215,13 +219,22 @@
                     "pathData.length": {
                         $gt: scope.lengthClasses[scope.length].value[0],
                         $lt: scope.lengthClasses[scope.length].value[1]
+                    },
+                    "ownerVote.beauty" : {
+                        $gt: scope.minBeauty-1
+                    },
+                    "ownerVote.complexity" : {
+                        $lt : scope.maxComplexity+1
+                    },
+                    "ownerVote.difficulty" : {
+                        $lt : scope.maxDifficulty+1
                     }
                 }
             };
             if (scope.terrainType != "Qualsiasi") {
                 query.where["pathData.terrainType"] = scope.terrainType;
             }
-
+            console.log(query);
             if (query != scope.lastQuery) {
                 console.log(query);
                 Path.get(query,
