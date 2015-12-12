@@ -135,7 +135,7 @@ gulp.task('uglify:angular', function (cb) {
         }));
 
     return gulp.src(paths.angularJS)
-        .pipe(uglify)
+        //.pipe(uglify)
         .pipe($.concat('angular.js'))
         .pipe(gulp.dest(buildDir + '/assets/js/'))
         ;
@@ -148,7 +148,7 @@ gulp.task('uglify:app', function () {
         }));
 
     return gulp.src(paths.appJS)
-        .pipe(uglify)
+        //.pipe(uglify)
         .pipe($.concat('app.js'))
         .pipe(gulp.dest(buildDir + '/assets/js/'))
         ;
