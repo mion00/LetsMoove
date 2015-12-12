@@ -53,7 +53,7 @@ var paths = {
         //'bower_components/foundation-apps/js/angular/**/*.js',
         //'!bower_components/foundation-apps/js/angular/app.js'
         //Google maps
-        'node_modules/lodash/dist/lodash.js',
+        'node_modules/lodash/index.js',
         'node_modules/angular-simple-logger/dist/angular-simple-logger.js',
         'node_modules/angular-google-maps/dist/angular-google-maps.js',
         'node_modules/angular-material-icons/angular-material-icons.js',
