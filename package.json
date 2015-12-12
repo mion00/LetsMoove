@@ -2,12 +2,12 @@
   "name": "letsmoove",
   "version": "1.0.0",
   "scripts": {
-    "prestart": "npm install --no-bin-links",
-    "start": "gulp",
+    "postinstall": "if $BUILD_ASSETS; then npm run build-assets; fi",
+    "build-assets": "gulp build --production",
     "jasmineinit": "jasmine init",
     "jasmine": "jasmine"
   },
-  "devDependencies": {
+  "dependencies": {
     "jquery": "~2.1.4",
     "angular": "~1.4",
     "angular-animate": "~1.4",
@@ -15,14 +15,12 @@
     "angular-resource": "~1.4",
     "angular-route": "~1.4",
     "angular-ui-router": "~0.2.15",
+    "front-router": "^1.0.0",
     "angular-google-maps": "2.2.1",
     "angular-material": "https://github.com/angular/bower-material#v1.0.0-rc7",
     "foundation-apps": "~1.2",
     "angular-material-icons": "klarsys/angular-material-icons",
     "svg-morpheus": "https://github.com/alexk111/SVG-Morpheus#v0.1.8",
-    "angular-mocks": "~1.4",
-    "jasmine": "~2.3.2",
-    "front-router": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-concat": "^2.6.0",
@@ -34,6 +32,10 @@
     "rimraf": "^2.4.1",
     "run-sequence": "^1.1.1",
     "yargs": "^3.15.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4",
+    "jasmine": "~2.3.2"
   },
   "private": true
 }

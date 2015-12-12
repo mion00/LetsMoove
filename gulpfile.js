@@ -18,6 +18,9 @@ var isProduction = !!(argv.production);
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
 var buildDir = "./build";
+if (isProduction)
+    buildDir = "./api/api/static";
+
 var testDir = "./test";
 
 var paths = {

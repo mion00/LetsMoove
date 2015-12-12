@@ -25,9 +25,7 @@ api_server:
     - "8001:8001"
   net: "host"
   environment:
-    MONGO_USERNAME: ""
-    MONGO_PASSWORD: ""
-    MONGO_DBNAME: "development"
+    MONGOLAB_URI: "mongodb://localhost:27017/development"
     DEVELOPMENT: "true"
 
 frontend:
