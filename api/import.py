@@ -4,8 +4,14 @@ from pathlib import Path
 from pprint import pprint
 
 import requests
+import sys
 
-url = "http://localhost:8001/api/"
+arguments = sys.argv
+
+host = arguments[1]
+port = arguments[2]
+
+url = "http://" + host + ":" + port + "/api/"
 
 directory = Path("./import")
 
