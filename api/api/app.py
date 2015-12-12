@@ -17,7 +17,7 @@ frontend = Blueprint('frontend', __name__, static_url_path='', static_folder='st
 @frontend.route('/', defaults={'page': 'index.html'})
 @frontend.route('/<page>')
 def index(page):
-    return frontend.send_static_file(page)
+    return frontend.send_static_file("index.html")
 
 
 app.register_blueprint(frontend)
