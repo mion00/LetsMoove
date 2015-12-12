@@ -7,25 +7,19 @@ nginx:
     - "8080:8080"
   volumes_from:
     - frontend
-  net: "host"
-#  command: bash -c "while true; do ls -l /usr/share/nginx/html/; sleep .5; done"
 
 mongo:
   image: mongo:3.0
   command: mongod --smallfiles
   volumes:
     - mongoDbdata:/data/db
-  net: "host"
 
 api_server:
   build: ./pythonDocker
   volumes:
     - ./api:/usr/src/app
-  ports:
-    - "8001:8001"
-  net: "host"
   environment:
-    MONGOLAB_URI: "mongodb://localhost:27017/development"
+    MONGOLAB_URI: "mongodb://letsmoove_mongo_1:27017/development"
     DEVELOPMENT: "true"
 
 frontend:
@@ -35,4 +29,3 @@ frontend:
   working_dir: /data
   volumes:
     - ./:/data
-  net: "host"

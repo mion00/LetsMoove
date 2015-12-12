@@ -6,4 +6,4 @@ if __name__ == "__main__":
     debug = False
     if os.environ.get("DEVELOPMENT"):
         debug = True
-    app.run(debug=debug, host='127.0.0.1', port=8001)
+    app.run(debug=debug, host='0.0.0.0', port=8001)
