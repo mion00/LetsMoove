@@ -268,7 +268,7 @@
         }
     }]);
 
-    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage', 'AuthenticationService', 'MapCenterService', 'uiGmapGoogleMapApi', '$scope','$state', function (Path, TerrainType, AddStage, AuthenticationService, MapCenterService, uiGmapGoogleMapApi, $scope, $state) {
+    app.controller('pathInsertionController', ['Path', 'TerrainType', 'AddStage', 'AuthenticationService', 'MapCenterService', 'uiGmapGoogleMapApi', '$scope','$state','$mdDialog', function (Path, TerrainType, AddStage, AuthenticationService, MapCenterService, uiGmapGoogleMapApi, $scope, $state, $mdDialog) {
         var scope = this;
 
         this.path = {
@@ -325,7 +325,7 @@
 
         this.log = function () {
             console.log(scope);
-        }
+        };
 
         this.markerId = 0;
 
@@ -351,6 +351,24 @@
 
             });
         });
+
+        scope.showAlert = function(ev) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            // Modal dialogs should fully cover application
+            // to prevent interaction outside of dialog
+            var dialog =
+                $mdDialog.alert()
+                    .parent(angular.element(document.body))
+                    .clickOutsideToClose(false)
+                    .title('Inserimento completato')
+                    .textContent('L\'inserimento del persorso è andato a buon fine')
+                    .ariaLabel('Clicca Ok per proseguire')
+                    .ok('Ok')
+                    .targetEvent(ev);
+            $mdDialog.show(dialog).then(function() {
+                $state.transitionTo("userHome");
+            });
+        };
 
         this.addClickMarker = function (map, eventName, params) {
             console.log(params[0]);
@@ -495,7 +513,7 @@
             console.log(scope.path);
 
            Path.save(scope.path,function(){
-               $state.transitionTo("userHome");
+               scope.showAlert();
            },function(){
                console.log("FAIL");
            })
