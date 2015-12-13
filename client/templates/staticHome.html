@@ -3,13 +3,12 @@ name: staticHome
 url: /
 ---
 
-<div layout="column" layout-align="center center">
+<div layout="column" layout-align="center">
     <div flex class="centered-image">
         <img class="home-photo" src="/assets/img/BannerStaticHome.png">
         </div>
-    <div flex layout="row" layout-md="column" layout-sm="column">
-            <div flex>
-                <md-card>
+    <div flex layout-gt-xs="row" layout-xs="column">
+        <md-card flex layout-align="center center">
                     <md-card-content class="home-card">
                         <h2 class="md-title">Crea un account gratuito</h2>
 
@@ -20,15 +19,11 @@ url: /
                             persone per organizzare esperienze in comune.
                         </p>
                     </md-card-content>
-                    <div class="centered-image">
-                        <img class="wallpaper" src="/assets/img/firstImageStaticHome.jpg">
-                    </div>
+            <img class="wallpaper" src="/assets/img/firstImageStaticHome.jpg">
                 </md-card>
-            </div>
 
-            <div flex>
-                <md-card>
-                    <md-card-content class="home-card">
+        <md-card flex layout-align="center center">
+            <md-card-content flex class="home-card">
                         <h2 class="md-title">Cerca un percorso</h2>
 
                         <p>
@@ -38,15 +33,11 @@ url: /
                             da risolvere!
                         </p>
                     </md-card-content>
-                    <div class="centered-image">
-                        <img class="wallpaper" src="/assets/img/secondImageStaticHome.jpg">
-                    </div>
+            <img class="wallpaper" src="/assets/img/secondImageStaticHome.jpg">
                 </md-card>
-            </div>
 
-            <div flex>
-                <md-card>
-                    <md-card-content class="home-card">
+        <md-card flex layout-align="center center">
+            <md-card-content flex class="home-card">
                         <h2 class="md-title">Logga un'esperienza</h2>
 
                         <p>
@@ -55,13 +46,10 @@ url: /
                             </br>Oltre a questo ti aspetta una comunity ansiosa di divertirsi insieme a te!
                         </p>
                     </md-card-content>
-                    <div class="centered-image">
-                        <img class="wallpaper" src="/assets/img/thirdImageStaticHome.jpg">
-                    </div>
+            <img class="wallpaper" src="/assets/img/thirdImageStaticHome.jpg">
                 </md-card>
-            </div>
         </div>
-    <div flex layout="row" layout-align="center center">
+    <div flex layout="row" layout-align="center">
             <div ng-include="'/templates/signup.html'"></div>
         </div>
     </div>
