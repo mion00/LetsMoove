@@ -1,6 +1,6 @@
 FROM python:3-onbuild
 
-RUN apt-get update && apt-get install -y netcat
+RUN apt-get update && apt-get install -y netcat && apt-get clean
 
 EXPOSE 8001
 
