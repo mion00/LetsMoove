@@ -16,30 +16,30 @@ __NOTE__: To access the main feature you need credentials to login. If you are i
 2. Install [Docker Compose](https://github.com/docker/compose).
 3. Download the images running
 
-```
-docker-compose pull
-```
+  ```
+  docker-compose pull
+  ```
 
 4. Build the images for frontend and backend running
 
-```
-docker-compose build
-```
+  ```
+  docker-compose build
+  ```
 
 5. Install the dependencies via npm running
-
-```
-docker-compose run --rm fronted npm install
-```
+  
+  ```
+  docker-compose run --rm fronted npm install
+  ```
 
 6. Launch all the containers running
-
-```
-docker-compose up
-```
+  
+  ```
+  docker-compose up
+  ```
 
 7. In a different terminal import some data running
-
-```
-docker-compose run --rm api_server python import.py api_server 8001
-```
+  
+  ```
+  docker-compose run --rm api_server python import.py api_server 8001
+  ```
