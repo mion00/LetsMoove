@@ -3,12 +3,14 @@
  */
 (function() {
     var app = angular.module("userControllers", ['ui.router','userServices']);
-    app.controller("loginController",["$state","AuthenticationService",function($state,AuthenticationService){
+    app.controller("loginController", ["$state", "AuthenticationService", "$mdToast", function ($state, AuthenticationService, $mdToast) {
         this.doLogin = function () {
             var callback = function(result){
                 //console.log(result);
                 if(result){
                     $state.transitionTo("userHome");
+                } else {
+                    $mdToast.showSimple("Cannot login");
                 }
             };
 

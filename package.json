@@ -5,7 +5,6 @@
     "postinstall": "if [ \"$BUILD_ASSETS\" ]; then npm run build-assets; fi",
     "build-assets": "gulp build --production",
     "jasmineinit": "jasmine init",
-    "prestart": "npm install --no-bin-links",
     "start": "gulp",
     "jasmine": "jasmine"
   },

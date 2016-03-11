@@ -6,8 +6,8 @@
 @import "angular-material.scss";
 
 .wallpaper {
-  max-width: 700px;
   height: 100%;
+  text-align: center;
 }
 
 .home-photo {
@@ -149,4 +149,10 @@ body {
 
 .pin-hover {
   cursor: url('/assets/img/mapPin.svg') 16 32, auto;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }

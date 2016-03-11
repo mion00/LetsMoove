@@ -9,3 +9,28 @@ The players have to complete a path either in a city center or into nature with 
 
 This repository contains the files for the [webpage](https://lets-moove.herokuapp.com).  In compliance with the SE2 guidelines we developed this web app using __Scrum__ *agile method* and the site represents only the *first* sprint with the main features we planned when we wrote down the product backlog.  
 __NOTE__: To access the main feature you need credentials to login. If you are interested you can ask us and we will be pleased to give them to you. 
+
+## Installation
+
+1. Install [Docker](https://www.docker.com/).
+2. Install [Docker Compose](https://github.com/docker/compose)
+3. To download the images run
+```
+docker-compose pull
+```
+4. To build the images for frontend and backend run
+```
+docker-compose build
+```
+5. Install the dependencies via npm
+```
+docker-compose run --rm fronted npm install
+```
+6. To launch all the containers run
+```
+docker-compose up
+```
+7. In a different terminal run
+```
+docker-compose run --rm api_server python import.py api_server 8001
+```

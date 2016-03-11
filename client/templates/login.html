@@ -7,7 +7,7 @@ url: /login
 <div layout="column" style="min-width:494px;" ng-controller="loginController as loginctrl">
         <md-card>
             <md-card-content>
-                <form>
+                <form ng-submit="loginctrl.doLogin()">
                     <md-toolbar>
                         <div class="md-toolbar-tools">
                             <h2>Login</h2>
@@ -25,16 +25,17 @@ url: /login
                                             <div layout="row" layout-align="center center">
                                                 <md-input-container>
                                                     <label>Nome squadra</label>
-                                                    <input type="text" ng-model="loginctrl.username">
+                                                    <input type="text" ng-model="loginctrl.username" name="username">
                                                 </md-input-container>
                                                 <md-input-container>
                                                     <label>Password</label>
-                                                    <input type="password" ng-model="loginctrl.password">
+                                                    <input type="password" ng-model="loginctrl.password"
+                                                           name="password">
                                                 </md-input-container>
                                             </div>
                                             <div layout="row" layout-align="center center">
                                                 <md-button class="md-raised md-primary" layout-align="center"
-                                                           ng-click="loginctrl.doLogin()">
+                                                           type="submit" ng-click="loginctrl.doLogin()">
                                                     Login
                                                 </md-button>
                                             </div>

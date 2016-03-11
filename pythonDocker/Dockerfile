@@ -8,4 +8,4 @@ COPY ./script.sh /
 
 RUN ["/bin/chmod", "+x", "/script.sh"]
 
-ENTRYPOINT ["/script.sh"]
+CMD ["/script.sh"]
